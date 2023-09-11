@@ -6,5 +6,5 @@ Håndbok og veiledning for KHelse relaterte funksjoner og pakker.
 [https://helseprofil.github.io/manual](https://helseprofil.github.io/manual)
 
 NB! Den gamle [hjemmeside](https://helseprofil.github.io) er fortsatt
-tilgjengelig, men er nå har status som *arkivert*. Denne repo anvender *Github
+tilgjengelig, men nå har status som *arkivert*. Denne repo anvender *Github
 Action* og *Ruby* for kompilering og CI.
