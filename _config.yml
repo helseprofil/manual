@@ -33,7 +33,7 @@ search:
 # Aux links for the upper right navigation
 aux_links:
   "Helseprofil på GitHub":
-    - "//github.com/helseprofil/manual"
+    - "//github.com/helseprofil"
 
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: true
