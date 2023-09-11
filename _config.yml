@@ -3,7 +3,7 @@ description: Håndbok og brukeveiledning for arbeide med helseprofiler
 theme: just-the-docs
 
 url: https://helseprofil.github.io/manual
-logo: /img/logo.jpeg
+logo: "/img/logo.jpeg"
 
 search_enabled: true
 search:
