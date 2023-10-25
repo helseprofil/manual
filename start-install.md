@@ -58,5 +58,5 @@ orgdata::update_orgdata()
 Du kan også installere andre R pakker eller løsninger som brukes i arbeidet med KHelse via `kh_install()` funksjon
 f.eks `KHvalitetskontroll`, `norgeo` og `lespdf`. Skulle det være et behøv for å installere vanlige R pakker fra CRAN også
 i tillegg til de for KHelse samtidig så kan du bruke `kh_load()` funksjon til formålet. Funksjonen skal både `load`
-pakker eller installere først hvis ikke allerede er gjort. Du kan lese [her](https://helseprofil.github.io/start-load.html)
+pakker eller installere først hvis ikke allerede er gjort. Du kan lese [her](https://helseprofil.github.io/manual/start-load.html "kh_load")
 om hvordan du kan bruke funksjonen effektivt.
