@@ -5,6 +5,16 @@ parent: "FAQ orgdata"
 nav_order: 2  
 ---
 
+## Orgdata og R versjon
+
+Fra og med R versjon 4.2 ble default encoding endret. Dette medførte problemer med å lese norske bokstaver i Access og datafilene, som gav mismatch i kolonnenavn og krasj. Dette er fikset fra og med orgdata versjon 1.4.7, da encodingsystem for access og csv-filer nå defineres separat. Dette har medført at orgdata ikke lenger er kompatibelt med tidligere versjoner av R. 
+
+Har du behov for å bruke R-versjon tidligere enn 4.2 (f.eks. 4.1.3), må du derfor installere orgdata versjon 1.4.6. Dette gjøres ved følgende kommando i konsollen.
+
+```r
+pak::pkg_install("helseprofil/orgdata@6b6712915492d48c9552eccce08c73419787b29a")
+```
+
 ## Error loading "lazy-load database .... is corrupt" {#inst-error}
 
 Når man installerer **orgdata** i RStudio kan det opptå feil ved kompilering av dokumentasjonen for `.Rdb` filer. Prøv:
