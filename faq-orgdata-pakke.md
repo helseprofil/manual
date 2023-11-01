@@ -12,7 +12,7 @@ Fra og med R versjon 4.2 ble default encoding endret. Dette medførte problemer 
 Har du behov for å bruke R-versjon tidligere enn 4.2 (f.eks. 4.1.3), må du derfor installere orgdata versjon 1.4.6. Dette gjøres ved følgende kommando i konsollen.
 
 ```r
-pak::pkg_install("helseprofil/orgdata@6b6712915492d48c9552eccce08c73419787b29a")
+pak::pkg_install(helseprofil/orgdata@v1.4.6)
 ```
 
 ## Error loading "lazy-load database .... is corrupt" {#inst-error}
