@@ -230,7 +230,8 @@ OBS: Feltene GRUNNKRETS, SONER, SKALA\_VAL1 (-2 -3) og KOPI\_KOL vises ikke i sk
 
 \- INNLESARG: Argumentene til innlesingsfunksjonen, se nedenfor. OBS: Dette slår inn FØR Rsynt1, så ting man skriver her kan påvirke inndataene til Rsynt1.
 
-\- - CSV-fil som er ekte kommaseparert (ikke semikolon): skriv *sep = \",\"*
+\- - CSV-fil som er ekte kommaseparert (ikke semikolon): skriv *sep = \",\"* .
+\- - Fil med norske tegn som leses feil (scrambles): skriv *encoding="latin1"* .
 
 \- MANHEADER: Kan styre hvilke kolonner som får hvilken header.
 
