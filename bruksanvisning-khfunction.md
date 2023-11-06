@@ -4,7 +4,7 @@ title: "Access for KHfunctions"
 nav_order: 2
 ---
 
-*Sist oppdatert: 19.10.2022*
+*Sist oppdatert: 06.11.2023*
 
 *(Påbegynt april 2015 i Word, senere oppdatert med nye ting, men er nok ikke komplett. Filen bærer preg av å være mine personlige notater. -stbj.)*
 
@@ -369,6 +369,8 @@ slettRader=n Etter innlesing, slett denne/disse radene. Radnummer som i original
 TomRadSlutt=TRUE Gjør at inndataene kuttes ved første tomme rad. Hjelper f.eks. mot SSBs kommentarer nederst i filen.
 
 header=FALSE Hvis øverste rad (f.eks. etter *skip*) ikke inneholder var-navn, og dermed ikke skal slettes.
+
+encoding="latin1" For filgrupper som ikke har gått gjennom orgdata må det spesifiseres at CSV-filene skal leses med denne encodingen. Dersom ikke brukfread=FALSE må man sannsynligvis bruke encoding="Latin-1". 
 
 ### Hvis samme inndatafil skal brukes i flere filgrupper (eller flere innlesingsspec'er):
 
