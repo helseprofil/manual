@@ -370,7 +370,7 @@ TomRadSlutt=TRUE Gjør at inndataene kuttes ved første tomme rad. Hjelper f.eks
 
 header=FALSE Hvis øverste rad (f.eks. etter *skip*) ikke inneholder var-navn, og dermed ikke skal slettes.
 
-encoding="latin1" For filgrupper som ikke har gått gjennom orgdata må det spesifiseres at CSV-filene skal leses med denne encodingen. Dersom ikke brukfread=FALSE må man sannsynligvis bruke encoding="Latin-1". 
+encoding="latin1" For filgrupper som ikke har gått gjennom orgdata må det spesifiseres at CSV-filene skal leses med denne encodingen. 
 
 ### Hvis samme inndatafil skal brukes i flere filgrupper (eller flere innlesingsspec'er):
 

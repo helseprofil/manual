@@ -29,9 +29,7 @@ Filen *sepaafil.R* som ligger lagret lokalt kan være utdatert, og bør ikke bru
 LagFilgruppe("FILGRUPPENAVN", versjonert = TRUE)
 ```
 
-- Etter overgang til R >= 4.2 er standard encoding endret. Filgrupper som er kjørt gjennom orgdata (f.o.m. versjon 1.4.7) vil ha UTF-8-encoding, og kan leses direkte i LagFilgruppe. Filer som ikke har gått gjennom orgdata må sannsynligvis leses med spesifikk encoding, spesielt om de inneholder ÆØÅ. I tabell INNLESING kan dette styres i kolonnen INNLESARG. 
-    - Dersom brukfread=FALSE leses filen inn med read.csv(), og da kan man sette encoding="latin1". 
-    - Dersom brukfread ikke er satt til FALSE leses filen med fread(), og da må man sette encoding="Latin-1"
+- Etter overgang til R >= 4.2 er standard encoding endret. Filgrupper som er kjørt gjennom orgdata (f.o.m. versjon 1.4.7) vil ha UTF-8-encoding, og kan leses direkte i LagFilgruppe. Filer som ikke har gått gjennom orgdata må sannsynligvis leses med spesifikk encoding, spesielt om de inneholder ÆØÅ. I tabell INNLESING kan dette styres i kolonnen INNLESARG ved å legge til `encoding="latin1"`. 
 - Manheader kan brukes dersom norske bokstaver bare finnes i kolonnenavnene, men ikke dersom de også forekommer i radene (f.eks "DØD AV..."). Da må encoding-argumentet settes for at filgruppen skal bli riktig. 
 
 # LagKUBE {#kube}
