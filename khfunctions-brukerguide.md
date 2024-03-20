@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Brukerguide" 
-parent: "FAQ KHfunctions"
+parent: "KHfunctions"
 nav_order: 2
 ---
 

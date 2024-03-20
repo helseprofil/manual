@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Installasjon og feilsøking" 
-parent: "FAQ KHfunctions"
+parent: "KHfunctions"
 nav_order: 1
 ---
 

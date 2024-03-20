@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Installasjon og feilsøking" 
-parent: "FAQ KHvalitetskontroll"
+parent: KHvalitetskontroll"
 nav_order: 1  
 ---
 

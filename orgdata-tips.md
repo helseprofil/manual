@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Orgdata - Tips & Tricks" 
+title: "Tips & Tricks" 
 parent: "Orgdata"
 nav_order: 3
 ---

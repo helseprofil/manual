@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "KHfunctions - Tips & Tricks" 
+title: "Tips & Tricks" 
 parent: "KHfunctions"
 nav_order: 4  
 ---

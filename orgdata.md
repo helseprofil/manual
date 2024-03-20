@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "orgdata"
+title: "Orgdata"
 has_children: true
 nav_order: 2
 ---

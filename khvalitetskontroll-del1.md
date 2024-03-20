@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Brukerveiledning del 1" 
-parent: "FAQ KHvalitetskontroll"
+parent: "KHvalitetskontroll"
 nav_order: 2  
 ---
 

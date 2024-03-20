@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Om prosjektet" 
-parent: "FAQ KHfunctions"
+parent: "KHfunctions"
 nav_order: 5
 ---
 
