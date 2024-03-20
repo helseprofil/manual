@@ -2,7 +2,7 @@
 layout: default
 title: "FAQ KHvalitetskontroll"
 has_children: true
-nav_order: 5
+nav_order: 4
 ---
 Informasjon om kvaliteskontrollsystemet. Se underfilene for spesifikk informasjon.
 

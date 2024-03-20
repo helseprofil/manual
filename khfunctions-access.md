@@ -1,7 +1,8 @@
 ---
 layout: default
-title: "Access for KHfunctions"
-nav_order: 2
+title: "Access-database"
+parent: "KHfunctions"
+nav_order: 3
 ---
 
 *Sist oppdatert: 06.11.2023*

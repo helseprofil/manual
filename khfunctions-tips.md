@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "KHfunctions" 
-parent: "Tips and Tricks"
-nav_order: 1  
+title: "KHfunctions - Tips & Tricks" 
+parent: "KHfunctions"
+nav_order: 4  
 ---
 
 ### Spore opp funksjoner som brukes til debugging

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "R pakke"
-parent: "FAQ orgdata"
+parent: "Orgdata"
 nav_order: 2  
 ---
 

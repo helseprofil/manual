@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Access"
-parent: "FAQ orgdata"
+title: "Access-database"
+parent: "Orgdata"
 nav_order: 1  
 ---
 

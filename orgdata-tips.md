@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "orgdata" 
-parent: "Tips and Tricks"
-nav_order: 2
+title: "Orgdata - Tips & Tricks" 
+parent: "Orgdata"
+nav_order: 3
 ---
 
 ### Omkode flere input til felles output fra samme kolonne med `RE`
