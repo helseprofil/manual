@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "FAQ KHvalitetskontroll"
+title: "KHvalitetskontroll"
 has_children: true
 nav_order: 4
 ---
