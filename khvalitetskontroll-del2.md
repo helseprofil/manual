@@ -73,6 +73,17 @@ Den nye filen blir først flagget for å indikere om en rad er ny (newrow = 1). 
 - `PlotTimediff()` genererer et plott per geonivå, hvor de absolutte og relative diffene plottes med AAR på x-aksen. Disse plottene kan brukes til å se om forskjellene mellom den nye og gamle filen endrer seg over tid, f.eks. om forskjellene er større for gamle tall. 
 - Funksjonen bruker MEIS > RATE > SMR, og om ingen av disse er med plottes ingenting. 
 
+## Diagnostiske plott
+- Funksjonen `QCplots()` genererer boksplott og tidsserieplott for alle tidsserier som inneholder ekstremverdier, for absolutte verdier og for relative år-til-år endringer, og tidslinjeplott for bydeler. 
+- Argumenter:
+    - **onlynew:** Skal bare nye ekstremverdier plottes?
+    - **overwrite:** Kan settes til TRUE for å tvinge overskriving av eksisterende filer
+    - **BP:** TRUE/FALSE. Skal du plotte boksplott for absolutte verdier
+    - **BPc:** TRUE/FALSE. Skal du plotte boksplott for år-til-år endringer
+    - **TS:** TRUE/FALSE. Skal du plotte tidsserier absolutte verdier. *NB! Kan ta lang tid.*
+    - **TSc:** TRUE/FALSE. Skal du plotte tidsserier år-til-år endringer. *NB! kan ta lang tid.*
+    - **TL:** TRUE/FALSE. Skal du plotte tidsseriefigurer for bydelsdata
+
 ## Lagre rapport
 Se [del 1](https://helseprofil.github.io/khvalitetskontroll-del1.html)
 

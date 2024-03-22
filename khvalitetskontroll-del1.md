@@ -15,8 +15,9 @@ Funksjonene ligger i [R/functions_step1.R](https://github.com/helseprofil/KHvali
 ## Innlesing av filer
 Ny og gammel fil leses inn med funksjonen `ReadFiles()` og følgende argumenter.
 - dfnew/dfold: Angi navn på ny og gammel fil som fullt filnavn med datotag. 
-- foldernew/folderold: Hvilke mapper skal de ulike filene leses fra. Aksepterer "QC", "DATERT", eller 4-sifret årstall for NESSTAR-mappene. 
+- foldernew/folderold: Hvilke mapper skal de ulike filene leses fra. Aksepterer "QC", "DATERT", 4-sifret årstall for NESSTAR-mappene, eller komplett mappenavn som f.eks. `KH2024NESSTAR_pre2024_omkod2024GEO`. 
 - modusnew/modusold: KH eller NH. 
+- recodeold/new: Settes til TRUE dersom filen skal omkodes til gjeldende GEO-koder. 
 
 ### Nyttig info: 
 - Skal du bare lese inn en fil (finnes ikke gammel), la de tre siste argumentene være NULL. 

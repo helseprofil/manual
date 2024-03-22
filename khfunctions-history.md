@@ -2,7 +2,7 @@
 layout: default
 title: "Om prosjektet" 
 parent: "KHfunctions"
-nav_order: 5
+nav_order: 6
 ---
 
 KHfunctions er Hovedhjernen til dataprosessering for folkehelseprofilene. Koden er hovedsakelig utviklet og skrevet av [Kåre Bævre](https://www.fhi.no/om/organisasjon/helse-og-ulikhet/kare-bavre/). Prosjektet ble videre utviklet av [Yusman Bin Kamaleri](https://www.fhi.no/om/organisasjon/helse-og-ulikhet/yusman-bin-kamaleri/) frem til høsten 2022. 
