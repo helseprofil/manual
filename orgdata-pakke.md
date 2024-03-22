@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "R pakke"
+title: "R-pakke"
 parent: "Orgdata"
-nav_order: 2  
+nav_order: 1  
 ---
 
 ## Orgdata og R versjon
