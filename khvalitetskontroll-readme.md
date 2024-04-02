@@ -21,7 +21,7 @@ Brukerfilene ligger i mappen `USER`, og inkluderer:
 All kode i prosjektet ligger i mappen `R`, fordelt på følgende scriptfiler. 
 
 ## setup.R
-Her settes encoding for å håndtere norske bokstaver, før de andre scriptene leses inn. Dette kjøres ved oppstart av prosjektet, styrt av .Rprofile-filen. Alt som kjøres ved oppstart styres i denne filen. 
+Her settes encoding for å håndtere norske bokstaver, før de andre scriptene leses inn. Dette kjøres ved oppstart av prosjektet, styrt av .Rprofile-filen. Alt som kjøres ved oppstart styres i denne filen. Laster til slutt inn `welcome.R` som inneholder en velkomstmelding ved oppstart av prosjektet. 
 
 ## updateproject.R
 Lastes inn av `setup.R`.
