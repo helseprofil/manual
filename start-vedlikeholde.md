@@ -2,7 +2,7 @@
 layout: default
 title: "Vedlikehold/Utvikling"
 parent: "Startside"
-nav_order: 3  
+nav_order: 2
 ---
 
 For å vedlikeholde produksjonsapparatet uten at det blir rot bør man i hovedsak følge trinnene under. Dette sikrer at produksjonsbranchen (main/master) forblir stabil mellom oppdateringer. 

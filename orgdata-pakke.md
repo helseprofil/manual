@@ -5,7 +5,14 @@ parent: "Orgdata"
 nav_order: 1  
 ---
 
+# Hvordan bruke pakken
+
 Brukerveiledning for Orgdata finnes [her](https://helseprofil.github.io/orgdata/)
+
+- Du må gjøre *orgdata* tilgjengelig ved å kjøre `library(orgdata)`
+- Eksampler på bruk av de ulike funksjonene finnes i [SePaaFil.R](https://helseprofil.github.io/orgdata/articles/sepaafil.html "sepaafil")
+
+# Installasjon og feilsøking
 
 ## Orgdata og R versjon
 

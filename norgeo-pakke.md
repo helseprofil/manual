@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "R-pakke og Access" 
+title: "R-pakke" 
 parent: "Norgeo og Geo-databasen"
 nav_order: 1
 ---

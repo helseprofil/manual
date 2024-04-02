@@ -5,4 +5,9 @@ parent: "Ny årgang"
 nav_order: 1  
 ---
 
-kommer...
+Ved overgang til ny årgang må man oppdatere geotabellene. Se [her](https://helseprofil.github.io/manual/norgeo-access.html) for innstruks. 
+
+- Oppdater respektive omkodingstabeller
+- Oppdater koblingstabellen tblGeo
+
+Husk å også oppdatere geotabeller i `KHELSA`(KHfunctions) og `KHvalitetskontroll`. 

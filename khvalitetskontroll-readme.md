@@ -35,7 +35,6 @@ Denne filen laster inn alle pakker som brukes i prosjektet, og bruker pakken `co
 
 Dette skriptet laster også inn de andre scriptene som inneholder funksjoner brukt i prosjektet. 
 
-
 ## globals.R
 Lastes inn av `load_packages_functions.R`.
 
@@ -70,3 +69,8 @@ Her ligger alle funksjoner som brukes for å gjennomføre sjekk av filene i nyes
 Lastes inn av `load_packages_functions.R`.
 
 Her ligger litt forskjellige funksjoner som kan brukes for å gjøre interaktiv kvalitetskontroll av enkeltfiler. To nyttige funksjoner som ligger her er `FindGeo()` og `FindGeoName()` som bruker norgeo til å finne hhv navn på en geografisk enhet fra geokoden og å finne geokoden fra navnet på den geografiske enheten. 
+
+## superseeded_deprecated.R
+Lastes ikke inn. 
+
+Inneholder funksjoner som er utgått eller erstattet av nyere funksjoner. Funksjoner kan flyttes hit etterhvert som de blir overflødige. 
