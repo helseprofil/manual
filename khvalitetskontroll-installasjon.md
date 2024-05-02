@@ -7,7 +7,9 @@ nav_order: 1
 
 ## Installasjon
 
-For å installere prosjektet, kjør:
+Se [hovedinstallasjonsguide](https://helseprofil.github.io/manual/start-install.html)
+
+For å installere bare dette prosjektet, kjør:
 
 ```r
 source("https://raw.githubusercontent.com/helseprofil/misc/main/utils.R")
@@ -29,7 +31,7 @@ Prosjektet lagres her:
 ## Feilsøking ved oppdaterings- og oppstartsproblemer
 
 ### Kan ikke oppdatere Rprofilen
-Dersom du har en tidligere versjon installert kan det oppstå problemer ved oppdatering ettersom .Rprofilen er endret i nyere tid. Dette er et script som kjøres ved oppstart, og denne kan ikke oppdateres på samme måte som andre filer. Dette kan løses på en av flere måter:
+Dersom du har en gammel versjon installert kan det oppstå problemer ved oppdatering ettersom .Rprofilen er endret i nyere tid. Dette er et script som kjøres ved oppstart, og denne kan ikke oppdateres på samme måte som andre filer. Dette kan løses på en av flere måter:
 
 1. I Terminal-vinduet, skriv: `git pull`, forsøk så å restarte (Ctrl + Shift + F10)
 2. Forsøk å installere prosjektet på nytt som beskrevet over
@@ -48,3 +50,10 @@ Får du feilmeldingen: "In file(filename, "r", encoding = encoding) :   cannot o
 
 ### Problemer med pakker eller pakkeversjoner
 Får du advarsel om at prosjektet ikke er synkronisert med lockfilen, løses dette vanligvis ved å bruke `renv::restore()` i konsollen og følge innstruksene som dukker opp. 
+
+Om dette feiler, kan du prøve å installere den aktuelle pakken manuelt via menyene eller ved følgende kode, og deretter restarte prosjektet. Det kan være at renv.lock spesifiserer en tidligere versjon av pakken som ikke eksisterer lenger.
+
+```r
+install.packages("pakkenavn")
+```
+

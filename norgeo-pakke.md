@@ -5,6 +5,10 @@ parent: "Norgeo og Geo-databasen"
 nav_order: 1
 ---
 
+# Installasjon
+Se [hovedinstallasjonsguide](https://helseprofil.github.io/manual/start-install.html)
+
+# Om pakken
 Informasjon om R-pakken finnes [her](https://helseprofil.github.io/norgeo/)
 
 Funksjonene i pakken brukes til å oppdatere tabeller i GEO-databasen. 

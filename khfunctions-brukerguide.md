@@ -6,7 +6,7 @@ nav_order: 2
 ---
 
 # Oppstart
-Hver gang prosjektet startes, vil setupfilen lastes fra GitHub. Denne laster ned alle funksjoner fra GitHub, slik at de er tilgjengelige for deg i environment (listen ser du i RStudio). 
+Hver gang prosjektet startes, vil setupfilen lastes fra GitHub. Denne laster ned alle funksjoner fra GitHub, slik at de er tilgjengelige for deg i environment (listen ser du i RStudio). Setupfilen sjekker også om det er gjort noen relevante endringer i prosjektet, f.eks. endring av pakkeversjoner, som du bør laste ned. Dette får du melding om dersom det er relevant. 
 
 For å sikre at du har siste versjon av funksjonene er det anbefalt å restarte (Ctrl + Shift + F10) prosjektet, og ikke la det stå åpent over lengre perioder ettersom du da vil fortsette å bruke innlastet versjon frem til neste gang du restarter. 
 

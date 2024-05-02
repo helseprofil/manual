@@ -7,8 +7,9 @@ nav_order: 1
 
 # Installasjon
 
-Første gang du installerer prosjektet, kjør denne kommandoen.
+Se [hovedinstallasjonsguide](https://helseprofil.github.io/manual/start-install.html)
 
+Prosjektet kan også installeres ved:
 ```r
 source("https://raw.githubusercontent.com/helseprofil/misc/main/utils.R")
 kh_install(khfunctions)
@@ -45,7 +46,8 @@ Oppdatere pakker
 renv::restore()
 ```
 
-Om dette feiler, kan du prøve å installere den aktuelle pakken manuelt via menyene eller ved følgende kode, og deretter restarte prosjektet. 
+Om dette feiler, kan du prøve å installere den aktuelle pakken manuelt via menyene eller ved følgende kode, og deretter restarte prosjektet. Det kan være at renv.lock spesifiserer en tidligere versjon av pakken som ikke eksisterer lenger.
+
 ```r
 install.packages("pakkenavn")
 ```

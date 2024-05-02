@@ -14,6 +14,8 @@ Brukerveiledning for Orgdata finnes [her](https://helseprofil.github.io/orgdata/
 
 # Installasjon og feilsøking
 
+Se [hovedinstallasjonsguide](https://helseprofil.github.io/manual/start-install.html)
+
 ## Orgdata og R versjon
 
 Fra og med R versjon 4.2 ble default encoding endret. Dette medførte problemer med å lese norske bokstaver i Access og datafilene, som gav mismatch i kolonnenavn og krasj. Dette er fikset fra og med orgdata versjon 1.4.7, da encodingsystem for access og csv-filer nå defineres separat. Dette har medført at orgdata ikke lenger er kompatibelt med tidligere versjoner av R. 
