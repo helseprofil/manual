@@ -14,7 +14,14 @@ All kode i prosjektet ligger i mappen `R`, fordelt på følgende scriptfiler.
 ## KHsetup.R
 Lastes inn i `.Rprofile`.
 
-Setter encoding for å håndtere norske bokstaver, oppdaterer lockfilen dersom man er i master-branch, laster inn alle pakker og bruker pakken `conflicted` til å velge hvilken funksjon som skal brukes i de tilfellene flere funksjoner har samme navn. I praksis forsøkes det å konsekvent bruke `pakke::funksjon()` for å bruke riktig funksjon, men dette sparer uansett en del advarsler ved oppstart. Laster deretter inn alle de andre filene som inneholder interne funksjoner. 
+Setter encoding for å håndtere norske bokstaver, oppdaterer lockfilen dersom man er i master-branch, laster inn alle pakker og bruker pakken `conflicted` til å velge hvilken funksjon som skal brukes i de tilfellene flere funksjoner har samme navn. I praksis forsøkes det å konsekvent bruke `pakke::funksjon()` for å bruke riktig funksjon, men dette sparer uansett en del advarsler ved oppstart. Laster deretter inn alle de andre filene som inneholder interne funksjoner.
+
+## KHupdate.R
+Lastes inn i `.Rprofile`
+
+Sjekker verdien av `.lastupdate`, som defineres øverst i filen, på GitHub mot lokal versjon. Dersom disse ikke er like får brukeren mulighet til å laste ned siste versjon. 
+
+**VIKTIG:** ved oppdatering av pakkeversjoner eller lignende må `.lastupdate` også oppdateres slik at endringen kommuniseres ut til brukerne. Ved flere endringer samme dag kan verdien settes til f.eks. *"02.05.2024b"* for å skille fra tidligere versjon samme dag.
 
 ## KHmisc.R
 Lastes inn av `KHsetup.R`.

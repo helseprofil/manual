@@ -26,7 +26,9 @@ Her settes encoding for å håndtere norske bokstaver, før de andre scriptene l
 ## updateproject.R
 Lastes inn av `setup.R`.
 
-Aktiverer en dialogboks hvor man får mulighet til å oppdatere prosjektet. I praksis innebærer dette å få siste versjoner av brukerfiler og nyeste verjon av `renv.lock` slik at man bruker de samme versjonene av pakker. I tillegg hentes alle andre script fra GitHub, men funksjonene i disse leses ved bruk fra GitHub så det er ikke kritisk at disse er oppdatert lokalt.
+Sjekker verdien av `.lastupdate`, som defineres øverst i filen, på GitHub mot lokal versjon. Dersom disse ikke er like får brukeren mulighet til å laste ned siste versjon. 
+
+**VIKTIG:** ved oppdatering av pakkeversjoner eller lignende må `.lastupdate` også oppdateres slik at endringen kommuniseres ut til brukerne. Ved flere endringer samme dag kan verdien settes til f.eks. *"02.05.2024b"* for å skille fra tidligere versjon samme dag.
 
 ## load_packages_functions.R
 Lastes inn av `setup.R` ved oppstart av prosjektet, og kjøres også i starten av de ulike brukerfilene for å tillate å generere HTML-rapporter. 

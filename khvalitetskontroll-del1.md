@@ -27,7 +27,6 @@ Ny og gammel fil leses inn med funksjonen `ReadFiles()` og følgende argumenter.
 
 ### Noen flere inputparametre er nødvendig:
 - `PROFILEYEAR`: styrer hvilken mappe rapporten lagres i
-- `PRIKKval` og `PRIKKlimit`: hvilken variabel er filen prikket på og hva er grensen? Dette brukes for å sjekke om det er noen verdier under grensen i filen.  
 - `GROUPdims`: Brukes for å gruppere ouput på ønskede strata. Dette gjelder funksjonene som sammenligner prikking i ny/gammel fil, og for sammenligning på tvers av geonivåer i den nye filen.
 - `CompareGEO` kan overstyre om funksjonene som sammenligner GEO-nivåer skal kjøres. Denne er som standard satt til `TRUE`, men kan settes til `FALSE` om du ikke vil kjøre disse funksjonene. 
 
@@ -37,7 +36,7 @@ Ny og gammel fil leses inn med funksjonen `ReadFiles()` og følgende argumenter.
 `CompareDims()` sjekker hvor mange nivåer det er i hver dimensjon i ny fil, og om det er kommet inn noen nye nivåer/tatt bort noen nivåer sammenlignet med gammel fil. 
 
 ## Sjekk av prikking
-`CheckPrikk()` sjekker om det er noen verdier under prikkegrensen. Bruker input-verdiene PRIKKval og PRIKKlimit. Dersom filen er prikket på TELLER, sumTELLER, NEVNER eller sumNEVNER, og disse ikke finnes i filen, vil korresponderende _uprikk-kolonne benyttes i stedet. Dette vil vises i output. 
+`CheckPrikk()` sjekker om det er noen verdier under prikkegrensen. Prikkegrenser for teller- og nevnerprikking hentes fra ACCESS, og man trenger i utgangspunktet ikke å angi noen argumenter. For kuber kjørt utenfor systemet, som ikke finnes i ACCESS, kan man spesifisere `tellerval/nevnerval`, samt `tellerlimit/nevnerlimit` for å overstyre hvilke kolonner som sjekkes og hva grensene er. 
 `ComparePrikk()` oppsummerer antall rader med ulike SPVFLAGG i den nye og gamle filen, og gir absolutt og relativ forskjell. Grupperes på GROUPdims, angitt i input. 
 `ComparePrikkTS()` sjekker hvor mange tidsserier som inneholder 0 (komplette), 1, 2, ...., max (serieprikket) antall prikker i tidsserien. Gir absolutt antall og som andel av totalt antall tidsserier. 
 

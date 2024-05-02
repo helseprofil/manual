@@ -5,7 +5,7 @@ parent: "Startside"
 nav_order: 2
 ---
 
-For å vedlikeholde produksjonsapparatet uten at det blir rot bør man i hovedsak følge trinnene under. Dette sikrer at produksjonsbranchen (main/master) forblir stabil mellom oppdateringer. 
+For å vedlikeholde produksjonsapparatet uten at det blir rot bør man i hovedsak følge trinnene under. Dette sikrer at produksjonsbranchen (main/master) forblir stabil mellom oppdateringer. For hovedprosjektene er produksjonsbranchen beskyttet slik at dette er eneste måten man kan oppdatere koden på. 
 
 # 1. Opprette issue på GitHub
 
@@ -13,7 +13,9 @@ Dersom du savner noe, eller finner ut at noe ikke fungerer som det skal, kan det
 
 # 2. Lag ny branch for å løse en issue
 
-Den som skal oppdatere koden oppretter en ny branch fra main/master eller dev, og gjør nødvendige endringer/utvikling i denne. I *khfunctions* og *khvalitetskontroll* kan man bruke funksjonen `usebranch(NAVN)` for å laste inn en spesifikk versjon fra github for testing. 
+Den som skal oppdatere koden oppretter en ny branch fra dev, og gjør nødvendige endringer/utvikling i denne. Å opprette ny branch gjøres direkte i GitHub under issues, og denne sjekkes deretter ut lokalt. I *khfunctions* og *khvalitetskontroll* kan man bruke funksjonen `usebranch(NAVN)` for å laste inn en spesifikk versjon fra github for testing. 
+
+For `KHvalitetskontroll` og `khfunctions` er det vitkig å oppdatere verdien av .lastupdate for at oppdateringen skal kommuniseres til alle brukere. Funksjoner leses fra GitHub så dette er i hovedsak viktig for oppdatering av pakkeversjoner og lignende. 
 
 # 3. Pull request 
 
