@@ -8,7 +8,25 @@ nav_order: 7
 Her finner du spesialløsninger som må benyttes for å kjøre systemet på HDIR-maskiner
 i overgangsfasen.
 
+# Installere prosjektene på ny PC
+
+Bruk den nye løsningen. I påvente av at vi får tilgang til RTools er det bare mulig å installere pakker fra CRAN, khfunctions og KHvalitetskontroll. Dette kan du gjøre ved følgende kode (forutsatt at du har installert RStudio og Git). 
+
+```R
+source("https://raw.githubusercontent.com/helseprofil/misc/main/ProfileSystems.R")
+ProfileSystems(all = F,
+               packages = T,
+               norgeo = F,
+               orgdata = F, 
+               khfunctions = T,
+               KHvalitetskontroll = T,
+               path = NULL eller "din/favoritt/mappe")
+``` 
+
 # KHfunctions
+
+Gå til mappen du har installert prosjektet i (default er C:/Brukere/navn/helseprofil). Åpne `.Rproj`-filen.
+Ved oppstart er det mulig du må kjøre `renv::restore()` for å installere pakkene inni prosjektet. 
 
 Siden alle filstier er nye på HDIR-siden, ligger det en versjon av prosjektet i en egen branch på GitHub. 
 
@@ -22,7 +40,7 @@ Dette må du gjøre hver gang du starter prosjektet. Da leses alle funksjonene i
 
 # KHvalitetskontroll
 
-Vi venter på RTools, ettersom prosjektet benytter norgeo. 
+Vi venter på RTools, ettersom prosjektet benytter norgeo. I mellomtiden vil ikke prosjektet fungere.
 
 Det ligger en versjon av prosjektet i en egen branch på GitHub. For å bruke denne må du skrive følgende i konsollen:
 
