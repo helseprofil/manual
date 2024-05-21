@@ -53,8 +53,15 @@ For å lage rapporter må .Rmd-filene også fortelles at de skal bruke HDIR-vari
 
 # Orgdata
 
-Vi venter på tilgang til RTools for å kunne installere pakken.
+For å kjøre orgdata på HDIR-maskiner må du ha siste versjon (v1.4.9, oppdatert 21.05.2024). Installer denne ved:
 
-# Norgeo
+```R
+source("https://raw.githubusercontent.com/helseprofil/misc/main/ProfileSystems.R")
+ProfileSystems(all = F, orgdata = T)
 
-Vi venter på tilgang til RTools for å kunne installere pakken.
+# ELLER om du allerede har installert orgdata
+
+orgdata::update_orgdata()
+```
+
+Når du laster inn orgdata med `library(orgdata)` skal du få opp en dialogboks som spør om du er på HDIR-maskin. Ved å trykke ja på denne, endres filstiene til `O:/...`, og du kan kjøre som vanlig.
