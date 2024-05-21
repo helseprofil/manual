@@ -10,18 +10,18 @@ i overgangsfasen.
 
 # Installere prosjektene på ny PC
 
-Bruk den nye løsningen. I påvente av at vi får tilgang til RTools er det bare mulig å installere pakker fra CRAN, khfunctions og KHvalitetskontroll. Dette kan du gjøre ved følgende kode (forutsatt at du har installert RStudio og Git). 
+Bruk den nye løsningen for å installere pakker og prosjekter
 
 ```R
 source("https://raw.githubusercontent.com/helseprofil/misc/main/ProfileSystems.R")
-ProfileSystems(all = F,
-               packages = T,
-               norgeo = F,
-               orgdata = F, 
-               khfunctions = T,
-               KHvalitetskontroll = T,
-               path = NULL eller "din/favoritt/mappe")
+ProfileSystems(path = NULL eller "din/favoritt/mappe")
 ``` 
+
+Vil du klone alle relevante repo (Misc, config, GeoMaster osv) fra GitHub (for utvikling), kan du bruke:
+
+```R
+DevelopSystems(path = "din/favoritt/mappe")
+```
 
 # KHfunctions
 
@@ -39,8 +39,6 @@ usebranch("HDIR")
 Dette må du gjøre hver gang du starter prosjektet. Da leses alle funksjonene inn på nytt fra HDIR-branchen på GitHub. Deretter kan du bruke funksjonene `LagFilgruppe()` og `LagKube()` som normalt. 
 
 # KHvalitetskontroll
-
-Vi venter på RTools, ettersom prosjektet benytter norgeo. I mellomtiden vil ikke prosjektet fungere.
 
 Det ligger en versjon av prosjektet i en egen branch på GitHub. For å bruke denne må du skrive følgende i konsollen:
 
@@ -65,3 +63,7 @@ orgdata::update_orgdata()
 ```
 
 Når du laster inn orgdata med `library(orgdata)` skal du få opp en dialogboks som spør om du er på HDIR-maskin. Ved å trykke ja på denne, endres filstiene til `O:/...`, og du kan kjøre som vanlig.
+
+For at databasen skal fungere må det eksistere en `chkfile.txt`, og inne i databasen må både link til denne og til backend-filen endres slik at de peker på riktig fil. 
+
+For geo-databasen er det en tilsvarende `chkgeo.txt`-fil. 
