@@ -10,7 +10,14 @@ i overgangsfasen.
 
 # Installere prosjektene på ny PC
 
-Bruk den nye løsningen for å installere pakker og prosjekter
+(Se eventuelt [Installasjon](https://helseprofil.github.io/manual/start-install.html)).
+
+Du må først installere følgende programmer fra Firmaportal:
+- **R (helst versjon 4.4, minimum 4.3)**
+- **RStudio**
+- **Git**. Denne må settes opp i RStudio (Tools -> Global Options -> Git/SVN)
+
+Bruk deretter den nye løsningen for å installere pakker og prosjekter. 
 
 ```R
 source("https://raw.githubusercontent.com/helseprofil/misc/main/ProfileSystems.R")
