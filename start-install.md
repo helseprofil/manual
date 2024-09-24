@@ -4,16 +4,22 @@ title: "Installasjon"
 parent: "Startside"
 nav_order: 1  
 ---
+
 # Hvordan sette opp systemet for databehandling
 
-De tre hovedpakkene i produksjonsapparatet er `orgdata` (aggregering av originalfiler), `khfunctions` (lager filgrupper og kuber) og `KHvalitetskontroll`. 
+Følg stegene under. Det er viktig at hvert steg fullføres før du går videre til neste!
 
-## 1. Installere R, Rstudio og sette opp Git
-For å installere pakkene må du først installere **R** (v4.3.0) og **RStudio**, som du  finner i Firmaportal. 
-Du må også installere  **Git** (versjonskontroll) fra Firmaportal, og sette dette opp i RStudio (Global options). 
+### 1. Installere R, Rstudio, Rtools og sette opp Git
 
-## 3. Sette encoding
-Fra og med R versjon 4.2 ble det innført en endring i encoding, som gjør at norske bokstaver ikke leses korrekt. Vi må derfor sette encoding manuelt. For at dette skal skje automatisk når du bruker R, kan dette med fordel legges direkte i `.rprofile` som er et script som kjøres ved oppstart. For å redigere denne kan du skrive følgende i konsollen:
+I Firmaportal, installer programmene **R** (minimum versjon 4.4.0), **Rstudio**, **Rtools** (versjon 4.4) og **Git**
+
+### 2. Sette opp Git i RStudio
+
+Åpne Rstudio og gå til Tools -> Global Options -> GIT/SVN. Sjekk at *Enable version control* er huket av og at git.exe-filen er angitt. Dette er viktig for å kunne synkronisere prosjekter og installere pakker som ligger på GitHub. 
+
+### 3. Sette encoding (valgfri, men veldig nyttig)
+
+Fra og med R versjon 4.2 ble det innført en endring i encoding, som gjør at norske bokstaver ikke leses korrekt. Vi må derfor sette encoding manuelt. For at dette skal skje automatisk når du bruker R, kan dette med fordel legges direkte i `.rprofile` som er et script som kjøres ved oppstart. For å redigere  denne kan du skrive følgende i konsollen, og endre filen som åpnes:
 
 ```R
 usethis::edit_r_profile()
@@ -22,38 +28,51 @@ usethis::edit_r_profile()
 I dokumentet som åpnes legger du til følgende, og lagrer dokumentet: 
 `Sys.setlocale("LC_ALL", "nb-NO.UTF-8")`
 
-R-prosjektene som brukes i produksjonsapparatet har egne .rprofile-filer, der dette er håndtert.
+  
+### 4. Installere pakkene
 
-## 2. Installere pakkene
-Før installering, sjekk at du ikke er i et prosjekt. Ellers må du først stenge prosjektet ie. `Close Project`.
-<p align="left"><img src="img/RStudio-project.png" width="330"/></p>
-
-Kjør følgende kode for å installere alle pakker og sette opp mappestruktur:
+I konsollen, kjør følgende kode for å installere alle pakker og sette opp mappestruktur:
 
 ```R
 source("https://raw.githubusercontent.com/helseprofil/misc/main/ProfileSystems.R")
 ProfileSystems()
 ```
+Funksjonen gjør:
 
-Dette vil opprette mappen `C:/Users/Navn/helseprofil`. Underprosjektene blir lagret i egne mapper i denne. 
+- Oppretter mappen `C:/Users/Navn/helseprofil`. Denne er viktig da den brukes til å lagre midlertidige filer lokalt på den PCen som gjennomfører databehandling. 
+- Oppretter R-prosjektet **produksjon**, som inneholder brukerfiler for de ulike delene av produksjonsapparatet. 
+- Installerer alle nødvendige pakker, inkludert våre lokale pakker *norgeo*, *orgdata*, *qualcontrol*
 
-Dersom du ønsker å ha prosjektene et annet sted kan du spesifisere argumentet `path`:
+Etter installasjon kan du finne mappen *produksjon* i filbehandleren (eller via RStudio) og åpne filen *produksjon.Rproj*. Når du først har åpnet den vil du finne den i prosjektlisten oppe til høyre i RStudio. 
+
+Dersom du ønsker å ha prosjektene et annet sted enn i helseprofilmappen kan du spesifisere argumentet `path`
 
 ```R
 source("https://raw.githubusercontent.com/helseprofil/misc/main/ProfileSystems.R")
 ProfileSystems(path = "Din/favoritt/mappe")
 ```
 
-- Standard path blir `C:/Users/DittBrukernavn/helseprofil` hvis argument `path` ikke er spesifisert.
+# For utviklere
 
-### Installere spesifikke deler av systemet
-`ProfileSystems()` har argumenter som kan brukes for å bare installere spesifikke deler av systemet. Sett da `all = FALSE`, og endre de delene du vil installere/oppdatere til `TRUE`. 
+Skal du bidra til utvikling av databehandlingssystemet trenger du tilgang til alle relevante underprosjekter. Disse kan klones ved å bruke følgende funksjon. Dersom du setter getupdates = TRUE vil den også oppdatere prosjekter du allerede har installert. 
 
 ```R
-ProfileSystems(all = FALSE,
-               packages = FALSE,
-               norgeo = FALSE,
-               orgdata = FALSE,
-               khfunctions = FALSE,
-               KHvalitetskontroll = FALSE)
+source("https://raw.githubusercontent.com/helseprofil/misc/main/ProfileSystems.R")
+DevelopSystems(path = "Din/favoritt/mappe", getupdates = FALSE)
 ```
+
+Dette installerer følgende prosjekter:
+
+- produksjon
+- norgeo
+- orgdata
+- khfunctions
+- orgcube (foreløpig navn på pakke som skal erstatte khfunctions)
+- qualcontrol
+- config
+- GeoMaster
+- misc
+- manual
+- snutter (R-snutter som brukes i databehandlingen)
+
+De ulike prosjektene inneholder ulike deler av produksjonsapparatet, og synkroniseres med GitHub. 

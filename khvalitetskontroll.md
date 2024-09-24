@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "KHvalitetskontroll"
+title: "KHvalitetskontroll (arkiv)"
 has_children: true
-nav_order: 5
+nav_order: 8
 ---
 Informasjon om kvaliteskontrollsystemet. Se underfilene for spesifikk informasjon.
 
