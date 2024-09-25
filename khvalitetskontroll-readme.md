@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Oversikt" 
-parent: "KHvalitetskontroll"
+parent: "KHvalitetskontroll (arkiv)"
 nav_order: 5
 ---
 

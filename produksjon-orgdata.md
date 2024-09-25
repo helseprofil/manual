@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "orgdata"
-parent: "produksjon"
+parent: "Produksjon"
 nav_order: 1
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Om prosjektet" 
-parent: "KHvalitetskontroll"
+parent: "KHvalitetskontroll (arkiv)"
 nav_order: 6
 ---
 

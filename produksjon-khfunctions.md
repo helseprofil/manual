@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "khfunctions"
-parent: "produksjon"
+parent: "Produksjon"
 nav_order: 2
 ---
 

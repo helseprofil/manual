@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "qualcontrol"
-parent: "produksjon"
+parent: "Produksjon"
 nav_order: 3
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Friskviksjekk" 
-parent: "KHvalitetskontroll"
+parent: "KHvalitetskontroll (arkiv)"
 nav_order: 4
 ---
 
