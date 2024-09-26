@@ -7,20 +7,23 @@ nav_order: 3
 
 [qualcontrol](https://github.com/helseprofil/qualcontrol) er en R-pakke som inneholder funksjoner for å gjennomføre kvalitetskontrollen av publikasjonsklare datafiler.
 
+Brukerfiler: 
+- [qualcontrol/1. Kvalitetskontrollrutiner](#1) - kontroll av enkeltfiler
+- [qualcontrol/2. Friskvik og barometersjekk](#2) - kontroll av godkjente friskvikfiler
+
 For å bruke khfunctions åpner du produksjonsprosjektet og går til filen `qualcontrol/1. Kvalitetskontrollrutiner.Rmd`. Denne inneholder en strømlinjeformet oversikt over kvalitetskontrollrutinene og følges nedover. 
 Resultater vil lagres i PRODUKSJON/VALIDERING/QualControl/**PRODUKSJONSÅR**/**KUBENAVN** 
 
-For å få tilgang til funksjonene må første kodeblokk med `library(qualcontrol)` kjøres. 
 
 # Forarbeid
-
+- For å få tilgang til funksjonene må første kodeblokk med `library(qualcontrol)` kjøres. 
 - Du kan endre produksjonsåret med funksjonen `update_qcyear()`. Dette bestemmer hvilken mappe resultatfilene vil publiseres i. 
-- Last inn ny (og gammel/forrige publiserte) datafil med funksjonen `readfiles()`, og formatter filene med funksjonen `make_comparecube()`. Dette vil også produsere noen .csv-filer som lagres i mappen `FILDUMPER`.
 
-# Stegene i kvalitetskontrollen. 
+# 1. Kvalitetskontrollrutiner (#1)
 
 De ulike stegene dokumenteres i KUBESTATUS-tabellen i KHELSA.mdb.
 
+- Last inn ny (og gammel/forrige publiserte) datafil med funksjonen `readfiles()`, og formatter filene med funksjonen `make_comparecube()`. Dette vil også produsere noen .csv-filer som lagres i mappen `FILDUMPER`.
 ## 1. Deskriptiv grovsjekk
 
 - Her sjekkes hva som finnes i filen, f.eks. hvilke kolonner, hvilke nivåer i dimensjonene
@@ -54,3 +57,8 @@ De ulike stegene dokumenteres i KUBESTATUS-tabellen i KHELSA.mdb.
 
 - Samme som over, men for relativ endring fra forrige årgang. Kan fange opp usannsynlig store endringer fra et år til et annet. 
 
+# 2. Friskvik og barometersjekk (#2)
+
+Inneholder to funksjoner, en som sjekker alle friskvikfilene i nyeste godkjentmappe, og en som sjekker om like verdier får farget prikk i barometeret. 
+
+Disse brukes i forbindelse med profilproduksjonen. 
