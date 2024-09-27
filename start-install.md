@@ -17,9 +17,24 @@ I Firmaportal, installer programmene **R** (minimum versjon 4.4.0), **Rstudio**,
 
 Åpne Rstudio og gå til Tools -> Global Options -> GIT/SVN. Sjekk at *Enable version control* er huket av og at git.exe-filen er angitt. Dette er viktig for å kunne synkronisere prosjekter og installere pakker som ligger på GitHub. 
 
+### 2b. Autentisering i git
+
+Dette er bare aktuelt om du har behov for å laste opp endringer til GitHub.
+For å sette opp autentisering i GitHub, bruk følgende kode. Det kan være du må installere pakken `usethis` først.
+
+```R
+usethis::create_github_token()
+```
+Dette tar deg til GitHub i nettleseren, hvor du kan sette opp en token som kobler din påloggingsinformasjon til RStudio. Denne må du kopiere. Deretter kjører du følgende i RStudio.
+
+```R
+gitcreds::gitcreds_set()
+```
+Følg instruksjonene og lim inn koden fra GitHub. 
+
 ### 3. Sette encoding (valgfri, men veldig nyttig)
 
-Fra og med R versjon 4.2 ble det innført en endring i encoding, som gjør at norske bokstaver ikke leses korrekt. Vi må derfor sette encoding manuelt. For at dette skal skje automatisk når du bruker R, kan dette med fordel legges direkte i `.rprofile` som er et script som kjøres ved oppstart. For å redigere  denne kan du skrive følgende i konsollen, og endre filen som åpnes:
+Fra og med R versjon 4.2 ble det innført en endring i encoding, som gjør at norske bokstaver ikke leses korrekt. Vi må derfor sette encoding manuelt. For at dette skal skje automatisk når du bruker R, kan dette med fordel legges direkte i `.rprofile` som er et script som kjøres ved oppstart. For å redigere  denne kan du skrive følgende i konsollen, og endre filen som åpnes. Det kan være du må installere pakken `usethis` først.
 
 ```R
 usethis::edit_r_profile()
