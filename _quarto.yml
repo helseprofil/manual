@@ -7,6 +7,7 @@ project:
 
 website:
   title: <b>Håndboka</b>
+  title-block-banner: true
   sidebar:
     style: "docked"
     search: true
