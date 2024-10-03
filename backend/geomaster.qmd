@@ -1,0 +1,6 @@
+---
+title: "geomaster"
+editor: visual
+---
+
+Inneholder R- og STATA-kode som inngår i oppdatering av GEO-tabeller, samt brukerfiler for å faktisk oppdatere tabellene.

@@ -1,0 +1,40 @@
+---
+title: "khfunctions"
+description: Informasjon om kubekjøring
+listing: 
+  contents: khfunctions-access.qmd
+  type: grid
+editor: visual
+---
+
+[khfunctions](https://github.com/helseprofil/khfunctions) er et R-prosjekt som inneholder hoveddelen av koden som brukes for databehandling.
+
+## Å bruke khfunctions
+
+For å bruke khfunctions åpner du produksjonsprosjektet og går til filen `khfunctions/khfunctions brukerkode.Rmd`. Denne inneholder eksempelkode for å lage filgrupper (stablede filer) og kuber (produksjonsklare datafiler). Det ligger også eksempler på hvordan du kan lagre fildumper på ulike steder i prosesseringen.
+
+For å få tilgang til funksjonene må første kodeblokk med `use_khfunctions()` kjøres.
+
+-   De to hovedfunksjonene i prosjektet er `LagFilgruppe()` og `LagKUBE()`.
+-   Parametre må settes opp i ACCESS-filen `KHELSA.mdb`, og logg skrives til ACCESS-filen `KHlogg.mdb`
+
+## Kontroll av siste kjøring
+
+-   Etter kjøring kan du se resultatene direkte i objektet RESULTAT, som inneholder full datafil, den filen som skal publiseres, og filen som brukes til kvalitetskontroll.
+-   Du kan også se på loggfilene i ACCESS-databasen.
+
+## Produkter
+
+-   `LagFilgruppe()` produserer filer som lagres i mappen `PRODUKTER/MELLOMPROD/R/STABLAORG`
+
+-   `LagKube()`genererer flere filer, som vil ha samme datotag.
+
+    -   En datafil som skal publiseres i statistikkbankene, lagret i `PRODUKTER/KUBER/KOMMUNEHELSA/DATERT`
+
+    -   En kvalitetskontrollfil, med ekstra uprikkede kolonner, lagret i `PRODUKTER/KUBER/KOMMUNEHELSA/QC`
+
+    -   Friskvikfiler, lagret i de ulike friskvikmappene
+
+    -   En CSV-fil med ACCESS-spesifikasjoner på tidspunktet datafilen ble kjørt, lagret i `PRODUKTER/KUBER/KOMMUNEHELSA/SPECS`
+
+## Relevante linker:

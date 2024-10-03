@@ -1,0 +1,6 @@
+---
+title: "snutter"
+editor: visual
+---
+
+Inneholder R-skript som styrer spesialbehandling av datafiler.

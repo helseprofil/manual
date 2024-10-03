@@ -1,0 +1,6 @@
+---
+title: "misc"
+editor: visual
+---
+
+Inneholder ulike R-funksjoner som ikke passer andre steder.

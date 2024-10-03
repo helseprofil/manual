@@ -1,0 +1,129 @@
+---
+title: "khfunctions"
+description: Informasjon om vedlikehold/utvikling av khfunctions
+listing: 
+  contents: 
+    - ../produksjon/khfunctions-access.qmd
+    - ../produksjon/khfunctions.qmd
+  type: grid
+editor: visual
+---
+
+# Noen tips
+
+### Bruke spesifikk versjon
+
+For å bruke en spesifikk versjon av prosjektet kan du bruke funksjonen `usebranch("navn på github branch")`, dette laster alle funksjoner fra valgte branch.
+
+### Spore opp funksjoner som brukes til debugging**
+
+For å se hvilke funksjoner som brukes eller aktiveres når man kjører `LagFilgruppe` eller `LagKUBE` kan man sette `show_functions` til `TRUE`. Dersom du vil se funksjonen inkludert argumentene, kan du definere `show_arguments` til `TRUE`. Dersom begge er satt til TRUE, vil `show_functions` brukes til debugging.
+
+### Lagre loggfil som tekstdokument
+
+Konsollenhar en begrensning på hvor mange linjer som vises, av minnehensyn. Derfor vil ikke hele prosessen kunne vises for store funksjoner som lagKUBE, som overskrider denne grensen. For å komme rundt dette, kan du printe all output til et tekstdokument som lagres eksternt, ved hjelp av funksjonen `sink()`
+
+Dette er spesielt nyttig i kombinasjon med debuggingalternativene over, da du kan få ut en komplett logg over alle funksjoner som blir kjørt.
+
+1.  Definer hvor du vil lagre loggen med sink()
+
+```{r eval = FALSE}
+sink(file = "filsti/.../.../filnavn.txt")  
+```
+
+2.  Kjør koden, f.eks. lagKUBE, hvor du også ønsker å få ut alle funksjonene med argumenter.
+
+```{r eval = FALSE}
+show_arguments <- TRUE 
+lagKUBE("NAVN")  
+```
+
+3.  Lukk koblingen til den eksterne filen etter at du er ferdig
+
+```{r eval = FALSE}
+sink(file = NULL)
+```
+
+# Oversikt over prosjektet
+
+All kode i prosjektet ligger i mappen `R`, fordelt på følgende scriptfiler. Her følger en oversikt over relevante filer og hva disse inneholder. De enkelte funksjonene er (delvis) dokumentert direkte i filene de ligger i.
+
+### KHsetup.R
+
+Lastes inn i `.Rprofile`.
+
+Setter encoding for å håndtere norske bokstaver, oppdaterer lockfilen dersom man er i master-branch, laster inn alle pakker og bruker pakken `conflicted` til å velge hvilken funksjon som skal brukes i de tilfellene flere funksjoner har samme navn. I praksis forsøkes det å konsekvent bruke `pakke::funksjon()` for å bruke riktig funksjon, men dette sparer uansett en del advarsler ved oppstart. Laster deretter inn alle de andre filene som inneholder interne funksjoner.
+
+### KHupdate.R
+
+Lastes inn i `.Rprofile`
+
+Sjekker verdien av `.lastupdate`, som defineres øverst i filen, på GitHub mot lokal versjon. Dersom disse ikke er like får brukeren mulighet til å laste ned siste versjon.
+
+**VIKTIG:** ved oppdatering av pakkeversjoner eller lignende må `.lastupdate` også oppdateres slik at endringen kommuniseres ut til brukerne. Ved flere endringer samme dag kan verdien settes til f.eks. *“02.05.2024b”* for å skille fra tidligere versjon samme dag.
+
+### KHmisc.R
+
+Lastes inn av `KHsetup.R`.
+
+Inneholder funksjoner som brukes både i `LagFilgruppe()` og `LagKUBE()`.
+
+### KHpaths.R
+
+Lastes inn av `KHsetup.R`.
+
+Setter grunnsti til produksjonsmappen og til `KHELSA.mdb` og `KHlogg.mdb`. Inneholder også funksjoner for testing og lokal kjøring, men disse brukes lite.
+
+### KHglobs.R
+
+Lastes inn av `KHsetup.R`.
+
+Setter alle globale parametre og lager objektet `KHglobs` som brukes i de fleste funksjoner i prosjektet.
+
+### KHfilgruppefunctions.R
+
+Lastes inn av `KHsetup.R`.
+
+Inneholder funksjoner som brukes i `LagFilgruppe()`.
+
+### KHfilgruppe.R
+
+Lastes inn av `KHsetup.R`.
+
+Inneholder hovedfunksjonen `LagFilgruppe()`.
+
+### KHkubefunctions.R
+
+Lastes inn av `KHsetup.R`.
+
+Inneholder funksjoner som brukes i `LagKUBE()`.
+
+### KHkube.R
+
+Lastes inn av `KHsetup.R`.
+
+Inneholder hovedfunksjonen `LagKUBE()`.
+
+### KHother.R
+
+Lastes inn av `KHsetup.R`
+
+Inneholder funksjoner som ikke brukes i hovedfunksjonene, bl.a. for sammenligning av kubefiler. Trolig overflødige, og kan muligens overføres til `KHgraveyard.R`.
+
+### KHgraveyard.R
+
+Lastes ikke inn.
+
+Inneholder utgåtte funksjoner som ikke brukes lenger. Andre funksjoner som erstattes eller utgår kan flyttes hit i stedet for å slettes.
+
+# Historikk
+
+KHfunctions er Hovedhjernen til dataprosessering for folkehelseprofilene. Koden er hovedsakelig utviklet og skrevet av [Kåre Bævre](https://www.fhi.no/om/organisasjon/helse-og-ulikhet/kare-bavre/). Prosjektet ble videre utviklet av [Yusman Bin Kamaleri](https://www.fhi.no/om/organisasjon/helse-og-ulikhet/yusman-bin-kamaleri/) frem til høsten 2022.
+
+I april 2023, i forbindelse med overgang til nytt publikasjonssystem, ble det gjennomført en større omstrukturering hvor all kode som tidligere var samlet i en stor fil `khfunctions.R` ble splittet opp i mange mindre filer, som ligger i mappen `R`. Filene er organisert etter hvor i prosjektet de ulike funksjonene brukes, og mange funksjoner ble også fjernet da de ikke lenger var i bruk. Dette ble gjort for å gjøre jobben med vedlikehold og videreutvikling lettere.
+
+En kopi av prosjektet slik det var før omstruktureringen finnes i branchen som heter “masterpreallvis”. 
+
+[Dokumentasjon av LagFilgruppe](https://helseprofil.github.io/khfunctions/) (Skrevet av Yusman Bin Kamaleri)
+
+# Relevante linker:

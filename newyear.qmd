@@ -1,0 +1,33 @@
+---
+title: "Oppdatere til ny årgang"
+editor: visual
+---
+
+Ved overgang til nytt profilår er det en rekke ting som må gjøres for å oppdatere produksjonsapparatet. Lister og veiledning over alt som må gjøres for de ulike delene av systemet finnes i kapitlene under.
+
+Dette håndteres hovedsakelig i R-prosjektet [backend](https://github.com/helseprofil/backend), men noe må også gjøres i de enkelte pakkene.
+
+# GEO-databasen
+
+-   Ved overgang til ny årgang må man oppdatere geotabellene. Se [her](https://helseprofil.github.io/manual/norgeo-access.html) for innstruks.
+
+    -   Oppdater respektive omkodingstabeller
+
+    -   Oppdater koblingstabellen tblGeo
+
+# Konfigurasjonsfiler
+
+-   Konfigurasjonsfilene for orgdata, qualcontrol, og etterhvert orgcube (foreløpig navn) må oppdateres mht årgang.
+
+# khfunctions
+
+-   KHaargang må oppdateres i filen `KHglobs.R`
+-   GEO-tabeller i KHELSA.mdb må oppdateres om det er kommet endringer
+
+# qualcontrol
+
+-   Interne tabeller i qualcontrol må oppdateres. Disse inneholder informasjon om geo-omkoding, populasjonsvekter, og dimensjoner/verdikolonner. Inne i R-prosjektet kan disse oppdateres ved å bruke følgende funksjon. Husk å oppdatere pakkeversjon og pushe endringene til GitHub.
+
+    ```{r eval = FALSE}
+    update_internal_data(geoyear = 2025, overwrite = TRUE)
+    ```

@@ -1,0 +1,6 @@
+---
+title: "config"
+editor: visual
+---
+
+Inneholder konfuigurasjonsfiler for de ulike pakkene. Disse leses inn og settes som `options` i R.
