@@ -11,7 +11,7 @@ Fra og med R versjon 4.2 ble default encoding endret. Dette medførte problemer 
 
 Har du behov for å bruke R-versjon tidligere enn 4.2 (f.eks. 4.1.3), må du derfor installere orgdata versjon 1.4.6. Dette gjøres ved følgende kommando i konsollen.
 
-```{r eval = FALSE}
+``` r
 pak::pkg_install(helseprofil/orgdata@v1.4.6) 
 ```
 

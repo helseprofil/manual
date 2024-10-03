@@ -1,5 +1,6 @@
 ---
 title: "Håndboka"
+description: Informasjon og brukerveiledning til arbeidet med folkehelse- og oppvekstprofiler
 ---
 
 Her finner du informasjon og veiledning for å installere og bruke de viktigste delene av produksjonsapparatet for arbeidet med folkehelse- og oppvekstprofiler. All kode ligger [her](https://github.com/helseprofil).

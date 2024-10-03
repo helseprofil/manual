@@ -1,6 +1,6 @@
 ---
 title: "Oppdatere til ny årgang"
-editor: visual
+description: nødvendige steg når systemet skal oppdateres til nytt profilår
 ---
 
 Ved overgang til nytt profilår er det en rekke ting som må gjøres for å oppdatere produksjonsapparatet. Lister og veiledning over alt som må gjøres for de ulike delene av systemet finnes i kapitlene under.
@@ -28,6 +28,6 @@ Dette håndteres hovedsakelig i R-prosjektet [backend](https://github.com/helsep
 
 -   Interne tabeller i qualcontrol må oppdateres. Disse inneholder informasjon om geo-omkoding, populasjonsvekter, og dimensjoner/verdikolonner. Inne i R-prosjektet kan disse oppdateres ved å bruke følgende funksjon. Husk å oppdatere pakkeversjon og pushe endringene til GitHub.
 
-    ```{r eval = FALSE}
+    ``` r
     update_internal_data(geoyear = 2025, overwrite = TRUE)
     ```

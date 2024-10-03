@@ -36,6 +36,11 @@ website:
           - pakker/qualcontrol.qmd
       - text: <b>Oppdatere til nytt produksjonsår</b>
         href: newyear.qmd
+        
+title-block-banner: "#d2e4f3"
+execute: 
+  eval: false
+
 format:
   html:
     theme: cosmo

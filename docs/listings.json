@@ -29,6 +29,13 @@
     ]
   },
   {
+    "listing": "/pakker/khfunctions.html",
+    "items": [
+      "/produksjon/khfunctions-access.html",
+      "/produksjon/khfunctions.html"
+    ]
+  },
+  {
     "listing": "/backend.html",
     "items": [
       "/backend/config.html",
@@ -36,13 +43,6 @@
       "/backend/misc.html",
       "/backend/norgeo.html",
       "/backend/snutter.html"
-    ]
-  },
-  {
-    "listing": "/pakker/khfunctions.html",
-    "items": [
-      "/produksjon/khfunctions-access.html",
-      "/produksjon/khfunctions.html"
     ]
   }
 ]

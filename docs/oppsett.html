@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="guide til å installere alle nødvendige pakker">
 
 <title>Sette opp systemet – Håndboka</title>
 <style>
@@ -100,6 +101,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #d2e4f3;
+      }
+</style>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -108,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -124,7 +131,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Sette opp systemet</h1>
+                  <div>
+        <div class="description">
+          guide til å installere alle nødvendige pakker
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
@@ -276,25 +304,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Sette opp systemet</h1>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <p>Følg stegene under. Det er viktig at hvert steg fullføres før du går videre til neste!</p>
@@ -309,21 +322,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="b.-autentisering-i-git" class="level3">
 <h3 class="anchored" data-anchor-id="b.-autentisering-i-git">2b. Autentisering i git</h3>
 <p>Dette er bare aktuelt om du har behov for å laste opp endringer til GitHub. For å sette opp autentisering i GitHub, bruk følgende kode. Det kan være du må installere pakken <code>usethis</code> først.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dette tar deg til GitHub i nettleseren, hvor du kan sette opp en token som kobler din påloggingsinformasjon til RStudio. Denne må du kopiere. Deretter kjører du følgende i RStudio.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Følg instruksjonene og lim inn koden fra GitHub.</p>
 </section>
 <section id="sette-encoding-valgfri-men-veldig-nyttig" class="level3">
 <h3 class="anchored" data-anchor-id="sette-encoding-valgfri-men-veldig-nyttig">3. Sette encoding (valgfri, men veldig nyttig)</h3>
 <p>Fra og med R versjon 4.2 ble det innført en endring i encoding, som gjør at norske bokstaver ikke leses korrekt. Vi må derfor sette encoding manuelt. For at dette skal skje automatisk når du bruker R, kan dette med fordel legges direkte i <code>.rprofile</code> som er et script som kjøres ved oppstart. For å redigere denne kan du skrive følgende i konsollen, og endre filen som åpnes. Det kan være du må installere pakken <code>usethis</code> først.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">edit_r_profile</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">edit_r_profile</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>I dokumentet som åpnes legger du til følgende, og lagrer dokumentet:</p>
 <blockquote class="blockquote">
 <p>Sys.setlocale(“LC_ALL”, “nb-NO.UTF-8”)</p>
@@ -332,10 +339,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="installere-pakkene" class="level3">
 <h3 class="anchored" data-anchor-id="installere-pakkene">4. Installere pakkene</h3>
 <p>I konsollen, kjør følgende kode for å installere alle pakker og sette opp mappestruktur:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R"</span>)</span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ProfileSystems</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>Funksjonen gjør:</p>
 <ul>
 <li>Oppretter mappen <code>C:/Users/Navn/helseprofil</code>. Denne er viktig da den brukes til å lagre midlertidige filer lokalt på den PCen som gjennomfører databehandling.</li>
@@ -344,10 +349,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Etter installasjon kan du finne mappen <em>produksjon</em> i filbehandleren (eller via RStudio) og åpne filen <em>produksjon.Rproj</em>. Når du først har åpnet den vil du finne den i prosjektlisten oppe til høyre i RStudio.</p>
 <p>Dersom du ønsker å ha prosjektene et annet sted enn i helseprofilmappen kan du spesifisere argumentet <code>path</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R"</span>)</span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ProfileSystems</span>(<span class="at">path =</span> <span class="st">"Din/favoritt/mappe"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 <section id="for-utviklere" class="level1">
 <h1>For utviklere</h1>
@@ -355,10 +358,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Du må først gjøre stegene over for å installere alle nødvendige R-pakker.</p>
 </blockquote>
 <p>Skal du bidra til utvikling av databehandlingssystemet trenger du tilgang til alle relevante underprosjekter. Disse kan klones ved å bruke følgende funksjon. Dersom du setter getupdates = TRUE vil den også oppdatere prosjekter du allerede har installert.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R"</span>)</span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">DevelopSystems</span>(<span class="at">path =</span> <span class="st">"Din/favoritt/mappe"</span>, <span class="at">getupdates =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>Dette installerer følgende prosjekter:</p>
 <ul>
 <li>produksjon</li>

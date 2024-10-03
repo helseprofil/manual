@@ -1,6 +1,6 @@
 ---
 title: "Sette opp systemet"
-editor: visual
+description: guide til å installere alle nødvendige pakker
 ---
 
 Følg stegene under. Det er viktig at hvert steg fullføres før du går videre til neste!
@@ -17,13 +17,13 @@ I Firmaportal, installer programmene **R** (minimum versjon 4.4.0), **Rstudio**,
 
 Dette er bare aktuelt om du har behov for å laste opp endringer til GitHub. For å sette opp autentisering i GitHub, bruk følgende kode. Det kan være du må installere pakken `usethis` først.
 
-```{r eval = FALSE}
+``` r
 usethis::create_github_token()
 ```
 
 Dette tar deg til GitHub i nettleseren, hvor du kan sette opp en token som kobler din påloggingsinformasjon til RStudio. Denne må du kopiere. Deretter kjører du følgende i RStudio.
 
-```{r eval=FALSE}
+``` r
 gitcreds::gitcreds_set()
 ```
 
@@ -33,7 +33,7 @@ Følg instruksjonene og lim inn koden fra GitHub.
 
 Fra og med R versjon 4.2 ble det innført en endring i encoding, som gjør at norske bokstaver ikke leses korrekt. Vi må derfor sette encoding manuelt. For at dette skal skje automatisk når du bruker R, kan dette med fordel legges direkte i `.rprofile` som er et script som kjøres ved oppstart. For å redigere denne kan du skrive følgende i konsollen, og endre filen som åpnes. Det kan være du må installere pakken `usethis` først.
 
-```{r eval = FALSE}
+``` r
 usethis::edit_r_profile()
 ```
 
@@ -45,7 +45,7 @@ I dokumentet som åpnes legger du til følgende, og lagrer dokumentet:
 
 I konsollen, kjør følgende kode for å installere alle pakker og sette opp mappestruktur:
 
-```{r eval = FALSE}
+``` r
 source("https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R")
 ProfileSystems()
 ```
@@ -60,7 +60,7 @@ Etter installasjon kan du finne mappen *produksjon* i filbehandleren (eller via 
 
 Dersom du ønsker å ha prosjektene et annet sted enn i helseprofilmappen kan du spesifisere argumentet `path`
 
-```{r eval = FALSE}
+``` r
 source("https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R")
 ProfileSystems(path = "Din/favoritt/mappe")
 ```
@@ -71,7 +71,7 @@ ProfileSystems(path = "Din/favoritt/mappe")
 
 Skal du bidra til utvikling av databehandlingssystemet trenger du tilgang til alle relevante underprosjekter. Disse kan klones ved å bruke følgende funksjon. Dersom du setter getupdates = TRUE vil den også oppdatere prosjekter du allerede har installert.
 
-```{r eval = FALSE}
+``` r
 source("https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R")
 DevelopSystems(path = "Din/favoritt/mappe", getupdates = FALSE)
 ```

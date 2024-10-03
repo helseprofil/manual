@@ -132,6 +132,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   })
   </script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #d2e4f3;
+      }
+</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -395,24 +401,20 @@ window.Quarto = {
 <p>Konsollenhar en begrensning på hvor mange linjer som vises, av minnehensyn. Derfor vil ikke hele prosessen kunne vises for store funksjoner som lagKUBE, som overskrider denne grensen. For å komme rundt dette, kan du printe all output til et tekstdokument som lagres eksternt, ved hjelp av funksjonen <code>sink()</code></p>
 <p>Dette er spesielt nyttig i kombinasjon med debuggingalternativene over, da du kan få ut en komplett logg over alle funksjoner som blir kjørt.</p>
 <ol type="1">
-<li>Definer hvor du vil lagre loggen med sink()</li>
+<li><p>Definer hvor du vil lagre loggen med sink()</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sink</span>(<span class="at">file =</span> <span class="st">"filsti/.../.../filnavn.txt"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sink</span>(<span class="at">file =</span> <span class="st">"filsti/.../.../filnavn.txt"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<!-- -->
 <ol start="2" type="1">
-<li>Kjør koden, f.eks. lagKUBE, hvor du også ønsker å få ut alle funksjonene med argumenter.</li>
+<li><p>Kjør koden, f.eks. lagKUBE, hvor du også ønsker å få ut alle funksjonene med argumenter.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>show_arguments <span class="ot">&lt;-</span> <span class="cn">TRUE</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lagKUBE</span>(<span class="st">"NAVN"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>show_arguments <span class="ot">&lt;-</span> <span class="cn">TRUE</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lagKUBE</span>(<span class="st">"NAVN"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<!-- -->
 <ol start="3" type="1">
-<li>Lukk koblingen til den eksterne filen etter at du er ferdig</li>
+<li><p>Lukk koblingen til den eksterne filen etter at du er ferdig</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sink</span>(<span class="at">file =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sink</span>(<span class="at">file =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 </section>
 <section id="oversikt-over-prosjektet" class="level1">

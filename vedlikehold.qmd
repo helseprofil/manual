@@ -1,5 +1,6 @@
 ---
 title: "Vedlikehold og utvikling"
+description: informasjon til deg som skal vedlikeholde og utvikle systemet
 listing:
   contents: pakker/*.qmd
   sort: false
@@ -8,7 +9,6 @@ listing:
   sort-ui: false
   filter-ui: false
 page-layout: full
-title-block-banner: false
 ---
 
 For å vedlikeholde produksjonsapparatet uten at det blir rot bør man i hovedsak følge trinnene under. Dette sikrer at produksjonsbranchen (main/master) forblir stabil mellom oppdateringer. For hovedprosjektene er produksjonsbranchen beskyttet slik at dette er eneste måten man kan oppdatere koden på.

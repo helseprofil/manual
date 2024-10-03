@@ -1,5 +1,6 @@
 ---
 title: "Prosjekt: backend"
+description: informasjon om backend-prosjektet
 listing:
   contents: backend/*.qmd
   sort: false
@@ -8,7 +9,6 @@ listing:
   sort-ui: false
   filter-ui: false
 page-layout: full
-title-block-banner: false
 ---
 
 Backend er et R-prosjekt som inneholder alt som har å gjøre med vedlikehold og oppdatering av produksjonsløypen. Dette kan for eksempel være oppdatering av GEO-tabeller eller konfigurasjonsfiler. Se undersidene for nærmere instruks om hvordan du bruker disse.

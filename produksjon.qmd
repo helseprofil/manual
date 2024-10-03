@@ -1,5 +1,6 @@
 ---
 title: "Produksjon"
+description: informasjon om produksjon-prosjektet
 listing:
   contents: 
     - produksjon/orgdata.qmd
@@ -11,7 +12,6 @@ listing:
   sort-ui: false
   filter-ui: false
 page-layout: full
-title-block-banner: false
 ---
 
 Produksjon er hovedprosjektet som brukes i databehandlingen. Her finner du brukerfiler for de ulike delene av produksjonsapparatet. Les mer om disse på de ulike undersidene.

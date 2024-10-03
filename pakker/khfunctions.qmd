@@ -15,7 +15,7 @@ editor: visual
 
 For å bruke en spesifikk versjon av prosjektet kan du bruke funksjonen `usebranch("navn på github branch")`, dette laster alle funksjoner fra valgte branch.
 
-### Spore opp funksjoner som brukes til debugging**
+### Spore opp funksjoner som brukes til debugging\*\*
 
 For å se hvilke funksjoner som brukes eller aktiveres når man kjører `LagFilgruppe` eller `LagKUBE` kan man sette `show_functions` til `TRUE`. Dersom du vil se funksjonen inkludert argumentene, kan du definere `show_arguments` til `TRUE`. Dersom begge er satt til TRUE, vil `show_functions` brukes til debugging.
 
@@ -27,22 +27,26 @@ Dette er spesielt nyttig i kombinasjon med debuggingalternativene over, da du ka
 
 1.  Definer hvor du vil lagre loggen med sink()
 
-```{r eval = FALSE}
-sink(file = "filsti/.../.../filnavn.txt")  
-```
+    ``` r
+    sink(file = "filsti/.../.../filnavn.txt")  
+    ```
+
+<!-- -->
 
 2.  Kjør koden, f.eks. lagKUBE, hvor du også ønsker å få ut alle funksjonene med argumenter.
 
-```{r eval = FALSE}
-show_arguments <- TRUE 
-lagKUBE("NAVN")  
-```
+    ``` r
+    show_arguments <- TRUE 
+    lagKUBE("NAVN")  
+    ```
+
+<!-- -->
 
 3.  Lukk koblingen til den eksterne filen etter at du er ferdig
 
-```{r eval = FALSE}
-sink(file = NULL)
-```
+    ``` r
+    sink(file = NULL)
+    ```
 
 # Oversikt over prosjektet
 
@@ -122,7 +126,7 @@ KHfunctions er Hovedhjernen til dataprosessering for folkehelseprofilene. Koden 
 
 I april 2023, i forbindelse med overgang til nytt publikasjonssystem, ble det gjennomført en større omstrukturering hvor all kode som tidligere var samlet i en stor fil `khfunctions.R` ble splittet opp i mange mindre filer, som ligger i mappen `R`. Filene er organisert etter hvor i prosjektet de ulike funksjonene brukes, og mange funksjoner ble også fjernet da de ikke lenger var i bruk. Dette ble gjort for å gjøre jobben med vedlikehold og videreutvikling lettere.
 
-En kopi av prosjektet slik det var før omstruktureringen finnes i branchen som heter “masterpreallvis”. 
+En kopi av prosjektet slik det var før omstruktureringen finnes i branchen som heter “masterpreallvis”.
 
 [Dokumentasjon av LagFilgruppe](https://helseprofil.github.io/khfunctions/) (Skrevet av Yusman Bin Kamaleri)
 
