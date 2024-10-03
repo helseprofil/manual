@@ -1,0 +1,21 @@
+---
+title: "Produksjon"
+listing:
+  contents: 
+    - produksjon/orgdata.qmd
+    - produksjon/khfunctions.qmd
+    - produksjon/qualcontrol.qmd
+  sort: false
+  type: grid
+  categories: false
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: false
+---
+
+Produksjon er hovedprosjektet som brukes i databehandlingen. Her finner du brukerfiler for de ulike delene av produksjonsapparatet. Les mer om disse på de ulike undersidene.
+
+For å bruke produksjon, åpner du .Rproj-filen i produksjonsprosjektet, eller velger produksjon fra nedtrekksmenyen øverst til høyre i RStudio (forutsatt at du tidligere har åpnet prosjektet).
+
+# Relevante linker:

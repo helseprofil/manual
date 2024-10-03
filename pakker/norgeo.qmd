@@ -1,0 +1,23 @@
+---
+title: "norgeo"
+editor: visual
+---
+
+Informasjon om R-pakken finnes [her](https://helseprofil.github.io/norgeo/)
+
+Funksjonene i pakken brukes til å oppdatere tabeller i GEO-databasen.
+
+Splitting av kommuner/fylker håndteres manuelt ved å kjøre respektive script fra [backend/norgeo på GitHub](https://github.com/helseprofil/backend/tree/main/norgeo). Disse aktiveres når argumentet `fix = TRUE` i norgeo-funksjonene. Disse må oppdateres når nye geosplittinger forekommer, dette gjør du i [backend](../backend.qmd).
+
+# GEO-databasen
+
+GEO-databasen oppdateres ved hjelp av norgeo-funksjoner. Brukerfiler med kode for å oppdatere tabellene finner du i `backend/geomaster`
+
+-   For å oppdatere tabellene i geodatabasen, bruk filen: `ORGDATA_tabeller.Rmd`
+-   For å oppdatere tabeller i KHELSA.mdb, bruk filen: `GEO_tabeller.Rmd`
+
+# Om pakken
+
+Norgeo ble skrevet og utviklet av **Yusman Bin Kamaleri**.
+
+Pakken inneholder funksjoner for å hente ut informasjon om geografisk inndeling fra SSB via API.

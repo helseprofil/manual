@@ -1,0 +1,12 @@
+---
+title: "qualcontrol"
+editor: visual
+---
+
+# Om prosjektet
+
+qualcontrol er en R-pakke som implementerer funksjoner brukt i kvalitetskontroll. Pakken er en videreutvikling av R-prosjektet [KHvalitetskontroll](https://github.com/helseprofil/KHvalitetskontroll) som ble utviklet **Vegard Lysne** fra høsten 2022.
+
+Pakken inneholder maskinelle kontroller som overtar og effektiviserer en rekke kvalitetskontrollrutiner som tidligere har vært gjort manuelt.
+
+Brukerfiler for å gjennomføre kvalitetskontrollen ligger i [produksjon/qualcontrol](../produksjon/qualcontrol.qmd).

@@ -1,0 +1,48 @@
+[
+  {
+    "listing": "/vedlikehold.html",
+    "items": [
+      "/pakker/khfunctions.html",
+      "/pakker/norgeo.html",
+      "/pakker/orgdata.html",
+      "/pakker/qualcontrol.html"
+    ]
+  },
+  {
+    "listing": "/produksjon/orgdata.html",
+    "items": [
+      "/produksjon/orgdata-access.html"
+    ]
+  },
+  {
+    "listing": "/produksjon/khfunctions.html",
+    "items": [
+      "/produksjon/khfunctions-access.html"
+    ]
+  },
+  {
+    "listing": "/produksjon.html",
+    "items": [
+      "/produksjon/orgdata.html",
+      "/produksjon/khfunctions.html",
+      "/produksjon/qualcontrol.html"
+    ]
+  },
+  {
+    "listing": "/backend.html",
+    "items": [
+      "/backend/config.html",
+      "/backend/geomaster.html",
+      "/backend/misc.html",
+      "/backend/norgeo.html",
+      "/backend/snutter.html"
+    ]
+  },
+  {
+    "listing": "/pakker/khfunctions.html",
+    "items": [
+      "/produksjon/khfunctions-access.html",
+      "/produksjon/khfunctions.html"
+    ]
+  }
+]

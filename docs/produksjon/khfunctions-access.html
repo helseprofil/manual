@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Informasjon om access-databasen knyttet til khfunctions">
+
+<title>KHELSA.mdb – Håndboka</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      &lt;b&gt;Håndboka&lt;/b&gt;
+      </li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../"><b>Håndboka</b></a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../oppsett.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><b>Sette opp systemet</b></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../produksjon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><b>Prosjekt - produksjon</b></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../produksjon/orgdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">orgdata</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../produksjon/khfunctions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">khfunctions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../produksjon/qualcontrol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">qualcontrol</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../backend.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><b>Prosjekt - Backend</b></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../backend/config.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">config</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../backend/geomaster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">geomaster</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../backend/misc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">misc</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../backend/norgeo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">norgeo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../backend/snutter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">snutter</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../vedlikehold.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><b>Vedlikehold og utvikling</b></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pakker/norgeo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">norgeo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pakker/orgdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">orgdata</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pakker/khfunctions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">khfunctions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pakker/qualcontrol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">qualcontrol</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../newyear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><b>Oppdatere til nytt produksjonsår</b></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#accessr-produksjonsapparat-for-folkehelseprofiler-brukerveiledning." id="toc-accessr-produksjonsapparat-for-folkehelseprofiler-brukerveiledning." class="nav-link active" data-scroll-target="#accessr-produksjonsapparat-for-folkehelseprofiler-brukerveiledning."><strong>Access/R produksjonsapparat for folkehelseprofiler: Brukerveiledning.</strong></a></li>
+  <li><a href="#oversikt" id="toc-oversikt" class="nav-link" data-scroll-target="#oversikt">Oversikt</a></li>
+  <li><a href="#innledning" id="toc-innledning" class="nav-link" data-scroll-target="#innledning">Innledning</a>
+  <ul class="collapse">
+  <li><a href="#access-database-path" id="toc-access-database-path" class="nav-link" data-scroll-target="#access-database-path"><strong>Access-database, path:</strong></a></li>
+  <li><a href="#se-også-nederst" id="toc-se-også-nederst" class="nav-link" data-scroll-target="#se-også-nederst"><strong>Se også nederst!</strong></a></li>
+  <li><a href="#begreper" id="toc-begreper" class="nav-link" data-scroll-target="#begreper"><strong>Begreper</strong></a></li>
+  <li><a href="#arbeidsprinsipp" id="toc-arbeidsprinsipp" class="nav-link" data-scroll-target="#arbeidsprinsipp"><strong>Arbeidsprinsipp</strong></a></li>
+  <li><a href="#pass-på" id="toc-pass-på" class="nav-link" data-scroll-target="#pass-på"><strong>Pass på:</strong></a></li>
+  </ul></li>
+  <li><a href="#innlesing-av-filer" id="toc-innlesing-av-filer" class="nav-link" data-scroll-target="#innlesing-av-filer">Innlesing av filer</a>
+  <ul class="collapse">
+  <li><a href="#tabell-filgrupper" id="toc-tabell-filgrupper" class="nav-link" data-scroll-target="#tabell-filgrupper"><strong>Tabell FILGRUPPER:</strong></a>
+  <ul class="collapse">
+  <li><a href="#hvis-teller-og-nevner-leveres-i-separate-filer" id="toc-hvis-teller-og-nevner-leveres-i-separate-filer" class="nav-link" data-scroll-target="#hvis-teller-og-nevner-leveres-i-separate-filer"><strong>Hvis Teller og Nevner leveres i separate filer,</strong></a></li>
+  <li><a href="#dersom-vi-får-en-ny-dataleveranse-med-samtlige-årganger-men-nytt-format" id="toc-dersom-vi-får-en-ny-dataleveranse-med-samtlige-årganger-men-nytt-format" class="nav-link" data-scroll-target="#dersom-vi-får-en-ny-dataleveranse-med-samtlige-årganger-men-nytt-format"><strong>Dersom vi får en ny dataleveranse med samtlige årganger, men nytt format:</strong></a></li>
+  </ul></li>
+  <li><a href="#skjema-styrfilgrupper" id="toc-skjema-styrfilgrupper" class="nav-link" data-scroll-target="#skjema-styrfilgrupper"><strong>Skjema StyrFILGRUPPER:</strong></a>
+  <ul class="collapse">
+  <li><a href="#bruk" id="toc-bruk" class="nav-link" data-scroll-target="#bruk"><strong>Bruk:</strong></a></li>
+  <li><a href="#feltene-vi-må-forholde-oss-til" id="toc-feltene-vi-må-forholde-oss-til" class="nav-link" data-scroll-target="#feltene-vi-må-forholde-oss-til"><strong>Feltene vi må forholde oss til:</strong></a></li>
+  <li><a href="#tabell-1" id="toc-tabell-1" class="nav-link" data-scroll-target="#tabell-1"><strong>Tabell 1:</strong></a></li>
+  <li><a href="#tabell-2-innlesing-selve-innlesingsspecen." id="toc-tabell-2-innlesing-selve-innlesingsspecen." class="nav-link" data-scroll-target="#tabell-2-innlesing-selve-innlesingsspecen."><strong>Tabell 2 (INNLESING): Selve innlesingsspec’en.</strong></a></li>
+  <li><a href="#soner" id="toc-soner" class="nav-link" data-scroll-target="#soner"><strong>Soner:</strong></a></li>
+  <li><a href="#grunnkretser-ikke-i-bruk-lenger-etter-at-rådataløypa-overtok-håndtering-av-grunnkretskodete-filer-2022" id="toc-grunnkretser-ikke-i-bruk-lenger-etter-at-rådataløypa-overtok-håndtering-av-grunnkretskodete-filer-2022" class="nav-link" data-scroll-target="#grunnkretser-ikke-i-bruk-lenger-etter-at-rådataløypa-overtok-håndtering-av-grunnkretskodete-filer-2022"><strong>Grunnkretser (IKKE I BRUK LENGER etter at Rådataløypa overtok håndtering av grunnkretskodete filer, 2022):</strong></a></li>
+  <li><a href="#andre-kommuner-enn-bydels-byene-ikke-i-bruk-lenger-se-forrige-avsnitt" id="toc-andre-kommuner-enn-bydels-byene-ikke-i-bruk-lenger-se-forrige-avsnitt" class="nav-link" data-scroll-target="#andre-kommuner-enn-bydels-byene-ikke-i-bruk-lenger-se-forrige-avsnitt"><strong>Andre kommuner enn bydels-byene (IKKE I BRUK LENGER, se forrige avsnitt):</strong></a></li>
+  <li><a href="#trengs-reshape-av-to-ting-samtidig" id="toc-trengs-reshape-av-to-ting-samtidig" class="nav-link" data-scroll-target="#trengs-reshape-av-to-ting-samtidig"><strong>Trengs Reshape av to ting samtidig?</strong></a></li>
+  <li><a href="#innlesingsargumenter-innlesarg-syntaks" id="toc-innlesingsargumenter-innlesarg-syntaks" class="nav-link" data-scroll-target="#innlesingsargumenter-innlesarg-syntaks"><strong>Innlesingsargumenter (INNLESARG), syntaks:</strong></a></li>
+  <li><a href="#hvis-samme-inndatafil-skal-brukes-i-flere-filgrupper-eller-flere-innlesingsspecer" id="toc-hvis-samme-inndatafil-skal-brukes-i-flere-filgrupper-eller-flere-innlesingsspecer" class="nav-link" data-scroll-target="#hvis-samme-inndatafil-skal-brukes-i-flere-filgrupper-eller-flere-innlesingsspecer"><strong>Hvis samme inndatafil skal brukes i flere filgrupper (eller flere innlesingsspec’er):</strong></a></li>
+  <li><a href="#triks-for-å-kopiere-mange-specer" id="toc-triks-for-å-kopiere-mange-specer" class="nav-link" data-scroll-target="#triks-for-å-kopiere-mange-specer"><strong>Triks for å kopiere mange spec’er:</strong></a></li>
+  <li><a href="#bruk-av-rsynt--statasynt--punkter" id="toc-bruk-av-rsynt--statasynt--punkter" class="nav-link" data-scroll-target="#bruk-av-rsynt--statasynt--punkter"><strong>Bruk av RSYNT- (Statasynt-) punkter:</strong></a></li>
+  </ul></li>
+  <li><a href="#kjør-innlesing-med-disse-parameterne-bruk-rstudio-se-nedenfor" id="toc-kjør-innlesing-med-disse-parameterne-bruk-rstudio-se-nedenfor" class="nav-link" data-scroll-target="#kjør-innlesing-med-disse-parameterne-bruk-rstudio-se-nedenfor"><strong>Kjør innlesing med disse parameterne: (Bruk RStudio, se nedenfor)</strong></a>
+  <ul class="collapse">
+  <li><a href="#i-rstudio" id="toc-i-rstudio" class="nav-link" data-scroll-target="#i-rstudio"><strong>I RStudio:</strong></a></li>
+  </ul></li>
+  <li><a href="#a.-faste-koder-endres-ikke." id="toc-a.-faste-koder-endres-ikke." class="nav-link" data-scroll-target="#a.-faste-koder-endres-ikke."><strong>5a. Faste koder: Endres ikke.</strong></a>
+  <ul class="collapse">
+  <li><a href="#felter" id="toc-felter" class="nav-link" data-scroll-target="#felter"><strong>Felter:</strong></a></li>
+  </ul></li>
+  <li><a href="#b.-kodebok" id="toc-b.-kodebok" class="nav-link" data-scroll-target="#b.-kodebok"><strong>5b. Kodebok:</strong></a>
+  <ul class="collapse">
+  <li><a href="#legge-inn-ny-kode-tabell-kodebok" id="toc-legge-inn-ny-kode-tabell-kodebok" class="nav-link" data-scroll-target="#legge-inn-ny-kode-tabell-kodebok"><strong>Legge inn ny kode: Tabell KODEBOK</strong></a></li>
+  <li><a href="#sjekke-hvordan-det-gikk-tabell-kodebok_logg_se" id="toc-sjekke-hvordan-det-gikk-tabell-kodebok_logg_se" class="nav-link" data-scroll-target="#sjekke-hvordan-det-gikk-tabell-kodebok_logg_se"><strong>Sjekke hvordan det gikk: Tabell KODEBOK_LOGG_se</strong></a></li>
+  </ul></li>
+  <li><a href="#spesielle-triks-osv" id="toc-spesielle-triks-osv" class="nav-link" data-scroll-target="#spesielle-triks-osv"><strong>SPESIELLE TRIKS OSV</strong></a>
+  <ul class="collapse">
+  <li><a href="#gjenbruke-en-innlesingsspec-samme-innfil-i-to-filgrupper" id="toc-gjenbruke-en-innlesingsspec-samme-innfil-i-to-filgrupper" class="nav-link" data-scroll-target="#gjenbruke-en-innlesingsspec-samme-innfil-i-to-filgrupper"><strong>Gjenbruke en innlesingsspec: Samme innfil i to filgrupper</strong></a></li>
+  <li><a href="#begrense-tidsserien-i-én-orgfil-når-to-orgfiler-har-overlappende-data-bruk-kodebok" id="toc-begrense-tidsserien-i-én-orgfil-når-to-orgfiler-har-overlappende-data-bruk-kodebok" class="nav-link" data-scroll-target="#begrense-tidsserien-i-én-orgfil-når-to-orgfiler-har-overlappende-data-bruk-kodebok"><strong>Begrense tidsserien i én ORGfil, når to ORGfiler har overlappende data: Bruk KODEBOK</strong></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#kubeproduksjon-dvs.-all-output" id="toc-kubeproduksjon-dvs.-all-output" class="nav-link" data-scroll-target="#kubeproduksjon-dvs.-all-output">Kubeproduksjon (dvs. all output)</a>
+  <ul class="collapse">
+  <li><a href="#b---eventuelt-tabell-filfiltre" id="toc-b---eventuelt-tabell-filfiltre" class="nav-link" data-scroll-target="#b---eventuelt-tabell-filfiltre"><strong>1 b - Eventuelt: Tabell FILFILTRE</strong></a>
+  <ul class="collapse">
+  <li><a href="#felter-1" id="toc-felter-1" class="nav-link" data-scroll-target="#felter-1"><strong>Felter:</strong></a></li>
+  <li><a href="#fylles-ut-når-kuben-skal-direktestandardiseres-i-stata-brukes-i-nh" id="toc-fylles-ut-når-kuben-skal-direktestandardiseres-i-stata-brukes-i-nh" class="nav-link" data-scroll-target="#fylles-ut-når-kuben-skal-direktestandardiseres-i-stata-brukes-i-nh"><strong>Fylles ut når kuben skal direktestandardiseres i Stata (brukes i NH):</strong></a></li>
+  <li><a href="#syntaks-for-stata_tab1" id="toc-syntaks-for-stata_tab1" class="nav-link" data-scroll-target="#syntaks-for-stata_tab1"><strong>Syntaks for Stata_TAB1:</strong></a></li>
+  </ul></li>
+  <li><a href="#hvis-indikatoren-skal-vises-i-barometeret-tabell-friskvik" id="toc-hvis-indikatoren-skal-vises-i-barometeret-tabell-friskvik" class="nav-link" data-scroll-target="#hvis-indikatoren-skal-vises-i-barometeret-tabell-friskvik"><strong>HVIS INDIKATOREN SKAL VISES I BAROMETERET: Tabell FRISKVIK</strong></a>
+  <ul class="collapse">
+  <li><a href="#feltene" id="toc-feltene" class="nav-link" data-scroll-target="#feltene"><strong>Feltene:</strong></a></li>
+  <li><a href="#feilmelding-ved-kjøring" id="toc-feilmelding-ved-kjøring" class="nav-link" data-scroll-target="#feilmelding-ved-kjøring"><strong>(Feilmelding ved kjøring:</strong></a></li>
+  <li><a href="#ta-runtimedump" id="toc-ta-runtimedump" class="nav-link" data-scroll-target="#ta-runtimedump"><strong>Ta runtimedump:</strong></a></li>
+  <li><a href="#skrive-selve-filgruppen-til-en-csv-fil-direkte-fra-r" id="toc-skrive-selve-filgruppen-til-en-csv-fil-direkte-fra-r" class="nav-link" data-scroll-target="#skrive-selve-filgruppen-til-en-csv-fil-direkte-fra-r"><strong>Skrive selve filgruppen til en CSV-fil, direkte fra R:</strong></a></li>
+  <li><a href="#rydde-buffer" id="toc-rydde-buffer" class="nav-link" data-scroll-target="#rydde-buffer"><strong>Rydde buffer:</strong></a></li>
+  <li><a href="#friske-opp-globale-bakgrunnsdata" id="toc-friske-opp-globale-bakgrunnsdata" class="nav-link" data-scroll-target="#friske-opp-globale-bakgrunnsdata"><strong>Friske opp globale bakgrunnsdata:</strong></a></li>
+  <li><a href="#uforklarlig-prikking-av-sammenslåtte-geo" id="toc-uforklarlig-prikking-av-sammenslåtte-geo" class="nav-link" data-scroll-target="#uforklarlig-prikking-av-sammenslåtte-geo"><strong>Uforklarlig prikking av sammenslåtte Geo?</strong></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#eksempel-på-kompleks-indikator-inntulikhet" id="toc-eksempel-på-kompleks-indikator-inntulikhet" class="nav-link" data-scroll-target="#eksempel-på-kompleks-indikator-inntulikhet">Eksempel på kompleks indikator: INNTULIKHET</a></li>
+  <li><a href="#sammenhengen-mellom-fil-elementene-til-bruk-ved-f.eks.-kval.kontroll" id="toc-sammenhengen-mellom-fil-elementene-til-bruk-ved-f.eks.-kval.kontroll" class="nav-link" data-scroll-target="#sammenhengen-mellom-fil-elementene-til-bruk-ved-f.eks.-kval.kontroll">Sammenhengen mellom fil-elementene (til bruk ved f.eks. kval.kontroll)</a></li>
+  <li><a href="#statusinformasjon-om-hver-indikator" id="toc-statusinformasjon-om-hver-indikator" class="nav-link" data-scroll-target="#statusinformasjon-om-hver-indikator">Statusinformasjon om hver indikator</a></li>
+  <li><a href="#kodeverk-og-systemverdier" id="toc-kodeverk-og-systemverdier" class="nav-link" data-scroll-target="#kodeverk-og-systemverdier">Kodeverk og systemverdier</a>
+  <ul class="collapse">
+  <li><a href="#interne-koder-for-de-ulike-elementene-kolonnene-i-en-tabell" id="toc-interne-koder-for-de-ulike-elementene-kolonnene-i-en-tabell" class="nav-link" data-scroll-target="#interne-koder-for-de-ulike-elementene-kolonnene-i-en-tabell"><strong>Interne koder for de ulike elementene (kolonnene) i en tabell:</strong></a></li>
+  <li><a href="#landbakgrunn-koder-i-kh_koder" id="toc-landbakgrunn-koder-i-kh_koder" class="nav-link" data-scroll-target="#landbakgrunn-koder-i-kh_koder"><strong>Landbakgrunn, koder i KH_KODER:</strong></a></li>
+  <li><a href="#sivilstand-koder-i-kh_koder" id="toc-sivilstand-koder-i-kh_koder" class="nav-link" data-scroll-target="#sivilstand-koder-i-kh_koder"><strong>Sivilstand, koder i KH_KODER:</strong></a></li>
+  <li><a href="#utdanning-koder-i-kh_koder" id="toc-utdanning-koder-i-kh_koder" class="nav-link" data-scroll-target="#utdanning-koder-i-kh_koder"><strong>Utdanning, koder i KH_KODER:</strong></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">KHELSA.mdb</h1>
+</div>
+
+<div>
+  <div class="description">
+    Informasjon om access-databasen knyttet til khfunctions
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><em>Sist oppdatert: 06.11.2023</em></p>
+<p><em>(Påbegynt april 2015 i Word, senere oppdatert med nye ting, men er nok ikke komplett. Filen bærer preg av å være mine personlige notater. -stbj.)</em></p>
+<p><strong>OBS!</strong> Denne filen er en konvertering fra <em>.docx</em>-filen på F-disk til <em>.md</em>. Layout (overskriftsstiler etc) er litt rotete, rydding er bare påbegynt. Bruk gjerne <em>søk</em>-funksjonen ovenfor for å finne det du leter etter. Du kan også se på <a href="https://helseprofil.github.io/extra/Bruksanvisning.pdf">pdf-fil</a></p>
+<section id="accessr-produksjonsapparat-for-folkehelseprofiler-brukerveiledning." class="level2">
+<h2 class="anchored" data-anchor-id="accessr-produksjonsapparat-for-folkehelseprofiler-brukerveiledning."><strong>Access/R produksjonsapparat for folkehelseprofiler: Brukerveiledning.</strong></h2>
+</section>
+<section id="oversikt" class="level1">
+<h1>Oversikt</h1>
+<p><a href="#innledning">Innledning</a></p>
+<p><a href="#innlesing-av-filer">Innlesing av filer</a></p>
+<p><a href="#kubeproduksjon-dvs.-all-output">Kubeproduksjon (dvs. all output)</a></p>
+<p><a href="#eksempel-på-kompleks-indikator-inntulikhet">Eksempel på kompleks indikator: INNTULIKHET</a></p>
+<p><a href="#sammenhengen-mellom-fil-elementene-til-bruk-ved-f.eks.-kval.kontroll">Sammenhengen mellom fil-elementene (til bruk ved f.eks. kval.kontroll)</a></p>
+<p><a href="#statusinformasjon-om-hver-indikator">Statusinformasjon om hver indikator</a></p>
+<p><a href="#kodeverk-og-systemverdier">Kodeverk og systemverdier</a></p>
+</section>
+<section id="innledning" class="level1">
+<h1>Innledning</h1>
+<section id="access-database-path" class="level2">
+<h2 class="anchored" data-anchor-id="access-database-path"><strong>Access-database, path:</strong></h2>
+<p><em>\\fhi.no\Felles\Forskningsprosjekter\PDB 2455 - Helseprofiler og til_\PRODUKSJON\STYRING\KHELSA.mdb</em></p>
+<p>Kåre bemerket (jun-2016) at han med hensikt hadde holdt seg til det gamle Access-filformatet .mdb, og ikke brukt .accdb fra Office 2010. Han mente det var kommet til ytterligere bells and whistles i grensesnittet i det nye formatet, som ville heve brukerterskelen.</p>
+</section>
+<section id="se-også-nederst" class="level2">
+<h2 class="anchored" data-anchor-id="se-også-nederst"><strong>Se også nederst!</strong></h2>
+<p>Mer generelt om sammenhengen i databasen, og hvordan den brukes (konvensjoner) beskrives etter kapitlene om detaljert bruk.</p>
+</section>
+<section id="begreper" class="level2">
+<h2 class="anchored" data-anchor-id="begreper"><strong>Begreper</strong></h2>
+<p>- Navigasjonsruta til venstre i Accessbildet har de ulike tabeller, skjemaer osv. samlet under deloverskrifter (Access-begrep: «grupper»). Disse nevnes i denne filen først i navnet på det objektet vi skal inn i, slik: «STYRING\Filgrupper». Deloverskriftene vises når menyen er “Egendefinert” (klikk evt. liten ned-pil-i-en-ring til høyre for menytittelen).</p>
+<p>- Stablet fil: Alle de separate inndatafilene for en indikator (f.eks. alle årgangene) lagt oppå hverandre til én stor fil. DSS. filgruppe.</p>
+</section>
+<section id="arbeidsprinsipp" class="level2">
+<h2 class="anchored" data-anchor-id="arbeidsprinsipp"><strong>Arbeidsprinsipp</strong></h2>
+<p>- Prosessen har to hovedtrinn:</p>
+<p>1) Innlesing av leverte/nedlastede datafiler og produksjon av en «stablet fil».</p>
+<p>2) Kubeproduksjon, dvs. all videre behandling av stablet fil.</p>
+<p>- Det er bare ett nivå av lagret mellomprodukt: Stablet fil. Denne ligger som R-datafil (.RDS) under \PRODUKTER\MELLOMPROD\R\STABLAORG\ …, og er normalt ikke meningen å behandle utenom systemet. Her ligger alle årganger, men normalt bare telleren (antall).</p>
+<p>- Hver gang noe skal leses inn (f.eks. ved ny årgang), leses samtlige tidligere originaldatafiler inn samtidig (det vil si, de som ikke er tatt ut av produksjonen). Stablet fil lages altså alltid på nytt fra bunnen, vi hekter ikke bare siste årgang bakpå en stor samlefil.</p>
+<p>- Både for innlesing (dvs. hva som må til for å få lest filene riktig inn) og produksjon av output-filer styres detaljene fra en Access-database. Dermed trenger vi ikke tukle med selve produksjons­scriptene for å gjøre endringer.</p>
+<p>- Innlesing kunne tidligere settes i gang inne fra Access med en programmert funksjonsknapp. Denne mekanismen er imidlertid ikke vedlikeholdt, selv om knappene fremdeles ligger der.</p>
+<p>- Kubeproduksjon (dvs. all output) kjøres direkte i R. (Det kan nok bli endret etter hvert)</p>
+</section>
+<section id="pass-på" class="level2">
+<h2 class="anchored" data-anchor-id="pass-på"><strong>Pass på:</strong></h2>
+<p>Klikk alltid «Oppdater alt»-knappen for HVER tabell (etc) du er inne og redigerer i! Hvis jeg bare bytter til en annen tabell, har jeg opplevd at siste innlagte verdi ikke blir lagret.</p>
+<p>OG gå ut av den raden du har redigert i, så den ikke står i redigeringsmodus, FØR du klikker Oppdater.</p>
+</section>
+</section>
+<section id="innlesing-av-filer" class="level1">
+<h1>Innlesing av filer</h1>
+<p>Venstremeny i Access: Avsnitt LAG FILGRUPPE – MÅ BRUKE</p>
+<section id="tabell-filgrupper" class="level2">
+<h2 class="anchored" data-anchor-id="tabell-filgrupper"><strong>Tabell FILGRUPPER:</strong></h2>
+<p>Én linje per ferdig stablet fil. Det svarer alltid til en unik gruppe inputfiler.</p>
+<p>Innhold: Grunnleggende definisjoner for en filgruppe. Evt. R-syntakser for spesialbehandling.</p>
+<p>(Noe av denne informasjonen brukes også ved kubeproduksjon.)</p>
+<p>- Haker av for hvilke av standardvariablene som fins i innfilene.</p>
+<p>- Må oppgi: Hva betyr alder=ALLE? F.eks. at i denne filgruppen er det «16_69».</p>
+<p>- TAB1 (-2, -3): Dimensjoner i tillegg til de obligatoriske – hva SKAL de hete i den stablede filen.</p>
+<p>- B_STARTAAR: Når data for Bydeler kan brukes. F.eks 2004 betyr at tallene for bydeler før 2004 ikke skal brukes i KUBE pga. ukomplette, for få etc.. etc..</p>
+<p>- DK2020_STARTAAR: Sett “2020” dersom ORGdata er: inndelt etter kommune (ikke grunnkrets), med gamle kommunekoder, og er satt opp slik at missing betyr null. Det gjør at tall f.o.m. 2020 for delingskommuner får SPVFLAGG == 1, og dermed ikke serieprikkes.</p>
+<p>- SY_PAA_FILGR</p>
+<p>- RSYNT_SYPAA (Ikke implementert punkt!)</p>
+<p>- ValErAarsSnitt</p>
+<p>- VAL1navn (-2-, -3-): Tilsv. som TAB.., for verdikolonnene.</p>
+<p>VAL1navn er gjerne telleren.</p>
+<p>VAL2navn er ofte nevneren, hvis den følger med i inputfilene. (SEPARATE FILER: Se nedenfor)</p>
+<blockquote class="blockquote">
+<p>DERSOM inndatafilen inneholder verdikolonner vi ikke skal bruke (f.eks. ferdige prosenter), bare la være å nevne dem.</p>
+</blockquote>
+<p>- VAL1sumbar (-2-, -3-): Om verdiene kan aggregeres.</p>
+<p>- VAL1miss (-2-, -3-): Hvordan håndtere at VAL1 er missing? Skriv inn hvilken kode disse cellene skal ha: OBS: SJEKK AT JEG HAR FORSTÅTT DETTE RIKTIG!</p>
+<p>0 hvis det er implisitte nuller</p>
+<p>.. Manglende data</p>
+<p>- (…) VERSJONFRA, VERSJONTIL: Datoer for når/om denne spec’en er tatt inn eller ut av systemet.</p>
+<p>- FILTER1 (-2, -3): Ikke i bruk i scriptet. Kan brukes til flagging av rader i lista (for sortering etc).</p>
+<p>- RSYNT_PRE_FGLAGRING: R-syntaks som kjøres før den ferdige stablafilen lagres.</p>
+<blockquote class="blockquote">
+<p><em>F.eks. for å lage Middelfolkemengde fra befolkningsfil: Inndata har folketall 1.jan., R-syntaksen beregner flere versjoner av Middelfolkemengde, og det genereres noen ekstra variabler med disse Midbef-tallene. Stablafil har m.a.o. noen flere kolonner enn vanlige stablafiler.</em></p>
+</blockquote>
+<section id="hvis-teller-og-nevner-leveres-i-separate-filer" class="level3">
+<h3 class="anchored" data-anchor-id="hvis-teller-og-nevner-leveres-i-separate-filer"><strong>Hvis Teller og Nevner leveres i separate filer,</strong></h3>
+<p>så leser vi dem inn til separate filgrupper og kobler dem sammen i KUBE-trinnet.</p>
+</section>
+<section id="dersom-vi-får-en-ny-dataleveranse-med-samtlige-årganger-men-nytt-format" class="level3">
+<h3 class="anchored" data-anchor-id="dersom-vi-får-en-ny-dataleveranse-med-samtlige-årganger-men-nytt-format"><strong>Dersom vi får en ny dataleveranse med samtlige årganger, men nytt format:</strong></h3>
+<p>Ikke lag ny linje i tabellen, og ikke endre filgruppenavn – vi bare redigerer eksisterende linje.</p>
+<p>MEN da må vi også gå gjennom <strong>samtlige gamle inndatafiler</strong> (i neste verktøy, se neste avsnitt!) og sette «I bruk til»-dato lik i dag.</p>
+</section>
+</section>
+<section id="skjema-styrfilgrupper" class="level2">
+<h2 class="anchored" data-anchor-id="skjema-styrfilgrupper"><strong>Skjema StyrFILGRUPPER:</strong></h2>
+<p>Viktigste styringsverktøy for innlesingen.</p>
+<p>Skjemaet har fire deler:</p>
+<ol type="1">
+<li><p>Enkeltfelter øverst, som oppsummerer det som ble lagt inn i forrige avsnitt.</p></li>
+<li><p>En tabell (her kalt Tabell 1) med én rad per unike inndatafil. (Den henter fra “ORIGINALFILERse” under LAG FILGRUPPE – MÅ BRUKE.)<br>
+Gir path og filnavn, noen grunnleggende opplysninger om filen, og forteller hvilken av radene i tabell 2 som skal brukes.</p></li>
+<li><p>En tabell (Tabell 2, ledetekst «INNLESING») med én rad per sett av innlesingsparametre innen samme filgruppe («Innlesingsspec»). (Den henter fra tabell INNLESING)<br>
+Gir de detaljene som gjør at én bestemt inndatafil blir lest inn riktig og evt. reshapet til korrekt («long») format.</p></li>
+<li><p>Et større skjema (ledetekst «StyrFILGRUPPER EnInnles», heading INNLESING), som viser den valgte raden fra tabell 2 så man ser flere detaljer i ett blikk.</p></li>
+</ol>
+<p>Når flere inndatafiler er like, kan de i tabell 1 kobles til samme innlesingsspec ved å oppgi navnet på spec’en. Da får man flere rader i tabell 1 for hver rad i tabell 2.</p>
+<p>HVIS SAMME INNDATAFIL skal brukes i flere filgrupper: Se nedenfor!</p>
+<ul>
+<li>OG hvis du ikke får lov å skrive inn filnavnet: Sjekk i tabell ORIGINALFILERse om den ligger inne fra før…</li>
+</ul>
+<p>Hvis man skal lese inn samme fil flere ganger bare med ulik delID/spec:</p>
+<ol type="1">
+<li>gå til «ORGINNLESkobl» - her kopierer man FILID på den filen man skal duplisere og legge inn samme filgruppe (med mindre den skal brukes i en annen) og den nye delID/spec. Når man har oppdatert dette, går man tilbake til «styrFILGRUPPER» og oppdaterer, og da skal de nye innlesingene være der.</li>
+</ol>
+<section id="bruk" class="level3">
+<h3 class="anchored" data-anchor-id="bruk"><strong>Bruk:</strong></h3>
+<p>Velg riktig filgruppe: Verktøyknapp «Sorter og filtrer/Avansert/Filtrer etter skjema» gir nedtrekksmeny i det valgte feltet nedenfor. Velg riktig filgruppe (En ny filgruppe vil ikke ligge i lista, da skrives navnet), og klikk «Aktiver/deaktiver filter».</p>
+<p><strong>DERSOM ovennevnte klikk ikke funker:</strong></p>
+<p>Sett markøren i skjemafeltet FILGRUPPE, og klikk knappen Filtrer (stort traktsymbol). Da kommer en rullegardin under feltet, som er bredere (lettere å se FG-navnene) og har avkrysningsbokser. Huk av riktig FG og klikk OK.</p>
+<p>For å fylle ut Tabell 2 kan det lønne seg å åpne inndatafilen for å se hvordan den er.</p>
+<blockquote class="blockquote">
+<p>Hvis det blir feilmeldinger og skjæring: Vi fikk det til en gang ved å gå i tabellene i bakgrunnen (ORIGINALFILERse, f.eks. (siden filen allerede var innlest, men uten å skrive inn FILGRUPPE, så den havnet et annet sted i systemet)) og slette hele raden, og begynne på nytt.</p>
+</blockquote>
+</section>
+<section id="feltene-vi-må-forholde-oss-til" class="level3">
+<h3 class="anchored" data-anchor-id="feltene-vi-må-forholde-oss-til"><strong>Feltene vi må forholde oss til:</strong></h3>
+</section>
+<section id="tabell-1" class="level3">
+<h3 class="anchored" data-anchor-id="tabell-1"><strong>Tabell 1:</strong></h3>
+<p>- LEVERANDØR: Må fylles ut først, ellers nekter Access. Ved utfylling kommer feilmelding. Klikk OK, så lagres det likevel.</p>
+<p>- FILGRUPPE: Samme navn som brukt tidligere. TIPS: Hvis du ikke får lov å skrive i feltet, piltast litt mot høyre og venstre, så gir den seg …</p>
+<p>- DELID: Navnet på den innlesingsspec’en som skal brukes (se tabell 2).</p>
+<p>- FILNAVN: Må inkludere path fra første nivå under F:\Prosjekter\Kommunehelsa\PRODUKSJON\. Det vil i nåværende system si: <strong>ORGDATA\&lt;leverandør&gt;\&lt;tema&gt;\ORG\&lt;profilår&gt;\&lt;filnavn.ext&gt;</strong></p>
+<p>- FORMAT: Datatypen for inndatafilen (selv om den også var med i &lt;filnavn.ext&gt;). OBS: Ikke dss. filtypen: En CSV-fil har format CSV, selv om den heter «data.txt».</p>
+<blockquote class="blockquote">
+<p>ANM: per 26.6.2015 hadde vi IKKE type «DTA»/Stata implementert! Men det er kjapt å lage.</p>
+</blockquote>
+<p>- LEVERANSEAAR: Det samme som profilår, dvs. det året dataene er (eller kunne vært) med i profilene. For data levert etter at profilene er laget, settes året etter.</p>
+<p>- IBRUKFRA: Dokumenterer når denne filen ble innlemmet i systemet. Som default kommer dagens dato ved første kjøring av innlesingsprosessen, men ofte settes den datoen filen ble f.eks. lastet ned fra SSB Statistikkbanken.</p>
+<p>- IBRUKTIL: Standardverdi: 01.01.9999. Her settes dagens dato når vi avslører feil e.l. i en fil, som gjør at den ikke skal brukes mer. Da flyttes den filen fysisk fra …\ORG\… til …\GML\… (**), og dette faktum rettes i filnavnet i tabell 1. Til-datoen er egentlig første dag denne filen <em>ikke</em> skal regnes med lenger.</p>
+<blockquote class="blockquote">
+<p>(**) Dette trengs ikke hvis hele tidsserien er erstattet i den nye leveransen.</p>
+</blockquote>
+<p><em>MEN OBS: Jeg lagde ny innlesingsspec for MFR Keisersnitt_NH. Måtte sette “ibruktil” på forrige årgangsfil for at systemet skulle ta min nye fil.</em></p>
+</section>
+<section id="tabell-2-innlesing-selve-innlesingsspecen." class="level3">
+<h3 class="anchored" data-anchor-id="tabell-2-innlesing-selve-innlesingsspecen."><strong>Tabell 2 (INNLESING): Selve innlesingsspec’en.</strong></h3>
+<p>(Her vises én enkelt rad fra tabellen STYRING\INNLESING – men ikke alle feltene.)</p>
+<p>(Dette kan kanskje gjøres også i skjemaet 4, nederst i skjermbildet, men det har vi ikke testet.)</p>
+<p>(Marie sa først at det kan være greit å få på plass de andre tingene først, og så ta RESHAPE-argumentene etterpå. Men rekkefølgen i prosesseringen er ikke lik rekkefølgen i dette skjemaet, så noen ting høyere opp faller ikke på plass før reshape virker.)</p>
+<p>OBS: Feltene GRUNNKRETS, SONER, SKALA_VAL1 (-2 -3) og KOPI_KOL vises ikke i skjemaet! Må fylles ut i selve tabellen INNLESING.</p>
+<p>- FILGRUPPE: Som før.</p>
+<p>- DELID: Nytt navn for hver ny rad.</p>
+<p>- INNLESARG: Argumentene til innlesingsfunksjonen, se nedenfor. OBS: Dette slår inn FØR Rsynt1, så ting man skriver her kan påvirke inndataene til Rsynt1.</p>
+<blockquote class="blockquote">
+<p>- CSV-fil som er ekte kommaseparert (ikke semikolon): skriv <em>sep = “,”</em> .</p>
+<p>- Fil med norske tegn som leses feil (scrambles): skriv <em>encoding=”latin1”</em> .</p>
+</blockquote>
+<p>- MANHEADER: Kan styre hvilke kolonner som får hvilken header.</p>
+<blockquote class="blockquote">
+<p>Syntaks: [1,3,6,7:34]=c(“GEO”,“KJONN”,“ALDER”,1986:2013)</p>
+</blockquote>
+<p>- KASTKOLS: Kan spesifisere kolonner som skal droppes.</p>
+<blockquote class="blockquote">
+<p>Syntaks: c(2,4,5,35,36,37)</p>
+<p>(Begge de to siste: Se f.eks. tabell INNLESING, Filgruppe BEFOLK, ID nr. 9. )</p>
+<p>OBS: Denne parameteren slår inn <em>etter</em> RSYNT1. Hvis kolonner lager krøll i RSYNT1, hjelper det ikke å KASTe dem her.</p>
+</blockquote>
+<p>- FYLLTAB: Navn på TAB-kolonner (dvs. dimensjoner) som i datafilen ikke er fullstendig fylt ut. F.eks. når det står et fylkesnavn bare på første linje med data for dette fylket. Syntaks: Anførselstegn rundt, komma (ikke blank) imellom. “GEO”, “ALDER”</p>
+<p>- RESHAPEid <strong><em>(OBS: Se nedenfor hvis dobbel Reshape!)</em></strong>: De dimensjonskolonnene som utgjør ID, og som allerede er på long-format. Skriv de «ferdige» navnene (GEO osv.) Syntaks: Som FYLLTAB. OBS: Legg også inn «VAL2» (bokstavelig, altså ikke det faktiske inndatavariabelnavnet) hvis den allerede er på Long.</p>
+<p>- RESHAPEmeas: Hvis det er flere verdikolonner som skal bli til én, men der de opprinnelige kolonnetitlene er meningsbærende og skal bli til en ny dimensjon. Skriv de faktiske variabelnavnene i innfilen (de blir kategorier), og rams opp alle som skal bli til én kolonne. Double quotes, og komma. (Prøvde å skille mellom to targetkolonner med semikolon, men det gir kræsj og feilmelding “unexpected ‘;’”.)</p>
+<p>Eks: “avekt_u1500”,“avekt_u2500”,“avekt_o4500”.</p>
+<blockquote class="blockquote">
+<p>Dersom det ikke er spesifisert noe her, vil Reshape ta alle variabler/kolonner som ikke er nevnt i de andre feltene på denne raden, og reshape dem til én.</p>
+</blockquote>
+<p>- RESHAPEvar: Dimensjoner som SKAL reshapes – hva de(n) ferdige kolonnen(e) skal hete, hvor de ovennevnte kategoriene skal være verdiene. Eks: FVEKTKATEGORI.</p>
+<p>- RESHAPEval: Hva ferdige verdikolonner skal hete. Eks: ANTALL. (Trenger ikke quotes)</p>
+<p>- GEO, AAR, KJONN, ALDER: Hva denne kolonnen heter i inndatafilen. Har den ikke noe kolonnehode, skrives bokstaven for Excelkolonnen. Hvis kolonnen først oppstår etter Reshape, skriv navnet på den ferdige kolonnen (samme som i ReshapeVar ovenfor). Også hvis kolonnen lages i RSYNT1, skriv navnet på ferdig kolonne.</p>
+<p>Dersom kolonnen ikke finnes, og ikke trengs: skriv bindestrek - .</p>
+<p>Dersom GEO mangler (dvs. for en fil med landstall): Skriv <strong>&lt;0&gt;</strong> . Da gis alle rader landskoden, 0.</p>
+<p>Dersom AAR mangler: Skriv <strong>&lt;$y&gt;</strong> . Da hentes dataårgangen for denne ORGfila fra feltet DEFAAR i tabell ORIGINALFILER (<em>som m.a.o. må fylles ut</em>).</p>
+<blockquote class="blockquote">
+<p>Dette er inndata til Rename: Rett før Reshape renames alle variabler som har originalnavn angitt på denne raden, til standardnavnene (VAL1 osv). Så Reshapes, og da oppstår jo noen nye variabler, som vi har sagt i RESHAPEval at skal hete &lt;noe&gt;. Så går det en ny runde Rename, der de nyopprettede variablene endres fra «våre» navn til standardnavnene. De endelige utfil-navnene settes på helt til slutt.</p>
+<p>OBS FOR GEOKODER: Tenk på Soner (se nedenfor)</p>
+<p>KODE &lt;0&gt; :</p>
+</blockquote>
+<p>- GEOd2: Hvis det f.eks. er to nivåer, så denne kolonnen må være med for å gi entydig Geo. Kolonnenavnet i inndatafilen.</p>
+<p>- UTDANN, SIVST, LANDBAK: Hvis disse ikke fins i filen, skriv « &lt;ALLE&gt; ».</p>
+<p>- TAB1 -2 -3: Dimensjoner som skal være med i tillegg til de ovennevnte.</p>
+<blockquote class="blockquote">
+<p>- Hvis variabelen fins i inndatafilen og ikke skal reshapes, skriv variabelnavnet derfra.</p>
+<p>- Hvis den oppstår ved Reshape, skriv hva ferdig reshapet kolonne skal hete (som for GEO osv. ovenfor).</p>
+<p>- Hvis den skal opprettes, og fylles med en standardverdi: skriv verdien slik: &lt;verdi&gt;</p>
+</blockquote>
+<p>- VAL1 -2 -3: Verdikolonnene. Som for TAB-kolonnene.</p>
+<p>- GRUNNKRETS: IKKE I BRUK LENGER. (Sett lik 1 hvis det er grunnkretskoder i GEO, og disse skal håndteres av kommandoen LagFilgruppe).</p>
+<p>- SONER: Se nedenfor.</p>
+<p>- SKALA_VAL1 (_VAL2, _VAL3): Dersom en VAL-kolonne leses inn med feil størrelsesorden (f.eks. at «prosent» ikke tolkes riktig). Innleste tall multipliseres med den faktoren som legges inn her. (Ny des-2019)</p>
+<p>Feltene lengre til høyre ble ikke forklart i første gjennomgang.</p>
+</section>
+<section id="soner" class="level3">
+<h3 class="anchored" data-anchor-id="soner"><strong>Soner:</strong></h3>
+<blockquote class="blockquote">
+<p>I noen tilfeller må vi hjelpe Geo-dekodingen: (Vet ikke om dette er relevant for NH/fylkesnivå)</p>
+<p>Dersom data er levert slik at for de byene der det er bydeler, så får vi bare bydelene og ikke selve kommunetallet, mens for andre kommuner får vi kommunetallet:</p>
+<p>(Det vil si at summen av alle geo blir landstallet)</p>
+<p>- Da må vi kalle geo-kodene for <strong>Soner</strong>. Og det innebærer å legge inn i feltet INNLESING/SONER (ikke i StyrFILGRUPPER-bildet!) hvor lange geokoder som skal gjøres om til (eller behandles som) sonekoder.</p>
+<p>Det er tre tilfeller:</p>
+</blockquote>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 30%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Alle kommuner,</strong><br>
+<strong>PLUSS bydeler:</strong></th>
+<th style="text-align: left;"><strong>Bare bydeler for de</strong><br>
+<strong>aktuellekommunene,</strong><br>
+<strong>vanlig koding:</strong></th>
+<th style="text-align: left;"><strong>Noen har seks</strong><br>
+<strong>sifre hele veien:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0104</td>
+<td style="text-align: left;">0104</td>
+<td style="text-align: left;">010400</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0214</td>
+<td style="text-align: left;">0214</td>
+<td style="text-align: left;">021400</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>0301 (NB!)</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">030101</td>
+<td style="text-align: left;">030101</td>
+<td style="text-align: left;">030101</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">030102</td>
+<td style="text-align: left;">030102</td>
+<td style="text-align: left;">030102</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0402</td>
+<td style="text-align: left;">0402</td>
+<td style="text-align: left;">040200</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">= IKKE soner.<br>
+Skriv ingen ting i SONER-feltet.<br>
+Da vet systemet (by default) at<br>
+4 siffer =K, 6 siffer=B.</td>
+<td style="text-align: left;">= SONER.<br>
+Angis som «4,6».</td>
+<td style="text-align: left;">=SONER.<br>
+Angis som «6».</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="grunnkretser-ikke-i-bruk-lenger-etter-at-rådataløypa-overtok-håndtering-av-grunnkretskodete-filer-2022" class="level3">
+<h3 class="anchored" data-anchor-id="grunnkretser-ikke-i-bruk-lenger-etter-at-rådataløypa-overtok-håndtering-av-grunnkretskodete-filer-2022"><strong>Grunnkretser (IKKE I BRUK LENGER etter at Rådataløypa overtok håndtering av grunnkretskodete filer, 2022):</strong></h3>
+<blockquote class="blockquote">
+<p>Grunnkretser har ikke hierarkisk koding som samsvarer med bydelene. De fire sifferne bak kommunenummeret er selve GK, og må oversettes til bydelsnummer via en egen tabell. Derfor må vi si fra til systemet at kodene er GK, ved å sette “1” i feltet INNLESING/ GRUNNKRETS.</p>
+</blockquote>
+</section>
+<section id="andre-kommuner-enn-bydels-byene-ikke-i-bruk-lenger-se-forrige-avsnitt" class="level3">
+<h3 class="anchored" data-anchor-id="andre-kommuner-enn-bydels-byene-ikke-i-bruk-lenger-se-forrige-avsnitt"><strong>Andre kommuner enn bydels-byene (IKKE I BRUK LENGER, se forrige avsnitt):</strong></h3>
+<blockquote class="blockquote">
+<p>Grunnkrets er egentlig irrelevant. Alt bak kommunenummeret klippes av, og data aggregeres til kommuneverdiene, uten noen egen styring/kodebok/tabell. Feltet GRUNNKRETS må settes til 1.</p>
+<p>Testet ifm. MFR Keisersnitt-NH: ORGdata hadde kun grunnkretser – inkl. “ukjent kommune”, “kjent kommune, men Missing grunnkrets”, og “kjent kommune, men ukjent grunnkrets”. Da ble tall med kjent kommune tatt med i aggregeringen på fylkesnivå, uavhengig av hva som sto for GK. De med ukjent kommune ble med i landstallet.</p>
+</blockquote>
+</section>
+<section id="trengs-reshape-av-to-ting-samtidig" class="level3">
+<h3 class="anchored" data-anchor-id="trengs-reshape-av-to-ting-samtidig"><strong>Trengs Reshape av to ting samtidig?</strong></h3>
+<p>Det må gjøres i to trinn (OG DET FIKK JEG IKKE TIL Å FUNGERE):</p>
+<p>- Innlesing: Reshaper til bare én tallkolonne, med en TAB-kolonne som har dobbelt sett kategorier. (ELLER må det være to TAB-kolonner, en for hvert sett?)</p>
+<p>- Kubeprod: Bruker det ene settet verdier i (ELLER den ene?) TAB-kolonnen til å opprette en ny tallkolonne med de ønskede verdiene, og setter et filfilter som deretter kaster de nå overflødige radene fra TAB2.</p>
+<section id="eksempel" class="level4">
+<h4 class="anchored" data-anchor-id="eksempel">Eksempel:</h4>
+<p>Inndata:</p>
+<p>År – Geo – Kjønn – Teller_500 – Teller_1000 – Nevner_500 – Nevner_1000</p>
+<p>Behovet er altså å lage en kolonne Teller og en Nevner, fordelt på TAB-kolonnen med -500 og -1000.</p>
+<p>Innlesing:</p>
+<p>Reshape alle fire til én tallkolonne. Hvis det bare er disse fire (som i eksemplet), kan <em>RESHAPEmeas</em> stå tom. Det dannes en TAB1 med fire kategorier: T_500, T_1000, N_500, N_1000.</p>
+<p>SE NEDENFOR om videre spec.</p>
+<p>(ANM: Det ovenstående fungerte, dvs. laget én tallkolonne og én TAB-kolonne. Men i den videre prosesseringen klarte jeg ikke å få ut riktige tall.)</p>
+</section>
+</section>
+<section id="innlesingsargumenter-innlesarg-syntaks" class="level3">
+<h3 class="anchored" data-anchor-id="innlesingsargumenter-innlesarg-syntaks"><strong>Innlesingsargumenter (INNLESARG), syntaks:</strong></h3>
+<p>Skrives uten mellomrom, adskilt av komma.</p>
+<p><strong>Marie og Nora pleier å shoppe funksjoner ved å se på tidligere innlesingsspec’er. Samtlige innlesingsspec’er er listet opp i tabellen LAG FILGRUPPE – MÅ BRUKE\INNLESING.</strong></p>
+<section id="eksempler" class="level4">
+<h4 class="anchored" data-anchor-id="eksempler">Eksempler:</h4>
+<p>skip=n Hopp over n rader øverst i inndatafilen.</p>
+<p>sep=“,” Filen er kommaseparert.</p>
+<p>slettRader=n Etter innlesing, slett denne/disse radene. Radnummer som i original fil (uten hensyn til Skip).</p>
+<p>TomRadSlutt=TRUE Gjør at inndataene kuttes ved første tomme rad. Hjelper f.eks. mot SSBs kommentarer nederst i filen.</p>
+<p>header=FALSE Hvis øverste rad (f.eks. etter <em>skip</em>) ikke inneholder var-navn, og dermed ikke skal slettes.</p>
+<p>encoding=”latin1” For filgrupper som ikke har gått gjennom orgdata må det spesifiseres at CSV-filene skal leses med denne encodingen.</p>
+</section>
+</section>
+<section id="hvis-samme-inndatafil-skal-brukes-i-flere-filgrupper-eller-flere-innlesingsspecer" class="level3">
+<h3 class="anchored" data-anchor-id="hvis-samme-inndatafil-skal-brukes-i-flere-filgrupper-eller-flere-innlesingsspecer"><strong>Hvis samme inndatafil skal brukes i flere filgrupper (eller flere innlesingsspec’er):</strong></h3>
+<p>Systemet nekter i den vanlige prosessen, så vi må sette opp dette i en bakgrunnstabell.</p>
+<p>Gå i LAG FILGRUPPE – KAN BRUKE\ORGINNLESkobl – tabellen over koblingene mellom innfiler, spec og filgruppe.</p>
+<p>Skriv inn inndatafilens eksisterende FILID på ny rad, sammen med (det nye) filgruppenavnet og DELID. FILID finnes sikrest i (query/tabell)ORIGINALFILERse.</p>
+<p>(DELID kan være det samme som før, men dette vil ikke automatisk kopiere innlesingsspec’en til den nye filgruppen.)</p>
+<p>Klikk Oppdater Alt i skjemavinduet, så dukker filen opp i Tabell 1!</p>
+<p><strong>For å få brukt innlesingsspec’en om igjen:</strong></p>
+<p>Gå i LAG FILGRUPPE – MÅ BRUKE\INNLESING og kopier spec’en til ny rad. Skriv inn det nye filgruppenavnet, og evt. ny DELID (men den <em>kan</em> være den samme som før. DELID er bare unike innen hver filgruppe).</p>
+</section>
+<section id="triks-for-å-kopiere-mange-specer" class="level3">
+<h3 class="anchored" data-anchor-id="triks-for-å-kopiere-mange-specer"><strong>Triks for å kopiere mange spec’er:</strong></h3>
+<p>Ved innliming av fire kopierte spec’er i tabell INNLESING protesterte Access, «dubletter i et nøkkelfelt» eller noe sånt. De kopierte radene ble automatisk limt inn i en nyopprettet tabell «Innlimingsfeil», og Access sa «Rett opp feilene der, og kopier derfra til target-tabellen». Da fikk jeg skrevet inn nye verdier i alle fire, og kopierte fra «Innlimingsfeil» til INNLESING. Det ble godtatt.</p>
+</section>
+<section id="bruk-av-rsynt--statasynt--punkter" class="level3">
+<h3 class="anchored" data-anchor-id="bruk-av-rsynt--statasynt--punkter"><strong>Bruk av RSYNT- (Statasynt-) punkter:</strong></h3>
+<p>Se oversikt over aktive punkter i [\\fhi.no\Felles\Forskningsprosjekter\PDB 2455 - Helseprofiler og til_\PRODUKSJON\DOK\Oversikt over alle RSYNT-punkter.docx]</p>
+</section>
+</section>
+<section id="kjør-innlesing-med-disse-parameterne-bruk-rstudio-se-nedenfor" class="level2">
+<h2 class="anchored" data-anchor-id="kjør-innlesing-med-disse-parameterne-bruk-rstudio-se-nedenfor"><strong>Kjør innlesing med disse parameterne: (Bruk RStudio, se nedenfor)</strong></h2>
+<p>Ikke i bruk lenger:</p>
+<blockquote class="blockquote">
+<p>DOBBELTKLIKK (NB!) «Lag stablet fil»-knappen. OBS: Egen knapp for 64-bits Access. Disse knappene er Visual Basic, som Kåre ikke kan. R-versjon er hardkodet – det er en del av path til programmet. Oppdatert sep-17 til vår “frosne” R på Kommunehelsa-disken. Hvis knappen ikke virker, funker det å kjøre direkte i R. Da kan jeg også se evt. feilmeldinger.</p>
+</blockquote>
+<section id="i-rstudio" class="level3">
+<h3 class="anchored"><strong>I RStudio:</strong></h3>
+<p>Åpne R-prosjekt «khfunctions». Det må være satt opp på forhånd, se egen bruksanvisning …</p>
+<p>Fra H-2022: Når R-prosjektet lastes, blir nødvendige oppdateringer av R-pakker kjørt automatisk, og nyeste utgave av produksjonsscriptet sources direkte fra Github.</p>
+<p>Åpne F:\PDB 2455 - Helseprofiler og til_\PRODUKSJON\BIN\ SePaaFil.r</p>
+<p><strong>Trengs ikke lenger:</strong> (#NB: Alle kommandoer under krever at linja under kjøres en gang ved oppstart)</p>
+<blockquote class="blockquote">
+<p>source(‘KHfunctions.r’)</p>
+</blockquote>
+<p>Hvis du får feilmelding: «.…. first argument is not an open RODBC channel» må også denne kjøres som oppstart:</p>
+<blockquote class="blockquote">
+<p>KHglobs&lt;-SettGlobs()</p>
+</blockquote>
+<section id="kommandoerde-fleste-ligger-i-scriptet" class="level4">
+<h4 class="anchored" data-anchor-id="kommandoerde-fleste-ligger-i-scriptet">Kommandoer:(De fleste ligger i scriptet)</h4>
+<p>FG&lt;-LagFilgruppe(“ENEFHIB”,versjonert=TRUE) lager versjonert <strong>stablaorg</strong> (“stablet fil”). Her er det foreløpig ikke gjort noen beregninger, det følger i neste trinn.</p>
+<p>Denne lagres bare som R-datafil, uten noen csv-kopi, men det kan endres hvis vi vil.</p>
+<p>K&lt;-LagKubeDatertCsv(c(“NPRKOLS”,“NPRPSYK”,“NPRSOMAT”,“KREFT”)) lager datert <strong>kube</strong>, med kopi i CSV (og datert Friskvik) for alle på lista i parentesen i kommandoen.</p>
+</section>
+<section id="runtime-dump-av-datasettet" class="level4">
+<h4 class="anchored">Runtime dump av datasettet:</h4>
+<p>Enkeltfiler eller stablet fil (avh.av hvilket dumppunkt vi ber om) dumpes ut fra minnet til en lagret fil på …\PRODUKSJON\RUNTIMEDUMP\. Enkeltfiler vil ha et løpnummer som skiller dem fra hverandre, mens etter stabling heter filene bare &lt;filgruppenavnet&gt;&lt;dumppunktnavnet&gt;.</p>
+<p>Mulige punkter: [\\fhi.no\Felles\Prosjekter\Kommunehelsa\PRODUKSJON\DOK\DUMPPUNKTER.docx]</p>
+<p>1) Sett “dumps” til hvilke punkter og hvilken utfil-type du vil ha.</p>
+<p>2) Kjør LagFilgruppe med “dumps”-delen av kommandoen inkludert.</p>
+<p>Eksempel:</p>
+<blockquote class="blockquote">
+<p>dumps=list() <em>#-&gt; Ingen dump</em></p>
+<p>dumps=list(maKUBE0=“CSV”,RSYNT2pre=c(“CSV”,“STATA”))</p>
+<p>FG&lt;-LagFilgruppe(“KEISERSNITT_NH”,versjonert=TRUE,dumps=dumps)</p>
+</blockquote>
+<ol type="1">
+<li><div>
+<h2 id="sjekk-resultatet-skjema-loggskjema" class="anchored" data-anchor-id="runtime-dump-av-datasettet"><strong>Sjekk resultatet: Skjema LOGGskjema</strong></h2>
+</div></li>
+</ol>
+<p>Dette skjemaet viser dumper og analyser av innlesingen på flere trinn i prosessen, og eventuelle feilmeldinger. Slik er det lett å se på hvilket trinn noe skar seg.</p>
+<ol type="1">
+<li><p>Øverst er en oppsummering: Etter litt basisinfo om inndatafilen kommer raden som starter med «INNLES_OK». <strong>Alle feltene i denne raden skal ha verdien 1</strong> (eller blank, hvis f.eks. den aktuelle variabelen ikke fins).</p></li>
+<li><p>INNLESh viser filen slik den ser ut rett etter rå innlesing. (Det hender at dette er tomt)</p></li>
+<li><p>modINNLESh viser filen etter «skip» og «slettRader» o.l. helt enkle regler.</p></li>
+<li><p>RESHAPEh viser rett etter reshape.</p></li>
+<li><p>FINALh viser sluttresultatet, etter at År og Alder er splittet til «lav» og «høy» og vises som intervaller, det er lagt til en kolonne med FYLKE, og hver VAL-kolonne har fått to flagg:</p>
+<p>a. «VAL1.f» er årsaken til at det står «NA» dvs. Missing som verdi. Denne tilsvarer (og blir til) SPVflagg.</p>
+<p>b. «VAL1.a» er antallet rader som er kollapset for å gi tallet i denne raden. Intern QA-variabel.</p></li>
+</ol>
+<p>Innimellom de nevnte tingene er det felter med feilmeldinger fra R, inndelt etter hvor de oppsto.</p>
+</section>
+</section>
+</section>
+<section id="a.-faste-koder-endres-ikke." class="level2">
+<h2 class="anchored" data-anchor-id="a.-faste-koder-endres-ikke."><strong>5a. Faste koder: Endres ikke.</strong></h2>
+<p>Tabell: KH_KODER.</p>
+<p>Her er en del faste koder for standarddimensjonene definert. De stemmer for det meste med leveransene, men noen ganger matcher ikke inndata denne kodingen. I så fall legger vi inn omkoding fra inndataverdien til KH_KODER-verdien i tabell KODEBOK (se nedenfor).</p>
+<section id="felter" class="level3">
+<h3 class="anchored" data-anchor-id="felter"><strong>Felter:</strong></h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 20%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">DEL</th>
+<th style="text-align: left;">(som betyr)</th>
+<th style="text-align: left;">KODE, LABEL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">Alder</td>
+<td style="text-align: left;">888_888 Ugyldig, 999_999 Ukjent</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gn</td>
+<td style="text-align: left;">Geonivå</td>
+<td style="text-align: left;">L land, H Hreg, F fylke, K kommune,<br>
+B bydel, S sone, G grunnkrets, U ugyldig.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K</td>
+<td style="text-align: left;">Kjønn</td>
+<td style="text-align: left;">0 kjønn samlet, 1 menn, 2 kvinner,<br>
+8 ugyldig, 9 ukjent.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">L</td>
+<td style="text-align: left;">Landbakgrunn</td>
+<td style="text-align: left;">(se kodeliste nederst i filen)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S</td>
+<td style="text-align: left;">Sivilstand</td>
+<td style="text-align: left;">(se kodeliste nederst i filen)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">U</td>
+<td style="text-align: left;">Utdanning</td>
+<td style="text-align: left;">(se kodeliste nederst i filen)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="b.-kodebok" class="level2">
+<h2 class="anchored" data-anchor-id="b.-kodebok"><strong>5b. Kodebok:</strong></h2>
+<p>Venstremeny i Access: Avsnitt LAG FILGRUPPE – KAN BRUKE.</p>
+<p>Det hender filene inneholder verdier som ikke er selvforklarende, og som må spesifiseres. Ulike varianter av blanke, missing osv., non-standard eller skiftende Geokoder, stringverdier med store vs.&nbsp;små bokstaver i ulike årganger …</p>
+<p>OBS: Koding av VALn missing -&gt; ‘noe annet’ : Se også felt FILGRUPPE/VAL1miss .</p>
+<section id="legge-inn-ny-kode-tabell-kodebok" class="level3">
+<h3 class="anchored" data-anchor-id="legge-inn-ny-kode-tabell-kodebok"><strong>Legge inn ny kode: Tabell KODEBOK</strong></h3>
+<p>- Identifiser FILGRUPPE, DELID og FELTTYPE (dvs. variabelnavn) koden gjelder for. <strong>OBS: Her brukes standardnavnene, dvs. TAB1 etc.</strong></p>
+<p>- DELID kan oppgis til FELLES. Da gjelder denne raden for alle DELID innen samme FILGRUPPE. Men IKKE sett FELLES hvis det fins flere varianter av samme inn-kode (dvs. som skal bli til én ut-kode). Det kan se ut som en FELLES gjør at andre varianter ikke slår inn?</p>
+<p>- Default TYPE er «KB». Noen steder står det «SUB», og da gjøres omkodingen med Regular Expressions, ikke bare ved å bytte ut en fast string. Dersom hele strengen skal omkodes, brukes «KB», men dersom deler av en/flere strenger skal omkodes, brukes «SUB».</p>
+<p>- ORGKODE er koden i inndatafil.</p>
+<p>- NYKODE er hva den skal kodes om til.</p>
+<section id="regular-expressions-litt-ulikt-stata." class="level4">
+<h4 class="anchored" data-anchor-id="regular-expressions-litt-ulikt-stata.">Regular expressions: Litt ulikt Stata.</h4>
+<p>- Det er akkurat det som matcher, som byttes ut. Må lage en RE som matcher hele stringen for å få erstattet hele.</p>
+<p>- Symboler eller koder for klasser av tegn: \d digit, \s space (inkl. space, tab, newline osv.), og stor bokstav \D og \S betyr «alt som IKKE er» hhv. digit og space.</p>
+<p>- Antallsoperator: Det foregående uttrykket matches et antall ganger: {n} nøyaktig n ganger, {n, } n eller flere ganger, {n,m} minst n men max m ganger. Så \d{2} matcher to siffer.</p>
+<p>- Erstatt med et av sub-uttrykkene (Stata: regexs(2) ): \n der n er 1-9. Matcher parentes nummer n i det komplette RE. (Brukes f.eks. i «NYKODE»-kolonnen)</p>
+</section>
+</section>
+<section id="sjekke-hvordan-det-gikk-tabell-kodebok_logg_se" class="level3">
+<h3 class="anchored" data-anchor-id="sjekke-hvordan-det-gikk-tabell-kodebok_logg_se"><strong>Sjekke hvordan det gikk: Tabell KODEBOK_LOGG_se</strong></h3>
+<p>(i avsnitt LAG FILGRUPPE – MÅ BRUKE)</p>
+<p>(OBS: Kjempetabell, det tar mange sekunder å åpne den og filtrere den. Selv det å åpne filter-nedtrekksmenyen tar et par minutter første gang. Vær litt tålmodig.)</p>
+<p>Her finner du igjen Filgruppe, Delid, Felttype.</p>
+<p>- ORG er koden i inndata.</p>
+<p>- KBOMK er koden den skulle kodes til.</p>
+<p>- OMK er koden den faktisk ble omkodet til.</p>
+<p>- OK flagger de radene der dette ikke stemmer overens (=0), så man kan filtrere fram disse.</p>
+</section>
+</section>
+<section id="spesielle-triks-osv" class="level2">
+<h2 class="anchored" data-anchor-id="spesielle-triks-osv"><strong>SPESIELLE TRIKS OSV</strong></h2>
+<section id="gjenbruke-en-innlesingsspec-samme-innfil-i-to-filgrupper" class="level3">
+<h3 class="anchored" data-anchor-id="gjenbruke-en-innlesingsspec-samme-innfil-i-to-filgrupper"><strong>Gjenbruke en innlesingsspec: Samme innfil i to filgrupper</strong></h3>
+<p>Det går an, men er litt plundrete. Systemet nekter å bruke samme filnavn om igjen.</p>
+<ul>
+<li><p>Les FILID fra ORIGINALFILER.</p></li>
+<li><p>Gå i ORGINNLESkobl og finn FILID-nummeret der.</p></li>
+<li><p>Der kan jeg nå <em>skrive inn samme Filid</em> og kopiere resten. Det vil bli en ny KOBLID, og vi skriver altså ny FILGRUPPE.</p>
+<ul>
+<li>OBS: DELID kan ikke kopieres her – det er ikke entydige navn.</li>
+</ul></li>
+<li><p>Gå i Hovedstyring/INNLESING og kopiér innlesingsspec’en. Skriv inn den nye Filgruppen, og evt. nytt Delid (kan hete det samme).</p></li>
+</ul>
+</section>
+<section id="begrense-tidsserien-i-én-orgfil-når-to-orgfiler-har-overlappende-data-bruk-kodebok" class="level3">
+<h3 class="anchored" data-anchor-id="begrense-tidsserien-i-én-orgfil-når-to-orgfiler-har-overlappende-data-bruk-kodebok"><strong>Begrense tidsserien i én ORGfil, når to ORGfiler har overlappende data: Bruk KODEBOK</strong></h3>
+<p>Eksempel: ORGfiler til ABORT_NH i 2021.</p>
+<ul>
+<li><p>Forrige leveranse dekket hele tidsserien 1979-2019.</p></li>
+<li><p>Nyeste leveranse har 2016-2020.</p></li>
+</ul>
+<p>Da bruker vi alle årgangene i nyeste fil, for å få med oppdateringer i registeret. De overlappende årene i eldste fil må tas ut før de to filene stables til filgruppe.</p>
+<ul>
+<li><p>Sørg for at de to filene har hver sin DELID.</p></li>
+<li><p>Sett i KODEBOK, på DELID for eldste fil: I variabel AAR skal 2016 (og 2017 osv) kodes til “-” (strek). Da slettes disse årene i innlesingen.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="kubeproduksjon-dvs.-all-output" class="level1">
+<h1>Kubeproduksjon (dvs. all output)</h1>
+<p>Parameterne defineres først i to Access-tabeller, så må vi ut i R og kjøre et script bitvis.</p>
+<p>Venstremeny i Access: Avsnitt LAG KUBE – MÅ BRUKE.</p>
+<p>OBS: Kjører du LagKube om igjen fordi Filgruppen er kjørt på nytt, legg merke til om filgruppen leses på nytt!</p>
+<blockquote class="blockquote">
+<p>&gt; k&lt;-LagKubeDatertCsv(“BARN_SOSHJELP”)</p>
+<p>BATCH: 2020-12-18-14-33</p>
+<p>Hentet FIL BARN_SOSHJELP fra BUFFER (22903 x 16)</p>
+</blockquote>
+<p>-DVS. GJENBRUK AV FORRIGE (GALE) FILGRUPPE!</p>
+<p>i motsetning til slik du ønsker:</p>
+<blockquote class="blockquote">
+<p>&gt; k&lt;-LagKubeDatertCsv(“BARN_SOSHJELP”)</p>
+<p>BATCH: 2020-12-18-14-40</p>
+<p>[Lest inn]{.underline} FIL BARN_SOSHJELP (22920 x 17), batch=[2020-12-18-14-16]{.underline}</p>
+</blockquote>
+<p>BUFFER kan tømmes, se i kap. “Problemløsing/feilsøking”.</p>
+<p>NB: Kuber som skal direktestandardiseres i Stata (brukes i NH) må lages etter en egen, litt mer kompleks metode: Først lages en “pre”-kube i R-løypa, og deretter kjøres standardiseringsscriptet i Stata. Parametre for begge trinn i prosessen spesifiseres i tabell Kuber som forklart nedenfor.</p>
+<ol type="1">
+<li><div>
+<h2 id="tabell-tnp_prod" class="anchored" data-anchor-id="kubeproduksjon-dvs.-all-output"><strong>Tabell TNP_PROD</strong></h2>
+</div></li>
+</ol>
+<p>Definere teller og nevner.</p>
+<p>Felter:</p>
+<p>TNP_NAVN Vi lager et utfilnavn. Det er ofte lik tellerfil-navnet.</p>
+<p>TELLERFIL Filgruppenavnet (se neste punkt).</p>
+<p>NEVNERFIL Må gis når nevner ikke er inkludert.</p>
+<p>OBS: Disse to …FIL-parameterne kan peke til <strong>virtuelle</strong> filer definert i tabellen FILFILTRE (venstremeny avsnitt LAG KUBE – KAN BRUKE). I så fall dannes disse runtime. Det er navnet fra feltet FILVERSJON som skrives her.</p>
+<p>NYEKOL_RAD Nye kolonner fra rader: Lag ny kolonne med &lt;navn&gt; ut fra verdiene i &lt;denne variabelen&gt; når &lt;denne tab-kolonnen&gt; har &lt;disse verdiene&gt;.</p>
+<p>Syntaks:</p>
+<p>Nevner=ANTALL{TAB1==“aperinat_fodt_500_who”| TAB1==“aperinat_fodt_1000_who”}<br>
+ANM: Det ovenstående fungerte ikke. Det lot seg kjøre, men tallene som kom ut var alt for høye (det skjedde en utilsiktet collapse). Kåre sa i forbifarten at «dette er egentlig laget for noe annet», så det er mulig at metoden ikke egner seg for min «reshape wide»-problemstilling.</p>
+<p>…</p>
+<p>TELLERKOL Hvilken kolonne i tellerfila er den telleren som skal brukes. Se navnet i tabell Styring/FILGRUPPER, avsnitt 1 ovenfor. VAL1navn etc.</p>
+<p>NEVNERKOL Tilsvarende. Innfilene til denne delen av prosessen er jo laget av systemet, så det er spesifisert tidligere hva variablene heter.<br>
+Kan oppgi &lt;navn&gt; fra NYEKOL_RAD-kommandoen ovenfor!</p>
+<section id="b---eventuelt-tabell-filfiltre" class="level2">
+<h2 class="anchored" data-anchor-id="b---eventuelt-tabell-filfiltre"><strong>1 b - Eventuelt: Tabell FILFILTRE</strong></h2>
+<p>Inneholder enda flere mekanismer for å lage teller/nevner under kjøringen. Brukes f.eks. der middelfolkemengde er nevner.</p>
+<p>Denne er ikke dokumentert fra starten av, så etter at Kåre forsvant ut, baserer bruken seg på erfaring og prøving-og-feiling …</p>
+<p>FILVERSJON Vi lager et navn. Dette brukes i tabell TNP_PROD som TELLERFIL eller NEVNERFIL.</p>
+<p>ORGFIL Filgruppenavnet.</p>
+<ol type="1">
+<li><div>
+<h2 id="tabell-kuber" class="anchored"><strong>Tabell KUBER</strong></h2>
+</div></li>
+</ol>
+<p>Definerer hva som skal beregnes og hvordan utdataene skal se ut.</p>
+<p>Inneholder felter både for ren R-løypebehandling og for direktestandardisering i Stata (for NH-indikatorer). Stata har noen helt egne felter, men bruker også mange av de vanlige. Der syntaks i feltet er ulik for R- og Statabehandling, er det angitt:</p>
+<section id="felter-1" class="level3">
+<h3 class="anchored" data-anchor-id="felter-1"><strong>Felter:</strong></h3>
+<p>KUBE_NAVN Vi lager et utfilnavn.</p>
+<p>MODUS NH eller KH. Styrer hvor utfiler havner.</p>
+<p>TNP Skriv TNP_NAVN fra forrige tabell.</p>
+<p>Stata_dropp Feltet er utdatert (nov-2018).</p>
+<blockquote class="blockquote">
+<p>Styres nå ved å oppgi kubenavn i dialogen for start av statascript Direktestandardisering (gjelder bare NH).</p>
+<p>STANDARDISERING I STATA: “1” hvis denne skal utelates fra kjøringen. Trenger bare fylles ut hvis REFVERDI_VP er lik ‘D’.</p>
+</blockquote>
+<p>AAR_START Default 0. Legges inn for å begrense hvilke årganger som blir med.</p>
+<p>AAR_STOP Default 9999. Ditto. Siste år som inkluderes.</p>
+<p>OBS: Man må <em>enten</em> bruke disse to, <em>eller</em> “AAR” nedenfor. Hvis det står noe i AAR, virker ikke AAR_STOP.</p>
+<p>AAR Enkeltår som skal tas ut! Syntaks: -[2006,2007]. MFR: -[0]</p>
+<p>GEOniv Hvilke som skal kjøres ut. B, K, F, H, L.</p>
+<p>KJONN Ditto.</p>
+<p>KJONN_0 Er kategorier som skal brukes senere i prosessen, men som ikke skal vises i kuben. Det kan f.eks. være at vi vil vise andel «høy» av noe og at nevneren skal være «høy» + «lav», da må «lav» også være med litt videre selv om vi ikke vil vise det i kuben. (Skriv inn alle felter som inngår i senere beregning, også de som <em>skal</em> vises ut.) <strong>Det gjelder alle kolonnene som slutter på «_0».</strong></p>
+<p>ALDER Som KJONN. Tom -&gt; alt som ligger i fila. «ALLE» -&gt; bare aldersgruppen ALLE, som er definert annet sted. Ellers: Må spesifisere alle grupper som skal vises i kuben.</p>
+<p>… <em>OBS: En PRE-fil for direktestandardisering (Norgeshelsa, se nedenfor) kan ikke inneholde overlappende aldersgrupper (f.eks. 0-4 og 0-19), den må bare ha de gruppene som skal brukes i standardiseringen (som regel streite 5-årsgrupper 0-4, 5-9 osv.).</em></p>
+<p>(TAB1formel -2 -3 Finnes ikke i løypescriptet)</p>
+<p>TAB1 -2 -3 Tom -&gt; alt som ligger i fila. Ellers: Spesifiserer hvilke kategorier fra hver TAB som skal være med, adskilt med komma.</p>
+<p>Kan angi kategorier som skal <em>droppes</em> i R-løypa: -[R03]</p>
+<p>SYNTAKS FOR STATA: AARSAK~keep~SELVMORD - kan angi <em>keep</em> eller <em>drop</em>.</p>
+<p>TAB1_0 etc. Se «KJONN_0» ovenfor.</p>
+<p>RATESKALA Bestemmer om rate blir per 100, per 1000 osv.</p>
+<p>MOVAV Bestemmer lengden på glidende snitt-perioden.</p>
+<p>REFVERDI_VP Bestemmer standardisering. P -&gt; Indirekte standardisering (for KH), D -&gt; Direkte standardisering (for NH), V -&gt; ingen std.</p>
+<p>REFVERDI Hvilket geonivå som er ref. OBS ulik syntaks:</p>
+<blockquote class="blockquote">
+<p>For KH: Alltid landet i hht. nåvær.beslutning. <em>GEOniv==‘L’</em></p>
+<p>For NH: <em>bef1jan2012</em></p>
+</blockquote>
+<p>NESSTARTUPPEL Hvilke måltall som skal være med. OBS ulik syntaks:</p>
+<blockquote class="blockquote">
+<p><strong>For R-løypa:</strong> T teller (rå antall), N nevner, RATE (ikke-std.), MEIS (std.rate), SMR (Norge=100, kan være med selv om ikke std.tall), MT måltall, SN sum nevner, ST sum teller, RN Rate.n (antall år det aktuelle tallet er gj.snitt av – blir lavere enn MOVAV hvis en kommune mangler tall for ett eller flere av årene i perioden).</p>
+<p><strong>For Stata:</strong> antall, crude, std, smr,nevner.</p>
+</blockquote>
+<p>EKSTRAVAR For eksempel Dekningsgrad.</p>
+<p>DIMDROPP Hvilke dimensjoner skal droppes. UTD, LANDBAK, SIVSTAND, evt KJONN er typisk.</p>
+<p>PRIKK_T Prikkeregler. Dette antallet eller lavere prikkes. (TELLER)</p>
+<p>PRIKK_N Ditto. (NEVNER)</p>
+<p>STATTOL_T Grense for å skjule serier. «Hvis mer enn 50 % av punktene er basert på &lt;dette tallet&gt; eller færre tilfeller, skjules hele serien». (OBS: Feil formulert i metadata fram til feb-2016: “færre enn &lt;dette tallet&gt;”.)</p>
+<p>OVERKAT_ANO <strong>For R-løypa:</strong> Hvilken kategori skal bevares ved naboprikking. «KJONN=1» gjør at Kvinner og Samlet prikkes.</p>
+<p>Erfaring: Hvis det skal naboprikkes etter en ekstradimensjon (f.eks. INNVKAT, UTDANN), må var-navnet stå her (med angivelse av overgruppe).</p>
+<p><strong>For Stata:</strong> Styres i <em>Stata_nabopr</em>.…</p>
+<p>VERSJONFRA</p>
+<p>VERSJONTIL Kan brukes til å hindre at en kube kjøres ut, ved å sette «til»-dato før dagens.</p>
+<p>(ANM: Jeg fikk ikke til å lage en ny linje her med samme kubenavn, selv om jeg satte «til»-dato på den gamle og «fra»-dato på den nye, og hadde forskjell i «nesstartuppel»-feltet. Måtte ha avvikende kubenavn for at linja skulle bli godtatt.)</p>
+<p>SLUTTREDIGER RSYNT-punkt, kan legge inn Statakode. (Ligger ikke helt til slutt i løypa, det skjer flere ting etter dette punktet).</p>
+<p>RSYNT_POSTPROSESS RSYNT-punkt like før ferdig kube lagres. OBS: Variabler i datasettet er fremdeles inkludert hjelpevariabler.</p>
+<p>FHP_geoniv I hvilke FHP brukes kuben? (B, K, F). Kun til info.</p>
+</section>
+<section id="fylles-ut-når-kuben-skal-direktestandardiseres-i-stata-brukes-i-nh" class="level3">
+<h3 class="anchored" data-anchor-id="fylles-ut-når-kuben-skal-direktestandardiseres-i-stata-brukes-i-nh"><strong>Fylles ut når kuben skal direktestandardiseres i Stata (brukes i NH):</strong></h3>
+<p>Stata_spesdim Navnet på spesialdimensjonen, f.eks. diagnose, dødsårsak el.l.</p>
+<p>Stata_KJONN Oppgi alle grupper, også såkalte implisitte undergrupper som ikke skal vises i kubene (de som skal vises angis i KJONN).</p>
+<p>Stata_ALDER Oppgi alle grupper, også såkalte implisitte undergrupper som ikke skal vises i kubene (de som skal vises angis i ALDER). Eks.: Hvis 0-120 og 45+ skal vises, er 0-44 implisitt, og må oppgis her.</p>
+<p>Stata_TAB1 De verdiene av spesialdimensjonen som ønskes vist i kubene. Også verdier som må lages. Syntaks: Se nedenfor</p>
+<p>Stata_ford Statistisk fordeling: “binomial” eller “poisson”</p>
+<p>Stata_antall Hvilke Geonivå skal ha Antall - Tillatt er L, H, F, kombinasjoner av disse (uten skilletegn), eller tomt felt (som gir antall på alle nivå). Så lenge vi ikke naboprikker på GEO, bør kanskje antall begrenses til ‘L’.</p>
+<p>Stata_naboprKjonn Rekkefølge for bevaring av nabokategorier, Kjønn.</p>
+<blockquote class="blockquote">
+<p>KJONN~niva1{0,1,2 }.</p>
+<p>Avansert syntaks: Kan angi avvikende rekkefølge ved angitte vilkår. KJONN~niva1{0,1,2 (2,0,1_if_ICD==C50)(2,0,1_if_ICD==C53) (1,0,2_if_ICD==C61)}</p>
+</blockquote>
+<p>Stata_naboprAlder Rekkefølge for bevaring av nabokategorier, Aldersgrupper. Alle gruppene (“trekantene” i prikkelogikken) må oppgis. Komplekst eksempel (Reseptreg.):</p>
+<blockquote class="blockquote">
+<p>ALDER~<strong>niva1</strong>{0_74,0_79,75_79}<strong>niva1</strong>{20_79,0_79,0_19}<strong>niva2</strong>{0_74,45_74,0_44}<strong>niva2</strong>{0_14,0_19,15_19}<strong>niva3</strong>{0_44,25_44,15_24,0_14}<strong>niva4</strong>{15_24,15_19,20_24}. Hele rekkefølgen har betydning når flere enn tre kategorier (se nedenfor).</p>
+</blockquote>
+<p>Stata_naboprSpes Rekkefølge for bevaring av nabokategorier, (se de foregående). NB, hele rekkefølgen har betydning. I eksempelet “INNVKAT~{0,2, 3,20 }” har «0» høyest prioritet, og «20» har lavest.</p>
+</section>
+<section id="syntaks-for-stata_tab1" class="level3">
+<h3 class="anchored" data-anchor-id="syntaks-for-stata_tab1"><strong>Syntaks for Stata_TAB1:</strong></h3>
+<p>Hvis man bare ønsker et sub-sett av verdiene i en spesialdimensjon, eller man ønsker å avlede en ny verdi fra de eksisterende, angis dette i denne kolonnen.</p>
+<ul>
+<li>Angi ønskede verdier av spesialdimensjonen(e) slik:</li>
+</ul>
+<p>spesialdimnavn~verdi. Eksempel: TRINN~10</p>
+<ul>
+<li><p>Dersom flere verdier, skill med komma, ingen mellomrom. Eksempel: TRINN~10,8</p></li>
+<li><p>Dersom flere spesialdimensjoner, skill med # . Ingen mellomrom. Eksempel: SPRSMLID~307#TRINN~10</p></li>
+<li><p>Dersom ny aggregert verdi (f.x. i tillegg til de eksisterende): Listes opp sammen med de andre verdiene, men etterfulgt av “=” og deretter angivelse av hvilke eksisterende verdier det skal aggregeres fra (skilt med “&amp;”) og så “@” og angivelse av <em>hvordan</em> teller (T) og nevner (N) skal aggregeres. Tenk nøye gjennom sistnevnte!</p></li>
+</ul>
+<p>Eksempel på syntaks der man ønsket ny verdi, Vdg_tot, for alle som har mer enn grunnskole (eksempel hentet fra 2014-filen):</p>
+<p>“Vdg_tot=Uni_Høg_kort&amp;Uni_Høg_lang&amp;Videregående\@sumT_meanN”</p>
+<ul>
+<li>Mulige aggregeringsmetoder: sum, mean.</li>
+</ul>
+</section>
+</section>
+<section id="hvis-indikatoren-skal-vises-i-barometeret-tabell-friskvik" class="level2">
+<h2 class="anchored" data-anchor-id="hvis-indikatoren-skal-vises-i-barometeret-tabell-friskvik"><strong>HVIS INDIKATOREN SKAL VISES I BAROMETERET: Tabell FRISKVIK</strong></h2>
+<p>Her er parametre for å lage tabellen s.4 og barometerfigurene: både styre hva R-løypa skal slice ut til å vises, og hvordan Statascript skal gjøre beregningene for å produsere dem. Her angis også om indikatoren skal ha setning på side 1.</p>
+<p>Ny, separat rad for hver indikator/geonivå/årgang.</p>
+<p>OBS: Stata direktestandardiseringsscript (for NH) sjekker alltid om aktuell kube (KUBE_NAVN) ligger i tab FRISKVIK med AARGANG==inneværende profilårgang og MODUS==“F”. I så fall må hele raden være utfylt, og det slices ut en Friskvikfil.</p>
+<section id="feltene" class="level3">
+<h3 class="anchored" data-anchor-id="feltene"><strong>Feltene:</strong></h3>
+<p>INDIKATOR gi den et navn.</p>
+<p>MODUS dss. geonivå, F K B</p>
+<p>AARGANG profilårgang</p>
+<p>FILNAVN</p>
+<p>KUBE_NAVN Kuben tallene tas fra</p>
+<p>AARh Hvilken årgang data skal vises</p>
+<p>KJONN Hvilket kjønn skal vises</p>
+<p>ALDER Hvilken aldersgruppe skal vises (hvis fila har fler).</p>
+<blockquote class="blockquote">
+<p><em>[mars-22: tom celle, eller “-”, for en fil med flere ald.grp -&gt; alder 0 ble valgt</em></p>
+<p><em>(Indikatorer e0K_NH_LF og e0M…).]</em></p>
+</blockquote>
+<p>EKSTRA_TAB Hvilken verdi fra en ekstradimensjon skal vises. F.eks.: ANTALL_GANGER==‘engangellerflere’ &amp; SOES==‘0’.<br>
+Her er ANTALL_GANGER TAB1 og SOES TAB2.</p>
+<p>UTDANN (tilsv.)</p>
+<p>SIVST (tilsv.)</p>
+<p>LANDBAK (tilsv.)</p>
+<p>ALTERNATIV_MALTALL Hvis noe annet enn &lt;&gt; skal brukes. Eks. DEKNINGSGRAD for indikatoren Drikkevann/dekningsgrad.</p>
+<p><em>(De følgende trenger ikke fylles ut ved kubekjøring – de brukes av Stata i flatfil- og barometerproduksjonen)</em></p>
+<p>KOMMENTAR</p>
+<p>tema_bm Under hvilken temaoverskrift i tabellen?</p>
+<p>tema_nn (tilsv.)</p>
+<p>temaid Denne temaoverskriftens nummer</p>
+<p>LNRtabells4 Radnummer i tabellen side 4</p>
+<p>ekstrafil_loep Dette er en lite brukt parameter, men behøves dersom man har en kombinasjon av</p>
+<p>a) indirekte standardisering, og</p>
+<p>b) fast referanseår</p>
+<blockquote class="blockquote">
+<p>Frem til januar 2019 har dette kun gjelt RFU-tall, fylkesprofiler.</p>
+<p><strong>Forklaring</strong>: Alle statistiske tester, både av bydels-, kommune- og fylkestall, skal være mot landstall samme år.</p>
+<p>Ved indirekte standardisering (se pkt. a) betyr dette at det trengs «predteller»<sup><a href="https://helseprofil.github.io/manual/khfunctions-access.html#fn:1">1</a></sup> basert på de aldersspesifikke ratene på landsnivå samme år. Siden de ordinære Friskvikfilene for fylkesprofiler kjøres ut med fast referanse-år (2012), vil alle predtellere i disse filene være basert på de aldersspesifikke ratene på landsnivå i 2012, hvilket ikke er det som trengs. Situasjonen krever at det kjøres ut ekstra filer med løpende standardisering. Altså: Riktig MEIS<sup><a href="https://helseprofil.github.io/manual/khfunctions-access.html#fn:2">2</a></sup> må komme fra de ordinære filene standardisert mot fast standard-år (for at MEIS i profilene skal stemme med MEIS i statistikkbanken), mens rett predteller (og følgelig Forholdstall og figurverdier) må komme fra ekstrafilene standardisert mot løpende standard-år.</p>
+<p><strong>I praksis:</strong> Man lager som regel ordinær fil og ekstrafil ved å spesifisere henholdsvis</p>
+<p>«GEOniv==‘L’ &amp; AARl==‘2012’», og</p>
+<p>«GEOniv==‘L’»</p>
+<p>i parameteren REFVERDI i tabellen KUBER . Navnet man gir ekstrafilen må slutte på «_L» (som i Løpende), f.eks. ROYK_NH_5_16_44_L. Det er navnet på ekstrafilen som skal inn i dette feltet (ekstrafil_loep).</p>
+</blockquote>
+<p>varname_bm Indikatornavn i tabellen</p>
+<p>varname_nn (tilsv.)</p>
+<p>Side_1 Skal indikatoren ha setning side 1? (avkrysningsboks) - krever at også neste er krysset av.</p>
+<p>Side_4 Skal indikatoren være med på side 4? (avkrysningsboks) - Her kan man ta ut igjen en indikator som likevel ikke skal være med, uten å måtte slette all info.</p>
+<p>Enhet Tekst til kolonnen Enhet i tabellen.</p>
+<p>periode_bm Beskriver dataenes tidsperiode til fotnote s.4</p>
+<p>periode_nn (tilsv.)</p>
+<p>kreftkorr Korrigering for at teller og nevner allerede var periodesummer fra leverandør (se Kreftreg.) og likevel er blitt ganget opp med antall år i perioden i R-løypen. Eksempel: Dagens (2018) praksis er at Kreftregisteret leverer grunnlagstall i form av 10årige glidende summer av teller og nevner. Anta at dette i vår preprosessering er blitt tolket som ettårige tall, og derfor (feilaktig) ganget opp teller og nevner med 10. Da kan man korrigere dette ved å dividere igjen med 10, ved å skrive «10» i &lt;kreftkorr&gt;. Skriver man «1» eller ingenting, så skjer det ikke noen korreksjon.</p>
+<p>ekskluderteAar</p>
+<p>FN_alder Beskriver dataenes aldersgruppe til fotnote s.4</p>
+<p>forklaring_bm Beskriver dataene, til fotnote s.4</p>
+<p>forklaring_nn (tilsv.)</p>
+<p>SammeFotnSom Angi <em>LNRtabells4</em> for indikatorer som skal ha samme fotnote</p>
+<p>testtype Hvilken statistisk test? Chiang, binomial, poisson, ELLER kommentar om at testtype er hardkodet i scriptet.</p>
+<p>feilvei Sett JA hvis x-aksen i barometeret skal snus så små verdier vises som “bedre”. Ellers sett NEI.</p>
+<p>skalaforskyv</p>
+<p>fargetPrikk Sett JA hvis barometersymbolet skal “verdilades” med rød/grønn prikk. Ellers sett NEI for å få hvit prikk med signifikansmerking.</p>
+<p>enFastDesimal JA, NEI, ingenting. Vanligvis: «NEI» eller ingenting. Da vil tall&gt;10 komme uten desimaler, mens tall lavere enn 10 vil få gradvis flere desimaler. Alle tall under 100 får, på denne måten, samme antall «significant digits». Dette er den konvensjonelle måten å presentere tall på. Skriver man «JA» vil alle tall komme med akkurat én desimal.</p>
+<p>fleksSkala JA, NEI, n/a</p>
+<p>topp10 JA, NEI, n/a</p>
+<p>ant_perioder Brukes for Ungdata</p>
+<p>TidsserieURL URL for tidsserie i KH/NH. Tas med i flatfil for opplasting til SQL-databasen. (VAR KUTTET i Develop-tabellen)</p>
+</section>
+<section id="feilmelding-ved-kjøring" class="level3">
+<h3 class="anchored"><strong>(Feilmelding ved kjøring:</strong></h3>
+<p>Når det kjøres ut en Friskvikfil i R-løypa, kommer en feilmelding:</p>
+<blockquote class="blockquote">
+<p>*KHFEIL!!&nbsp; FEIL I FRISKVIKFILTER (GEOniv %in% GEOfilter) &amp; ALDER==‘0_120’ &amp; AARh==2017 &amp; KJONN==2 &amp; KMI_KAT==‘Overvekt’ GIR bare 475 / 487 rader!</p>
+</blockquote>
+<p>Denne kan ignoreres: Den skyldes at løypa ble tilpasset antall kommuner+fylker+bydeler+land når det ble utviklet. Nå er dette antallet redusert ved kommunesammenslåinger. )</p>
+<ol type="1">
+<li><div>
+<h2 id="for-å-kjøre" class="anchored" data-anchor-id="feilmelding-ved-kjøring"><strong>FOR Å KJØRE:</strong></h2>
+</div></li>
+</ol>
+<p>Gå i Rstudio.</p>
+<p>Script: SePaaFil.r (samme som vi har åpnet før, se 3.)</p>
+<p>Kjøres bitvis.</p>
+<section id="lage-en-ny-kube-datert-med-kopi-i-csv" class="level4">
+<h4 class="anchored" data-anchor-id="lage-en-ny-kube-datert-med-kopi-i-csv">#LAGE EN NY KUBE (datert), med kopi i csv</h4>
+<p>K&lt;-LagKubeDatertCsv(“RESEPT_PREstatb_NH”)</p>
+<blockquote class="blockquote">
+<p>(«K&lt;-» -delen gjør at output går til et objekt i stedet for til skjermen. Sparer mye skjermutskrift, og gjør det mulig å se på resultatet i R etterpå.)</p>
+</blockquote>
+</section>
+<section id="for-å-få-ut-en-runtime-dump-av-datasettet" class="level4">
+<h4 class="anchored" data-anchor-id="for-å-få-ut-en-runtime-dump-av-datasettet">For å få ut en runtime dump av datasettet:</h4>
+<p>Se beskrivelse ovenfor, under Innlesing “3. Kjør innlesing…”</p>
+<p>Eksempel:</p>
+<p>k&lt;-LagKubeDatertCsv(“TEST_SESJON1_NH”,dumps=dumps)</p>
+</section>
+<section id="for-å-se-på-en-fil-som-i-statas-datafilvindu" class="level4">
+<h4 class="anchored" data-anchor-id="for-å-se-på-en-fil-som-i-statas-datafilvindu">For å se på en fil (som i Statas datafilvindu):</h4>
+<p>FG&lt;-FinnFilT(“NPR”)</p>
+<p>subset(FG,AARl==2012 &amp; GEO==“0214” &amp; KJONN==1)</p>
+<p>ELLER/OG:</p>
+<p>View(FG) -ja, med stor V.</p>
+<p>Kan lage et subset først, da ” utvalg &lt;- subset(FG,.…) ” og View(utvalg)</p>
+</section>
+<section id="utfiler-havner-etter-hva-som-er-satt-i-modus---nh-eller-kh." class="level4">
+<h4 class="anchored">UTFILER HAVNER etter hva som er satt i «Modus» - NH eller KH.</h4>
+<p>Står i «ferdig»-meldingen etter en vellykket kjøring i R.</p>
+<p>“F:/Forskningsprosjekter/PDB 2455 - Helseprofiler og til_/PRODUKSJON/</p>
+<p>PRODUKTER/KUBER/NORGESHELSA/DATERT/csv//FODSELSVEKT_NH_2015-06-22-11-37.csv”</p>
+<ol type="1">
+<li><div>
+<h2 id="problemløsingfeilsøking" class="anchored" data-anchor-id="utfiler-havner-etter-hva-som-er-satt-i-modus---nh-eller-kh."><strong>PROBLEMLØSING/FEILSØKING</strong></h2>
+</div></li>
+</ol>
+</section>
+</section>
+<section id="ta-runtimedump" class="level3">
+<h3 class="anchored" data-anchor-id="ta-runtimedump"><strong>Ta runtimedump:</strong></h3>
+<p>Det er ofte nyttig å ta ut runtimedump på ulike steder. Det kan avsløre hvor i prosessen ting går galt, og gi assosiasjoner til hvilken parameter som må endres.</p>
+<p>Kommando LagFilgruppe eller LagKube med parameter “dumps”, se i SePaaFil.r. Se liste over punktene i <a href="file://fhi.no/Felles/Forskningsprosjekter/PDB%202455%20-%20Helseprofiler%20og%20til_/PRODUKSJON/DOK/DUMPPUNKTER.docx">\\fhi.no\Felles\Forskningsprosjekter\PDB 2455 - Helseprofiler og til_\PRODUKSJON\DOK\DUMPPUNKTER.docx</a></p>
+</section>
+<section id="skrive-selve-filgruppen-til-en-csv-fil-direkte-fra-r" class="level3">
+<h3 class="anchored" data-anchor-id="skrive-selve-filgruppen-til-en-csv-fil-direkte-fra-r"><strong>Skrive selve filgruppen til en CSV-fil, direkte fra R:</strong></h3>
+<p>Etter at LagFilgruppe() er kjørt, ligger filgruppen som R-objektet FG. Kan evt. leses fra disken med <em>FG&lt;-FinnFilT(“EIERSTATUS”)</em> .</p>
+<p>Eksportkommando (filnavnet trenger ikke eksistere fra før):</p>
+<p><em>write.table(FG, file=’F:\\**Forskningsprosjekter\\</em> <em>PDB 2455 - Helseprofiler og til_\\PRODUKSJON\\RUNTIMEDUMP\\EIERSTATUS_FG.csv’, sep=‘;’, na=““, row.names = FALSE)</em></p>
+</section>
+<section id="rydde-buffer" class="level3">
+<h3 class="anchored" data-anchor-id="rydde-buffer"><strong>Rydde buffer:</strong></h3>
+<p>Opplevd: R har en buffer hvor resultat-«filer» lagres for gjenbruk. Ved vellykket kjøring ryddes den til slutt, men ved kræsj skjedde det at feil-outputfila ble liggende der. Ved neste kjøring ble ikke riktig filgruppe lest inn, den gamle med feil ble bare kjørt inn om igjen.</p>
+<p>Sjekke bufferen:</p>
+<p>&gt; names(BUFFER) viser hvilke «filer» som ligger der.</p>
+<p>Slette ting:</p>
+<p>&gt; BUFFER$navn &lt;- NULL sletter «navn»</p>
+<p>&gt; BUFFER &lt;- NULL sletter alt. Koster litt tid, for da må BEF_Gka leses inn om igjen</p>
+<p>(når den trengs).</p>
+</section>
+<section id="friske-opp-globale-bakgrunnsdata" class="level3">
+<h3 class="anchored" data-anchor-id="friske-opp-globale-bakgrunnsdata"><strong>Friske opp globale bakgrunnsdata:</strong></h3>
+<p>&gt; Khglobs Leser dem inn på nytt.</p>
+<p>Men for å være helt sikker, er det lurt å restarte R helt! Og da uten å lagre workspace …</p>
+</section>
+<section id="uforklarlig-prikking-av-sammenslåtte-geo" class="level3">
+<h3 class="anchored" data-anchor-id="uforklarlig-prikking-av-sammenslåtte-geo"><strong>Uforklarlig prikking av sammenslåtte Geo?</strong></h3>
+<p>Sjekk at alle VAL-tallene er satt som “sumbar” i tabell FILGRUPPER. Hvis ikke, kan jo ikke tallet for to gamle kommuner summeres til den nye – og da vil prikkerutinen slette resten av tallene på samme linje.</p>
+</section>
+</section>
+</section>
+<section id="eksempel-på-kompleks-indikator-inntulikhet" class="level1">
+<h1>Eksempel på kompleks indikator: INNTULIKHET</h1>
+<p>Inndata: Måltallene Ginikoeffisient og P90/P10 kommer i hver sine filer, som må ha ulike innlesingsspec. Tallene er ikke aggregerbare.</p>
+<p>Ønsket kube: Med de to måltallene i hver sin kolonne.</p>
+<p>I Filgruppen har vi én verdikolonne, og en ekstradimensjon som forteller hvilken rad som er Gini og hvilken P9010. Dette må splittes opp i kubeproduksjonen, og dimensjonen droppes.</p>
+</section>
+<section id="sammenhengen-mellom-fil-elementene-til-bruk-ved-f.eks.-kval.kontroll" class="level1">
+<h1>Sammenhengen mellom fil-elementene (til bruk ved f.eks. kval.kontroll)</h1>
+<p>Dersom det ikke har vært endringer i hvordan en filgruppe ser ut, går det an å kjøre ut en ny versjon av fjorårets kube uten å gå den tunge veien til versjonsarkivet etc. Man bare manipulerer hvilken dato de ulike originalfilene er tatt inn og ut av bruk. Men da må man kjenne til fil-sammenhengen …</p>
+<p>I tabellen brukes notasjon: TABELLNAVN – FELTNAVN.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Fil:</strong></th>
+<th style="text-align: left;"><strong>Navnet defineres hvor:</strong></th>
+<th style="text-align: left;"><strong>Fil som er grunnlag:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ferdig kubedatafil til statistikkbanken<br>
+(“kube”, output fra R-systemet)</td>
+<td style="text-align: left;">Defineres i tabell KUBER – KUBE_NAVN.</td>
+<td style="text-align: left;">Bygger på en TNP-fil, angitt<br>
+i KUBER – TNP.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TNP-fil</td>
+<td style="text-align: left;">Defineres i tabell TNP_PROD – TNP_NAVN.</td>
+<td style="text-align: left;">Bygger på en tellerfil, angitt i<br>
+TNP_PROD – TELLERFIL,<br>
+og evt. en nevnerfil angitt i<br>
+– NEVNERFIL.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tellerfilen =en filgruppe</td>
+<td style="text-align: left;">Defineres normalt i tabell FILGRUPPER<br>
+– FILGRUPPE, som regel i skjemaet<br>
+STYRING\StyrFILGRUPPER øverste tabell.<br>
+(Kan evt. defineres i FILFILTRE, dvs.<br>
+lages runtime. Det er mer aktuelt<br>
+for nevnerfilen.)</td>
+<td style="text-align: left;">Bygger på én eller flere inndatafiler<br>
+(ORGfiler), som angis i – FILNAVN.<br>
+Disse har hver sin IBrukFra og<br>
+IBrukTil-dato.</td>
+</tr>
+</tbody>
+</table>
+<p>Både ferdig kubedatafil, TNP-fil og tellerfilen (filgruppen) har ofte SAMME NAVN i Access. Det ødelegger “selvforklarende”-prinsippet, men er greiest i daglig bruk.</p>
+</section>
+<section id="statusinformasjon-om-hver-indikator" class="level1">
+<h1>Statusinformasjon om hver indikator</h1>
+<p>Prosess: Innsamling av data, innlesing av originalfiler -&gt; filgruppe, produksjon av kubedatafiler/Friskvikfiler, kvalitetskontroll av output. Hvor langt hver indikator er kommet, kan leses ??</p>
+<p>Tabell KUBESTATUS (KH2020_KUBESTATUS etc) viser prosessen med kvalitetskontroll av ferdig kube.</p>
+</section>
+<section id="kodeverk-og-systemverdier" class="level1">
+<h1>Kodeverk og systemverdier</h1>
+<section id="interne-koder-for-de-ulike-elementene-kolonnene-i-en-tabell" class="level2">
+<h2 class="anchored" data-anchor-id="interne-koder-for-de-ulike-elementene-kolonnene-i-en-tabell"><strong>Interne koder for de ulike elementene (kolonnene) i en tabell:</strong></h2>
+<p>Gn = Geonivå, Y = År, osv.</p>
+<p><strong>Se tabell KH_DELER</strong></p>
+</section>
+<section id="landbakgrunn-koder-i-kh_koder" class="level2">
+<h2 class="anchored" data-anchor-id="landbakgrunn-koder-i-kh_koder"><strong>Landbakgrunn, koder i KH_KODER:</strong></h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">KODE</th>
+<th style="text-align: left;">LABEL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">ALLE</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Europa unntatt Tyrkia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Afrika</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Asia med Tyrkia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Nord- Amerika</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Sør- og Mellom- Amerika</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Oseania</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">Statsløse</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Uoppgitt</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Andre</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">88</td>
+<td style="text-align: left;">Ugyldig</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-1</td>
+<td style="text-align: left;">Norge</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">100</td>
+<td style="text-align: left;">Innvandrere</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1B</td>
+<td style="text-align: left;">Europa unntatt Tyrkia_innvand</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1C</td>
+<td style="text-align: left;">Europa unntatt Tyrkia_norskf</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2B</td>
+<td style="text-align: left;">Afrika_innvand</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2C</td>
+<td style="text-align: left;">Afrika_norskf</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3B</td>
+<td style="text-align: left;">Asia med Tyrkia_innvand</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3C</td>
+<td style="text-align: left;">Asia med Tyrkia_norskf</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4B</td>
+<td style="text-align: left;">Nord- Amerika_innvand</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4C</td>
+<td style="text-align: left;">Nord- Amerika_norskf</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5B</td>
+<td style="text-align: left;">Sør- og Mellom- Amerika_innvand</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5C</td>
+<td style="text-align: left;">Sør- og Mellom- Amerika_norskf</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6B</td>
+<td style="text-align: left;">Oseania_innvand</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6C</td>
+<td style="text-align: left;">Oseania_norskf</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sivilstand-koder-i-kh_koder" class="level2">
+<h2 class="anchored" data-anchor-id="sivilstand-koder-i-kh_koder"><strong>Sivilstand, koder i KH_KODER:</strong></h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">KODE</th>
+<th style="text-align: left;">LABEL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">ALLE</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Ugift</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Gift</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Enke/ enkemann</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Skilt/ separert</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Annen</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Ugyldig</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Ukjent</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="utdanning-koder-i-kh_koder" class="level2">
+<h2 class="anchored" data-anchor-id="utdanning-koder-i-kh_koder"><strong>Utdanning, koder i KH_KODER:</strong></h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">KODE</th>
+<th style="text-align: left;">LABEL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">ALLE</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Grunnskole</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Videregående skole</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Universitets/ høyskoleutdanning</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Annet (ingen/ uoppgitt)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Ugyldig</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Ukjent</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">23</td>
+<td style="text-align: left;">VidergåendeOgHøyere</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">123</td>
+<td style="text-align: left;">Oppgitt</td>
+</tr>
+</tbody>
+</table>
+<p>(NB: Her bruker vi ofte 3 = Univ/Høy, kort og 4 = Univ/Høy, lang. )</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

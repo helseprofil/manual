@@ -1,0 +1,31 @@
+---
+title: "raw-database.accdb"
+description: Informasjon om access-databasen knyttet til orgdata
+editor: visual
+---
+
+## **Advarsel “Kan ikke legge til post(er) …” i Access**
+
+Du får advarselen når du skal legge `LESID` og `FILGRUPPE` etter at du har lagt inn `FILNAVN`. Trykk **OK** og flytt cursor ned eller opp. Deretter bør du kunne legge `LESID` og `FILGRUPPE`.
+
+## **Kan ikke lese filen flere ganger i Access**
+
+For å kunne lese en fil flere ganger f.eks annen fane i en Excel fil, kan gjøres ved å velge `Rediger` knappen. Valg `FILID` av filen, men IKKE skrive filstien på nytt siden den allerede finnes i databasen ie. original filer.
+
+## **Hvordan finner jeg FILID av en tidligere rawfil**
+
+Trykk knappen **Orgfiler**. En ny fane som heter *Originalfiler* åpnes hvor du kan søke filen du er interessert i. Deretter ser du *FILID* til filen.
+
+## **Feilmelding om “dublettverdier i en indeks, primærnøkkel eller relasjon”.**
+
+Dette skjer ofte når man skal legge inn ny rawfil som allerede finnes i databasen. Trykk knappen **Orgfiler** og bruk *FILID* til den filen som allerede finnes i databasen istedenfor å legge den på nytt.
+
+## **Kan ikke se doble anførselstegn `""` i Access når kodebok for TYPE er RE**
+
+Når en kolonne skal omkodes ved bruk av TYPE lik `RE` til `""` blir symbolen likevel forsvant eller usynlige når cursor blir flyttet. Løsningen er å skrive enten `delete` eller `slett` i *TIL* for å gjøre det tydelig. Selvsagt funker det med `""` også, hvis du vil gjøre det vanskelig for deg selv og andre å se hva som egentlig definert i kodeboken 😀
+
+## **Kolonnenavn med ÆØÅ - bruk regulært uttrykk i MANHEADER ved behov**
+
+*Oppdatering:* Fra versjon 1.2.1 kan man bruke *regulært uttrykk* dvs. `^$\[.*\]` osv. i MANHEADER også f.eks `^utdan=UTDANNING` for å gi nytt navn for spesielle kolonner f.eks et langt og med `æøå` kolonnenavn `utdanning særlig før migrasjonsår` til et kort kolonnenavn `UTDANNING`.
+
+MANHEADER: Dette feltet i Access-specen gjør at kolonnehoder i innfilen erstattes med noe vi skriver. De “vanskelige” kolonnehodene angis med nummer, og bør gis navn uten ÆØÅ.

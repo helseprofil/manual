@@ -1,0 +1,9 @@
+---
+title: "Håndboka"
+---
+
+Her finner du informasjon og veiledning for å installere og bruke de viktigste delene av produksjonsapparatet for arbeidet med folkehelse- og oppvekstprofiler. All kode ligger [her](https://github.com/helseprofil).
+
+Bruk menyen til venstre for å navigere i håndboken.
+
+> Før du kan ta i bruk systemene må du gjennomføre stegene i [installasjonsguiden](oppsett.qmd)

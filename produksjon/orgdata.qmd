@@ -1,0 +1,49 @@
+---
+title: "orgdata"
+description: Informasjon om aggregering av rådatafiler
+listing:
+  contents: orgdata-access.qmd
+  type: grid
+editor: visual
+---
+
+## Å bruke R-pakken
+
+[Orgdata](https://github.com/helseprofil/orgdata) er en R-pakke som brukes for å aggregere rådatafiler.
+
+For å bruke orgdata åpner du produksjonsprosjektet og går til filen `orgdata/orgdata brukerkode.Rmd`. Denne inneholder eksempelkode som kan tilpasses til filen som skal kjøres. For å få tilgang til funksjonene må første kodeblokk med `library(orgdata)` kjøres.
+
+Hovedfunksjonen i orgdata er `make_file`/`lag_fil`. Denne leser inn alle filer som skal benyttes, og aggregerer disse i tråd med parametrene som er satt opp i ACCESS-databasen.
+
+### **Omkode flere input til felles output fra samme kolonne med `RE`**
+
+Bruk av *TYPE* `KB` i kodebok for omkoding kan bare håndtere en-til-en omkoding. Men hvis det er behov for å omkode flere verdier til en felles verdi i samme kolonne, kan man bruke *TYPE* `RE` dvs. regulæruttryk eller [rex](https://rex.r-lib.org/ "rex"), istedenfor. For eksample å omkode kolonne *INNVKAT* med verdi 1, 2, 3 eller 5, til 8 kan defineres som følgende. Alle eksempler nedenfor gir samme resultat.
+
+Med `RE` ved bruk av [rex](https://rex.r-lib.org/ "rex"):
+
+| LESID | KOL     | TYPE | FRA            | TIL |
+|-------|---------|:----:|----------------|:---:|
+| ver1  | INNVKAT |  RE  | rex(or(1:3,5)) |  8  |
+
+: Med `RE` ved bruk av regulæruttrykk:
+
+| LESID | KOL     | TYPE | FRA        | TIL |
+|-------|---------|:----:|------------|:---:|
+| ver1  | INNVKAT |  RE  | 1\|2\|3\|5 |  8  |
+
+: Alle boolean symboler kan brukes her dvs. `|` og `&` for ELLER og OG.
+
+Med standard `KB` omkoding dvs. 1-til-1 omkoding:
+
+| LESID | KOL     | TYPE | FRA | TIL |
+|-------|---------|:----:|:---:|:---:|
+| ver1  | INNVKAT |  KB  |  1  |  8  |
+| ver1  | INNVKAT |  KB  |  2  |  8  |
+| ver1  | INNVKAT |  KB  |  3  |  8  |
+| ver1  | INNVKAT |  KB  |  5  |  8  |
+
+## ACCESS-database
+
+Parametre for hvordan de ulike filene skal behandles må settes opp i ACCESS-filen `raw-database.accdb` . For hver filgruppe må alle filer som skal inkluderes spesifiseres, og innlesingsspesifikasjoner fylles ut. Det må også angis hvor utfilen skal lagres, hvilke nivåer som skal aggregeres opp osv.
+
+## Relevante linker:

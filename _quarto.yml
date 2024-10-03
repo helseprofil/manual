@@ -1,0 +1,44 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!arkiv/"
+
+website:
+  title: <b>Håndboka</b>
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - text: <b>Sette opp systemet</b>
+        href: oppsett.qmd
+      - section: <b>Prosjekt - produksjon</b>
+        href: produksjon.qmd
+        contents: 
+          - produksjon/orgdata.qmd
+          - produksjon/khfunctions.qmd
+          - produksjon/qualcontrol.qmd
+      - section: <b>Prosjekt - Backend</b>
+        href: backend.qmd
+        contents: 
+          - backend/config.qmd
+          - backend/geomaster.qmd
+          - backend/misc.qmd
+          - backend/norgeo.qmd
+          - backend/snutter.qmd
+      - section: <b>Vedlikehold og utvikling</b>
+        href: vedlikehold.qmd
+        contents:
+          - pakker/norgeo.qmd
+          - pakker/orgdata.qmd
+          - pakker/khfunctions.qmd
+          - pakker/qualcontrol.qmd
+      - text: <b>Oppdatere til nytt produksjonsår</b>
+        href: newyear.qmd
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+

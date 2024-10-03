@@ -1,0 +1,6 @@
+---
+title: "norgeo"
+editor: visual
+---
+
+Inneholder R-skript som manuelt håndterer splitting av geografiske enheter.
