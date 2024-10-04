@@ -3,9 +3,13 @@ title: "misc"
 editor: visual
 ---
 
-Inneholder ulike R-funksjoner som ikke passer andre steder.
+Inneholder ulike R-funksjoner som ikke passer andre steder. kode for å laste inn og beskrivelser av hva de ulike filene inneholder ligger under.
 
 ### R/install.R
+
+``` r
+source("https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R")
+```
 
 Dette skriptet inneholder funksjonene for å sette opp systemet for databehandling.
 
@@ -16,3 +20,25 @@ Dette skriptet inneholder funksjonene for å sette opp systemet for databehandli
     -   For alle som skal vedlikeholde eller utvikle systemene er disse prosjektene nødvendig å ha tilgang til.
 
 -   `check_R_version()` brukes i begge funksjonene over for å sjekke at man bruker en tilstrekkelig ny versjon av R (\> 4.4.0)
+
+### R/misc.R
+
+``` r
+source("https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/misc.R")
+```
+
+-   `are_same()` er en funksjon som sjekker om to funksjoner er identiske. Kan være et nyttig verktøy når man utvikler nye funksjoner da den fremhever hva som er forskjellig.
+
+-   `list_funs()` er en funksjon som lister opp alle funksjoner i en pakke som en lang regex-string. Kan være nyttig om du trenger å søke i et prosjekt etter funksjoner fra en spesifikk pakke.
+
+### R/ungdata.R
+
+``` r
+source("https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ungdata.R")
+```
+
+Inneholder funksjoner for å generere en nøkkel for vurdering av ungdatafiler
+
+-   `fil <- readUngdata(year, file)`. Leser inn en ungdatafil fra `PRODUKSJON/ORGDATA/NOVA/Ungdata/`
+
+-   `ungdataKey(fil)`. Genererer en CSV-fil med nøkkel, som lagres i helseprofil-mappen lokalt.
