@@ -254,7 +254,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#om-prosjektet" id="toc-om-prosjektet" class="nav-link active" data-scroll-target="#om-prosjektet">Om prosjektet</a></li>
+  <li><a href="#vedlikehold-og-utvikling" id="toc-vedlikehold-og-utvikling" class="nav-link active" data-scroll-target="#vedlikehold-og-utvikling">Vedlikehold og utvikling</a>
+  <ul class="collapse">
+  <li><a href="#funksjoner-og-syntaks" id="toc-funksjoner-og-syntaks" class="nav-link" data-scroll-target="#funksjoner-og-syntaks">Funksjoner og syntaks</a></li>
+  <li><a href="#utvikling-av-funksjoner" id="toc-utvikling-av-funksjoner" class="nav-link" data-scroll-target="#utvikling-av-funksjoner">Utvikling av funksjoner</a></li>
+  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a></li>
+  </ul></li>
+  <li><a href="#oppdatere-interne-dataobjekter" id="toc-oppdatere-interne-dataobjekter" class="nav-link" data-scroll-target="#oppdatere-interne-dataobjekter">Oppdatere interne dataobjekter</a></li>
+  <li><a href="#om-prosjektet" id="toc-om-prosjektet" class="nav-link" data-scroll-target="#om-prosjektet">Om prosjektet</a></li>
   </ul>
 </nav>
     </div>
@@ -265,8 +272,50 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="om-prosjektet" class="level1">
-<h1>Om prosjektet</h1>
+<section id="vedlikehold-og-utvikling" class="level2">
+<h2 class="anchored" data-anchor-id="vedlikehold-og-utvikling">Vedlikehold og utvikling</h2>
+<section id="funksjoner-og-syntaks" class="level3">
+<h3 class="anchored" data-anchor-id="funksjoner-og-syntaks">Funksjoner og syntaks</h3>
+<p>Funksjonene i qualcontrol skal i hovedsak bruke funksjoner fra pakkene <code>data.table</code> og <code>collapse</code>.</p>
+<p>Bare hovedfunksjoner som inkluderes i brukerfilene skal være eksporterte objekter, mens alle andre funksjoner skal betegnes med roxygen-taggen <span class="citation" data-cites="keywords">@keywords</span><code>internal</code>. Små hjelpefunksjoner som ikke trenger utdypende dokumentasjon kan også tagges med <code>@noRd</code> for å ikke generere en hjelpefil.</p>
+</section>
+<section id="utvikling-av-funksjoner" class="level3">
+<h3 class="anchored" data-anchor-id="utvikling-av-funksjoner">Utvikling av funksjoner</h3>
+<p>Ved utvikling av nye funksjoner finner du nyttige koder i mappen <code>dev</code> og filene <code>dev.R</code> (lese inn testfiler), <code>benchmarking.R</code> (sammenligne funksjoner mtp hastighet) og <code>profiling.R</code> (analysere tid- og minnebruk for ulike steg i funksjonen).</p>
+</section>
+<section id="testing" class="level3">
+<h3 class="anchored" data-anchor-id="testing">Testing</h3>
+<p>For å sikre at pakken fungerer som den skal, er målet at så mye som mulig av koden skal være dekket av tester. For å teste pakken bruker du <code>Ctrl + Shift + T</code>. For å sjekke hvor mye av koden som er dekket kan du bruke <code>devtools::test_coverage()</code>, som genererer en rapport som blant annet viser hvor stor andel av funksjonell kode som ikke er dekket av testene. Denne fungerer ikke dersom funksjonene er lastet inn, så du må ofte restarte RStudio først.</p>
+</section>
+</section>
+<section id="oppdatere-interne-dataobjekter" class="level2">
+<h2 class="anchored" data-anchor-id="oppdatere-interne-dataobjekter">Oppdatere interne dataobjekter</h2>
+<p>Det ligger noen tabeller og lister innebygd i <code>qualcontrol</code>-pakken. Disse er lagret i filen <code>R/sysdata.rda</code>. Disse objektene oppdateres med funksjonene o <a href="https://github.com/helseprofil/qualcontrol/blob/main/R/lookup-tabs.R">R/lookup-tabs.R</a>. Da må du være i R-prosjektet for <code>qualcontrol</code>, laste inn alle funksjoner (Ctrl + Shift + L). For geo-omkodingstabell og populasjonsinfo må du først oppdatere selve tabellene, da disse lagres som egne objekter i pakkedataene.</p>
+<ol type="1">
+<li>Oppdater geoomkodingstabell
+<ul>
+<li>Kjør <code>update_georecode(year = XXXX, overwrite = TRUE)</code>. Dette leser fra geodatabase-tabellene fylkeXXXX og kommuneXXXX, og lager en samlet omkodingstabell som lagres i pakkedataene.</li>
+</ul></li>
+<li>Oppdater populasjonsinformasjon
+<ul>
+<li>Kjør <code>update_popinfo(popfile = nyeste befolkningsfil, overwrite = TRUE)</code>. Dette leser siste befolkningsfil, angitt med full filsti, og lager en tabell over alle GEO-koder med tilhørende befolkningstall og geonivå (L, F, K, B, V). Denne lagres i pakkedataene.</li>
+</ul></li>
+<li>Oppdater alle interne data
+<ul>
+<li>Kjør <code>update_internal_data(geoyear = XXXX)</code>, der XXXX er året for gjeldende årgang.</li>
+<li>Denne genererer filen <code>R/sysdata.rda</code>, med objekter som brukes av ulike funksjoner i pakken. Disse er:
+<ul>
+<li>Omkodingstabell for geokoder (se punkt 1)</li>
+<li>Tabell med populasjonsinformasjon (se punkt 2)</li>
+<li>Liste over alle valide geokoder, lest fra geodatabasen med funksjonen <code>update_validgeo()</code></li>
+<li>Liste over alle valide dimensjoner, lest fra ACCESS med funksjonen <code>update_dimlist()</code></li>
+<li>Liste over standarddimensjoner og standardverdier lest fra <a href="../backend/config.html">konfigurasjonsfilen</a></li>
+</ul></li>
+</ul></li>
+</ol>
+</section>
+<section id="om-prosjektet" class="level2">
+<h2 class="anchored" data-anchor-id="om-prosjektet">Om prosjektet</h2>
 <p>qualcontrol er en R-pakke som implementerer funksjoner brukt i kvalitetskontroll. Pakken er en videreutvikling av R-prosjektet <a href="https://github.com/helseprofil/KHvalitetskontroll">KHvalitetskontroll</a> som ble utviklet <strong>Vegard Lysne</strong> fra høsten 2022.</p>
 <p>Pakken inneholder maskinelle kontroller som overtar og effektiviserer en rekke kvalitetskontrollrutiner som tidligere har vært gjort manuelt.</p>
 <p>Brukerfiler for å gjennomføre kvalitetskontrollen ligger i <a href="../produksjon/qualcontrol.html">produksjon/qualcontrol</a>.</p>

@@ -185,7 +185,18 @@
     "href": "backend/snutter.html",
     "title": "snutter",
     "section": "",
-    "text": "Inneholder R-skript som styrer spesialbehandling av datafiler.",
+    "text": "Inneholder R-skript som styrer spesialbehandling av datafiler.\nDisse spesialsnuttene kan brukes på flere steder i løypen, og hvilket script som skal kjøres må spesifiseres i relevante kolonner i access. For å kjøre et script fra github, bruk følgende, og erstatt MAPPE og FILNAVN.R med for å vise til riktig fil.\nDet er viktig å huske local = TRUE, da dette sørger for at scriptet blir kjørt i det miljøet det blir hentet inn i, altså inni den aktuelle funksjonen (ikke global environment).",
+    "crumbs": [
+      "<b>Prosjekt - Backend</b>",
+      "snutter"
+    ]
+  },
+  {
+    "objectID": "backend/snutter.html#andre-snutter",
+    "href": "backend/snutter.html#andre-snutter",
+    "title": "snutter",
+    "section": "Andre snutter",
+    "text": "Andre snutter\nDe fleste R- og STATA-snuttene ligger i mappen BIN/Z_Statasnutter, og leses direkte herfra.",
     "crumbs": [
       "<b>Prosjekt - Backend</b>",
       "snutter"
@@ -196,7 +207,7 @@
     "href": "backend/misc.html",
     "title": "misc",
     "section": "",
-    "text": "Inneholder ulike R-funksjoner som ikke passer andre steder.",
+    "text": "Inneholder ulike R-funksjoner som ikke passer andre steder. kode for å laste inn og beskrivelser av hva de ulike filene inneholder ligger under.\n\nR/install.R\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R\")\nDette skriptet inneholder funksjonene for å sette opp systemet for databehandling.\n\nProfileSystems() installerer (og oppdaterer) pakker (fra CRAN og egne pakker på github), og kloner brukerprosjektet produksjon\nDevelopSystems() kloner i tillegg alle andre prosjekter: backend, orgdata, norgeo, qualcontrol, khfunctions/orgcube, manual.\n\nFor alle som skal vedlikeholde eller utvikle systemene er disse prosjektene nødvendig å ha tilgang til.\n\ncheck_R_version() brukes i begge funksjonene over for å sjekke at man bruker en tilstrekkelig ny versjon av R (&gt; 4.4.0)\n\n\n\nR/misc.R\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/misc.R\")\n\nare_same() er en funksjon som sjekker om to funksjoner er identiske. Kan være et nyttig verktøy når man utvikler nye funksjoner da den fremhever hva som er forskjellig.\nlist_funs() er en funksjon som lister opp alle funksjoner i en pakke som en lang regex-string. Kan være nyttig om du trenger å søke i et prosjekt etter funksjoner fra en spesifikk pakke.\n\n\n\nR/ungdata.R\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ungdata.R\")\nInneholder funksjoner for å generere en nøkkel for vurdering av ungdatafiler\n\nfil &lt;- readUngdata(year, file). Leser inn en ungdatafil fra PRODUKSJON/ORGDATA/NOVA/Ungdata/\nungdataKey(fil). Genererer en CSV-fil med nøkkel, som lagres i helseprofil-mappen lokalt.",
     "crumbs": [
       "<b>Prosjekt - Backend</b>",
       "misc"
@@ -207,7 +218,7 @@
     "href": "backend/config.html",
     "title": "config",
     "section": "",
-    "text": "Inneholder konfuigurasjonsfiler for de ulike pakkene. Disse leses inn og settes som options i R.",
+    "text": "Inneholder konfuigurasjonsfiler for de ulike pakkene. Disse leses inn og settes som options i R.\nFilene er .yml-filer, og leses inn med funksjonen yaml::load_file() som er innbakt i orgdata:::is_globs(). Denne kjøres når pakkene orgdata og qualcontrol lastes, og henter inn ulike options som brukes i ulike funksjoner.",
     "crumbs": [
       "<b>Prosjekt - Backend</b>",
       "config"
@@ -239,7 +250,7 @@
     "href": "backend/norgeo.html",
     "title": "norgeo",
     "section": "",
-    "text": "Inneholder R-skript som manuelt håndterer splitting av geografiske enheter.",
+    "text": "Inneholder R-skript som manuelt håndterer splitting av geografiske enheter.\nDisse må oppdateres dersom det kommer nye splittinger.",
     "crumbs": [
       "<b>Prosjekt - Backend</b>",
       "norgeo"
@@ -257,7 +268,7 @@
     "href": "oppsett.html",
     "title": "Sette opp systemet",
     "section": "",
-    "text": "Følg stegene under. Det er viktig at hvert steg fullføres før du går videre til neste!\n\n1. Installere R, Rstudio, Rtools og sette opp Git\nI Firmaportal, installer programmene R (minimum versjon 4.4.0), Rstudio, Rtools (versjon 4.4) og Git\n\n\n2. Sette opp Git i RStudio\nÅpne Rstudio og gå til Tools -&gt; Global Options -&gt; GIT/SVN. Sjekk at Enable version control er huket av og at git.exe-filen er angitt. Dette er viktig for å kunne synkronisere prosjekter og installere pakker som ligger på GitHub.\n\n\n2b. Autentisering i git\nDette er bare aktuelt om du har behov for å laste opp endringer til GitHub. For å sette opp autentisering i GitHub, bruk følgende kode. Det kan være du må installere pakken usethis først.\nusethis::create_github_token()\nDette tar deg til GitHub i nettleseren, hvor du kan sette opp en token som kobler din påloggingsinformasjon til RStudio. Denne må du kopiere. Deretter kjører du følgende i RStudio.\ngitcreds::gitcreds_set()\nFølg instruksjonene og lim inn koden fra GitHub.\n\n\n3. Sette encoding (valgfri, men veldig nyttig)\nFra og med R versjon 4.2 ble det innført en endring i encoding, som gjør at norske bokstaver ikke leses korrekt. Vi må derfor sette encoding manuelt. For at dette skal skje automatisk når du bruker R, kan dette med fordel legges direkte i .rprofile som er et script som kjøres ved oppstart. For å redigere denne kan du skrive følgende i konsollen, og endre filen som åpnes. Det kan være du må installere pakken usethis først.\nusethis::edit_r_profile()\nI dokumentet som åpnes legger du til følgende, og lagrer dokumentet:\n\nSys.setlocale(“LC_ALL”, “nb-NO.UTF-8”)\n\n\n\n4. Installere pakkene\nI konsollen, kjør følgende kode for å installere alle pakker og sette opp mappestruktur:\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R\")\nProfileSystems()\nFunksjonen gjør:\n\nOppretter mappen C:/Users/Navn/helseprofil. Denne er viktig da den brukes til å lagre midlertidige filer lokalt på den PCen som gjennomfører databehandling.\nOppretter R-prosjektet produksjon, som inneholder brukerfiler for de ulike delene av produksjonsapparatet.\nInstallerer alle nødvendige pakker, inkludert våre lokale pakker norgeo, orgdata, qualcontrol\n\nEtter installasjon kan du finne mappen produksjon i filbehandleren (eller via RStudio) og åpne filen produksjon.Rproj. Når du først har åpnet den vil du finne den i prosjektlisten oppe til høyre i RStudio.\nDersom du ønsker å ha prosjektene et annet sted enn i helseprofilmappen kan du spesifisere argumentet path\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R\")\nProfileSystems(path = \"Din/favoritt/mappe\")\n\n\nFor utviklere\n\nDu må først gjøre stegene over for å installere alle nødvendige R-pakker.\n\nSkal du bidra til utvikling av databehandlingssystemet trenger du tilgang til alle relevante underprosjekter. Disse kan klones ved å bruke følgende funksjon. Dersom du setter getupdates = TRUE vil den også oppdatere prosjekter du allerede har installert.\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R\")\nDevelopSystems(path = \"Din/favoritt/mappe\", getupdates = FALSE)\nDette installerer følgende prosjekter:\n\nproduksjon\nbackend\nnorgeo\norgdata\nkhfunctions\norgcube (foreløpig navn på pakke som skal erstatte khfunctions)\nqualcontrol\nmanual\n\nDe ulike prosjektene inneholder ulike deler av produksjonsapparatet, og synkroniseres med GitHub.",
+    "text": "Følg stegene under. Det er viktig at hvert steg fullføres før du går videre til neste!\n\n1. Installere R, Rstudio, Rtools og sette opp Git\nI Firmaportal, installer programmene R (minimum versjon 4.4.0), Rstudio, Rtools (versjon 4.4) og Git\n\n\n2. Sette opp Git i RStudio\nÅpne Rstudio og gå til Tools -&gt; Global Options -&gt; GIT/SVN. Sjekk at Enable version control er huket av og at git.exe-filen er angitt. Dette er viktig for å kunne synkronisere prosjekter og installere pakker som ligger på GitHub.\n\n\n2b. Autentisering i git\nDette er bare aktuelt om du har behov for å laste opp endringer til GitHub. For å sette opp autentisering i GitHub, bruk følgende kode. Det kan være du må installere pakken usethis først.\nusethis::create_github_token()\nDette tar deg til GitHub i nettleseren, hvor du kan sette opp en token som kobler din påloggingsinformasjon til RStudio. Denne må du kopiere. Deretter kjører du følgende i RStudio.\ngitcreds::gitcreds_set()\nFølg instruksjonene og lim inn koden fra GitHub.\n\n\n3. Sette encoding (valgfri, men veldig nyttig)\nFra og med R versjon 4.2 ble det innført en endring i encoding, som gjør at norske bokstaver ikke leses korrekt. Vi må derfor sette encoding manuelt. For at dette skal skje automatisk når du bruker R, kan dette med fordel legges direkte i .rprofile som er et script som kjøres ved oppstart. For å redigere denne kan du skrive følgende i konsollen, og endre filen som åpnes. Det kan være du må installere pakken usethis først.\nusethis::edit_r_profile()\nI dokumentet som åpnes legger du til følgende, og lagrer dokumentet:\n\nSys.setlocale(“LC_ALL”, “nb-NO.UTF-8”)\n\n\n\n4. Installere pakkene\nI konsollen, kjør følgende kode for å installere alle pakker og sette opp mappestruktur:\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R\")\nProfileSystems()\nFunksjonen gjør:\n\nOppretter mappen C:/Users/Navn/helseprofil. Denne er viktig da den brukes til å lagre midlertidige filer lokalt på den PCen som gjennomfører databehandling.\nOppretter R-prosjektet produksjon, som inneholder brukerfiler for de ulike delene av produksjonsapparatet.\nInstallerer alle nødvendige pakker, inkludert våre lokale pakker norgeo, orgdata, qualcontrol\n\nEtter installasjon kan du finne mappen produksjon i filbehandleren (eller via RStudio) og åpne filen produksjon.Rproj. Når du først har åpnet den vil du finne den i prosjektlisten oppe til høyre i RStudio.\nDersom du ønsker å ha prosjektene et annet sted enn i helseprofilmappen kan du spesifisere argumentet path\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R\")\nProfileSystems(path = \"Din/favoritt/mappe\")\n\n\nFor utviklere\n\nDu må først gjøre stegene over for å installere alle nødvendige R-pakker.\n\nSkal du bidra til utvikling av databehandlingssystemet trenger du tilgang til alle relevante underprosjekter. Disse kan klones ved å bruke følgende funksjon. Dersom du setter getupdates = TRUE vil den også oppdatere prosjekter du allerede har installert.\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R\")\nDevelopSystems(path = \"Din/favoritt/mappe\", getupdates = FALSE)\nDette installerer følgende prosjekter:\n\nproduksjon\nbackend\nnorgeo\norgdata\nkhfunctions\norgcube (foreløpig navn på pakke som skal erstatte khfunctions)\nqualcontrol\nmanual\n\nDe ulike prosjektene inneholder ulike deler av produksjonsapparatet, og synkroniseres med GitHub.",
     "crumbs": [
       "<b>Sette opp systemet</b>"
     ]
@@ -278,6 +289,39 @@
     "href": "pakker/qualcontrol.html",
     "title": "qualcontrol",
     "section": "",
+    "text": "Funksjonene i qualcontrol skal i hovedsak bruke funksjoner fra pakkene data.table og collapse.\nBare hovedfunksjoner som inkluderes i brukerfilene skal være eksporterte objekter, mens alle andre funksjoner skal betegnes med roxygen-taggen @keywordsinternal. Små hjelpefunksjoner som ikke trenger utdypende dokumentasjon kan også tagges med @noRd for å ikke generere en hjelpefil.\n\n\n\nVed utvikling av nye funksjoner finner du nyttige koder i mappen dev og filene dev.R (lese inn testfiler), benchmarking.R (sammenligne funksjoner mtp hastighet) og profiling.R (analysere tid- og minnebruk for ulike steg i funksjonen).\n\n\n\nFor å sikre at pakken fungerer som den skal, er målet at så mye som mulig av koden skal være dekket av tester. For å teste pakken bruker du Ctrl + Shift + T. For å sjekke hvor mye av koden som er dekket kan du bruke devtools::test_coverage(), som genererer en rapport som blant annet viser hvor stor andel av funksjonell kode som ikke er dekket av testene. Denne fungerer ikke dersom funksjonene er lastet inn, så du må ofte restarte RStudio først.",
+    "crumbs": [
+      "<b>Vedlikehold og utvikling</b>",
+      "qualcontrol"
+    ]
+  },
+  {
+    "objectID": "pakker/qualcontrol.html#vedlikehold-og-utvikling",
+    "href": "pakker/qualcontrol.html#vedlikehold-og-utvikling",
+    "title": "qualcontrol",
+    "section": "",
+    "text": "Funksjonene i qualcontrol skal i hovedsak bruke funksjoner fra pakkene data.table og collapse.\nBare hovedfunksjoner som inkluderes i brukerfilene skal være eksporterte objekter, mens alle andre funksjoner skal betegnes med roxygen-taggen @keywordsinternal. Små hjelpefunksjoner som ikke trenger utdypende dokumentasjon kan også tagges med @noRd for å ikke generere en hjelpefil.\n\n\n\nVed utvikling av nye funksjoner finner du nyttige koder i mappen dev og filene dev.R (lese inn testfiler), benchmarking.R (sammenligne funksjoner mtp hastighet) og profiling.R (analysere tid- og minnebruk for ulike steg i funksjonen).\n\n\n\nFor å sikre at pakken fungerer som den skal, er målet at så mye som mulig av koden skal være dekket av tester. For å teste pakken bruker du Ctrl + Shift + T. For å sjekke hvor mye av koden som er dekket kan du bruke devtools::test_coverage(), som genererer en rapport som blant annet viser hvor stor andel av funksjonell kode som ikke er dekket av testene. Denne fungerer ikke dersom funksjonene er lastet inn, så du må ofte restarte RStudio først.",
+    "crumbs": [
+      "<b>Vedlikehold og utvikling</b>",
+      "qualcontrol"
+    ]
+  },
+  {
+    "objectID": "pakker/qualcontrol.html#oppdatere-interne-dataobjekter",
+    "href": "pakker/qualcontrol.html#oppdatere-interne-dataobjekter",
+    "title": "qualcontrol",
+    "section": "Oppdatere interne dataobjekter",
+    "text": "Oppdatere interne dataobjekter\nDet ligger noen tabeller og lister innebygd i qualcontrol-pakken. Disse er lagret i filen R/sysdata.rda. Disse objektene oppdateres med funksjonene o R/lookup-tabs.R. Da må du være i R-prosjektet for qualcontrol, laste inn alle funksjoner (Ctrl + Shift + L). For geo-omkodingstabell og populasjonsinfo må du først oppdatere selve tabellene, da disse lagres som egne objekter i pakkedataene.\n\nOppdater geoomkodingstabell\n\nKjør update_georecode(year = XXXX, overwrite = TRUE). Dette leser fra geodatabase-tabellene fylkeXXXX og kommuneXXXX, og lager en samlet omkodingstabell som lagres i pakkedataene.\n\nOppdater populasjonsinformasjon\n\nKjør update_popinfo(popfile = nyeste befolkningsfil, overwrite = TRUE). Dette leser siste befolkningsfil, angitt med full filsti, og lager en tabell over alle GEO-koder med tilhørende befolkningstall og geonivå (L, F, K, B, V). Denne lagres i pakkedataene.\n\nOppdater alle interne data\n\nKjør update_internal_data(geoyear = XXXX), der XXXX er året for gjeldende årgang.\nDenne genererer filen R/sysdata.rda, med objekter som brukes av ulike funksjoner i pakken. Disse er:\n\nOmkodingstabell for geokoder (se punkt 1)\nTabell med populasjonsinformasjon (se punkt 2)\nListe over alle valide geokoder, lest fra geodatabasen med funksjonen update_validgeo()\nListe over alle valide dimensjoner, lest fra ACCESS med funksjonen update_dimlist()\nListe over standarddimensjoner og standardverdier lest fra konfigurasjonsfilen",
+    "crumbs": [
+      "<b>Vedlikehold og utvikling</b>",
+      "qualcontrol"
+    ]
+  },
+  {
+    "objectID": "pakker/qualcontrol.html#om-prosjektet",
+    "href": "pakker/qualcontrol.html#om-prosjektet",
+    "title": "qualcontrol",
+    "section": "Om prosjektet",
     "text": "Om prosjektet\nqualcontrol er en R-pakke som implementerer funksjoner brukt i kvalitetskontroll. Pakken er en videreutvikling av R-prosjektet KHvalitetskontroll som ble utviklet Vegard Lysne fra høsten 2022.\nPakken inneholder maskinelle kontroller som overtar og effektiviserer en rekke kvalitetskontrollrutiner som tidligere har vært gjort manuelt.\nBrukerfiler for å gjennomføre kvalitetskontrollen ligger i produksjon/qualcontrol.",
     "crumbs": [
       "<b>Vedlikehold og utvikling</b>",

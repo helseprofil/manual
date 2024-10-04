@@ -339,7 +339,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="installere-pakkene" class="level3">
 <h3 class="anchored" data-anchor-id="installere-pakkene">4. Installere pakkene</h3>
 <p>I konsollen, kjør følgende kode for å installere alle pakker og sette opp mappestruktur:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R"</span>)</span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ProfileSystems</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Funksjonen gjør:</p>
 <ul>
@@ -349,7 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Etter installasjon kan du finne mappen <em>produksjon</em> i filbehandleren (eller via RStudio) og åpne filen <em>produksjon.Rproj</em>. Når du først har åpnet den vil du finne den i prosjektlisten oppe til høyre i RStudio.</p>
 <p>Dersom du ønsker å ha prosjektene et annet sted enn i helseprofilmappen kan du spesifisere argumentet <code>path</code></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R"</span>)</span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ProfileSystems</span>(<span class="at">path =</span> <span class="st">"Din/favoritt/mappe"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="for-utviklere" class="level1">
@@ -358,7 +358,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Du må først gjøre stegene over for å installere alle nødvendige R-pakker.</p>
 </blockquote>
 <p>Skal du bidra til utvikling av databehandlingssystemet trenger du tilgang til alle relevante underprosjekter. Disse kan klones ved å bruke følgende funksjon. Dersom du setter getupdates = TRUE vil den også oppdatere prosjekter du allerede har installert.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R"</span>)</span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">DevelopSystems</span>(<span class="at">path =</span> <span class="st">"Din/favoritt/mappe"</span>, <span class="at">getupdates =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dette installerer følgende prosjekter:</p>
 <ul>
