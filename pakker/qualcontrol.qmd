@@ -36,12 +36,6 @@ Det ligger noen tabeller og lister innebygd i `qualcontrol`-pakken. Disse er lag
         -   Liste over alle valide dimensjoner, lest fra ACCESS med funksjonen `update_dimlist()`
         -   Liste over standarddimensjoner og standardverdier lest fra [konfigurasjonsfilen](../backend/config.qmd)
 
-Denne oppdaterer følgende:
-
--   Omkodingstabell for GEO-koder. Disse hentes fra geodatabasen og tabellene fylkeXXXX og kommuneXXXX, hvor XXXX = geoyear.
-
--   Tabell med alle gyldige geokoder, geonivå (L, F, K, B, V), og populasjons
-
 ## Om prosjektet
 
 qualcontrol er en R-pakke som implementerer funksjoner brukt i kvalitetskontroll. Pakken er en videreutvikling av R-prosjektet [KHvalitetskontroll](https://github.com/helseprofil/KHvalitetskontroll) som ble utviklet **Vegard Lysne** fra høsten 2022.

@@ -4,3 +4,15 @@ editor: visual
 ---
 
 Inneholder ulike R-funksjoner som ikke passer andre steder.
+
+### R/install.R
+
+Dette skriptet inneholder funksjonene for å sette opp systemet for databehandling.
+
+-   `ProfileSystems()` installerer (og oppdaterer) pakker (fra CRAN og egne pakker på github), og kloner brukerprosjektet `produksjon`
+
+-   `DevelopSystems()` kloner i tillegg alle andre prosjekter: `backend, orgdata, norgeo, qualcontrol, khfunctions/orgcube, manual`.
+
+    -   For alle som skal vedlikeholde eller utvikle systemene er disse prosjektene nødvendig å ha tilgang til.
+
+-   `check_R_version()` brukes i begge funksjonene over for å sjekke at man bruker en tilstrekkelig ny versjon av R (\> 4.4.0)

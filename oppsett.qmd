@@ -46,7 +46,7 @@ I dokumentet som åpnes legger du til følgende, og lagrer dokumentet:
 I konsollen, kjør følgende kode for å installere alle pakker og sette opp mappestruktur:
 
 ``` r
-source("https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R")
+source("https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R")
 ProfileSystems()
 ```
 
@@ -61,7 +61,7 @@ Etter installasjon kan du finne mappen *produksjon* i filbehandleren (eller via 
 Dersom du ønsker å ha prosjektene et annet sted enn i helseprofilmappen kan du spesifisere argumentet `path`
 
 ``` r
-source("https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R")
+source("https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R")
 ProfileSystems(path = "Din/favoritt/mappe")
 ```
 
@@ -72,7 +72,7 @@ ProfileSystems(path = "Din/favoritt/mappe")
 Skal du bidra til utvikling av databehandlingssystemet trenger du tilgang til alle relevante underprosjekter. Disse kan klones ved å bruke følgende funksjon. Dersom du setter getupdates = TRUE vil den også oppdatere prosjekter du allerede har installert.
 
 ``` r
-source("https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ProfileSystems.R")
+source("https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R")
 DevelopSystems(path = "Din/favoritt/mappe", getupdates = FALSE)
 ```
 
