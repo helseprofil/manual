@@ -4,3 +4,5 @@ editor: visual
 ---
 
 Inneholder R-skript som manuelt håndterer splitting av geografiske enheter.
+
+Disse må oppdateres dersom det kommer nye splittinger.
