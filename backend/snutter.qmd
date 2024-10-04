@@ -4,3 +4,13 @@ editor: visual
 ---
 
 Inneholder R-skript som styrer spesialbehandling av datafiler.
+
+Disse spesialsnuttene kan brukes på flere steder i løypen, og hvilket script som skal kjøres må spesifiseres i relevante kolonner i access.
+
+For å kjøre et script fra github, bruk følgende, og erstatt `MAPPE` og `FILNAVN.R` med for å vise til riktig fil.
+
+``` r
+source("https://raw.githubusercontent.com/helseprofil/backend/main/snutter/ MAPPE / FILNAVN.R", local = TRUE)
+```
+
+Det er viktig å huske `local = TRUE`, da dette sørger for at scriptet blir kjørt i det miljøet det blir hentet inn i, altså inni den aktuelle funksjonen (**ikke** global environment).

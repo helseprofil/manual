@@ -3,7 +3,46 @@ title: "qualcontrol"
 editor: visual
 ---
 
-# Om prosjektet
+## Vedlikehold og utvikling
+
+### Funksjoner og syntaks
+
+Funksjonene i qualcontrol skal i hovedsak bruke funksjoner fra pakkene `data.table` og `collapse`.
+
+Bare hovedfunksjoner som inkluderes i brukerfilene skal være eksporterte objekter, mens alle andre funksjoner skal betegnes med roxygen-taggen @keywords`internal`. Små hjelpefunksjoner som ikke trenger utdypende dokumentasjon kan også tagges med `@noRd` for å ikke generere en hjelpefil.
+
+### Utvikling av funksjoner
+
+Ved utvikling av nye funksjoner finner du nyttige koder i mappen `dev` og filene `dev.R` (lese inn testfiler), `benchmarking.R` (sammenligne funksjoner mtp hastighet) og `profiling.R` (analysere tid- og minnebruk for ulike steg i funksjonen).
+
+### Testing
+
+For å sikre at pakken fungerer som den skal, er målet at så mye som mulig av koden skal være dekket av tester. For å teste pakken bruker du `Ctrl + Shift + T`. For å sjekke hvor mye av koden som er dekket kan du bruke `devtools::test_coverage()`, som genererer en rapport som blant annet viser hvor stor andel av funksjonell kode som ikke er dekket av testene. Denne fungerer ikke dersom funksjonene er lastet inn, så du må ofte restarte RStudio først.
+
+## Oppdatere interne dataobjekter
+
+Det ligger noen tabeller og lister innebygd i `qualcontrol`-pakken. Disse er lagret i filen `R/sysdata.rda`. Disse objektene oppdateres med funksjonene o [R/lookup-tabs.R](https://github.com/helseprofil/qualcontrol/blob/main/R/lookup-tabs.R). Da må du være i R-prosjektet for `qualcontrol`, laste inn alle funksjoner (Ctrl + Shift + L). For geo-omkodingstabell og populasjonsinfo må du først oppdatere selve tabellene, da disse lagres som egne objekter i pakkedataene.
+
+1.  Oppdater geoomkodingstabell
+    -   Kjør `update_georecode(year = XXXX, overwrite = TRUE)`. Dette leser fra geodatabase-tabellene fylkeXXXX og kommuneXXXX, og lager en samlet omkodingstabell som lagres i pakkedataene.
+2.  Oppdater populasjonsinformasjon
+    -   Kjør `update_popinfo(popfile = nyeste befolkningsfil, overwrite = TRUE)`. Dette leser siste befolkningsfil, angitt med full filsti, og lager en tabell over alle GEO-koder med tilhørende befolkningstall og geonivå (L, F, K, B, V). Denne lagres i pakkedataene.
+3.  Oppdater alle interne data
+    -   Kjør `update_internal_data(geoyear = XXXX)`, der XXXX er året for gjeldende årgang.
+    -   Denne genererer filen `R/sysdata.rda`, med objekter som brukes av ulike funksjoner i pakken. Disse er:
+        -   Omkodingstabell for geokoder (se punkt 1)
+        -   Tabell med populasjonsinformasjon (se punkt 2)
+        -   Liste over alle valide geokoder, lest fra geodatabasen med funksjonen `update_validgeo()`
+        -   Liste over alle valide dimensjoner, lest fra ACCESS med funksjonen `update_dimlist()`
+        -   Liste over standarddimensjoner og standardverdier lest fra [konfigurasjonsfilen](../backend/config.qmd)
+
+Denne oppdaterer følgende:
+
+-   Omkodingstabell for GEO-koder. Disse hentes fra geodatabasen og tabellene fylkeXXXX og kommuneXXXX, hvor XXXX = geoyear.
+
+-   Tabell med alle gyldige geokoder, geonivå (L, F, K, B, V), og populasjons
+
+## Om prosjektet
 
 qualcontrol er en R-pakke som implementerer funksjoner brukt i kvalitetskontroll. Pakken er en videreutvikling av R-prosjektet [KHvalitetskontroll](https://github.com/helseprofil/KHvalitetskontroll) som ble utviklet **Vegard Lysne** fra høsten 2022.
 
