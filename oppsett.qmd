@@ -5,9 +5,15 @@ description: guide til å installere alle nødvendige pakker
 
 Følg stegene under. Det er viktig at hvert steg fullføres før du går videre til neste!
 
-### 1. Installere R, Rstudio, Rtools og sette opp Git
+### 1. Installere R, Rstudio, Rtools, Git og STATA
 
-I Firmaportal, installer programmene **R** (minimum versjon 4.4.0), **Rstudio**, **Rtools** (versjon 4.4) og **Git**
+I Firmaportal, installer programmene:
+
+-   **R** (minimum versjon 4.4.0)
+-   **Rstudio**
+-   **Rtools** (versjon 4.4, tilsvarende R-versjonen)
+-   **Git**
+-   **STATA** (trengs for å kjøre STATA-snutter)
 
 ### 2. Sette opp Git i RStudio
 

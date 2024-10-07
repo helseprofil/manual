@@ -3,6 +3,6 @@ title: "config"
 editor: visual
 ---
 
-Inneholder konfuigurasjonsfiler for de ulike pakkene. Disse leses inn og settes som `options` i R.
+Inneholder konfigurasjonsfiler for de ulike pakkene. Disse leses inn og settes som `options` i R.
 
 Filene er .yml-filer, og leses inn med funksjonen `yaml::load_file()` som er innbakt i `orgdata:::is_globs()`. Denne kjøres når pakkene orgdata og qualcontrol lastes, og henter inn ulike `options` som brukes i ulike funksjoner.

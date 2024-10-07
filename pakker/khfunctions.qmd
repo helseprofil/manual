@@ -15,7 +15,7 @@ editor: visual
 
 For å bruke en spesifikk versjon av prosjektet kan du bruke funksjonen `usebranch("navn på github branch")`, dette laster alle funksjoner fra valgte branch.
 
-### Spore opp funksjoner som brukes til debugging\*\*
+### Spore opp funksjoner som brukes til debugging
 
 For å se hvilke funksjoner som brukes eller aktiveres når man kjører `LagFilgruppe` eller `LagKUBE` kan man sette `show_functions` til `TRUE`. Dersom du vil se funksjonen inkludert argumentene, kan du definere `show_arguments` til `TRUE`. Dersom begge er satt til TRUE, vil `show_functions` brukes til debugging.
 
