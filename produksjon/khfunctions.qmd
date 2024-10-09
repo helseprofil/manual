@@ -37,4 +37,10 @@ For å få tilgang til funksjonene må første kodeblokk med `use_khfunctions()`
 
     -   En CSV-fil med ACCESS-spesifikasjoner på tidspunktet datafilen ble kjørt, lagret i `PRODUKTER/KUBER/KOMMUNEHELSA/SPECS`
 
+## Midlertidige filer
+
+-   Når en kjøring inkluderer STATA-kode vil det lagres midlertidige filer som brukes av STATA. Dette gjelder for de fleste kuber pga STATA-prikking. De midlertidige filene lagres lokalt på din PC, i `helseprofil`-mappen, og overskrives forløpende.
+
+-   Dersom noe har gått galt i STATA, kan du finne `.log`-filen her.
+
 ## Relevante linker:

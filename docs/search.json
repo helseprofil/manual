@@ -520,5 +520,16 @@
       "<b>Prosjekt - produksjon</b>",
       "qualcontrol"
     ]
+  },
+  {
+    "objectID": "produksjon/khfunctions.html#midlertidige-filer",
+    "href": "produksjon/khfunctions.html#midlertidige-filer",
+    "title": "khfunctions",
+    "section": "Midlertidige filer",
+    "text": "Midlertidige filer\n\nNår en kjøring inkluderer STATA-kode vil det lagres midlertidige filer som brukes av STATA. Dette gjelder for de fleste kuber pga STATA-prikking. De midlertidige filene lagres lokalt på din PC, i helseprofil-mappen, og overskrives forløpende.\nDersom noe har gått galt i STATA, kan du finne .log-filen her.",
+    "crumbs": [
+      "<b>Prosjekt - produksjon</b>",
+      "khfunctions"
+    ]
   }
 ]
