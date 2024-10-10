@@ -22,6 +22,7 @@ website:
       - section: <b>Prosjekt - Backend</b>
         href: backend.qmd
         contents: 
+          - backend/backup.qmd
           - backend/config.qmd
           - backend/geomaster.qmd
           - backend/misc.qmd

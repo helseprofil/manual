@@ -229,7 +229,7 @@
     "href": "backend.html",
     "title": "Prosjekt: backend",
     "section": "",
-    "text": "Backend er et R-prosjekt som inneholder alt som har å gjøre med vedlikehold og oppdatering av produksjonsløypen. Dette kan for eksempel være oppdatering av GEO-tabeller eller konfigurasjonsfiler. Se undersidene for nærmere instruks om hvordan du bruker disse.\n\nRelevante linker:\n\n\n\n\n\n\n\n\n\n\n\n\n\nconfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngeomaster\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmisc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnorgeo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsnutter\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items",
+    "text": "Backend er et R-prosjekt som inneholder alt som har å gjøre med vedlikehold og oppdatering av produksjonsløypen. Dette kan for eksempel være oppdatering av GEO-tabeller eller konfigurasjonsfiler. Se undersidene for nærmere instruks om hvordan du bruker disse.\n\nRelevante linker:\n\n\n\n\n\n\n\n\n\n\n\n\n\nbackup\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nconfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngeomaster\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmisc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnorgeo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsnutter\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "<b>Prosjekt - Backend</b>"
     ]
@@ -531,5 +531,12 @@
       "<b>Prosjekt - produksjon</b>",
       "khfunctions"
     ]
+  },
+  {
+    "objectID": "backend/backup.html",
+    "href": "backend/backup.html",
+    "title": "backup",
+    "section": "",
+    "text": "Inneholder R-script for oppdatering av ACCESS-databasen.\nKan brukes ved å source følgende dokument:\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/backup/backup_khelsa.R\")\nDeretter kan du ta backup av databasen ved å bruke funksjonen slik, og endre til nyeste profilårgang.\nbackup(profilaargang = 2025)"
   }
 ]

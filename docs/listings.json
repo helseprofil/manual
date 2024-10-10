@@ -38,6 +38,7 @@
   {
     "listing": "/backend.html",
     "items": [
+      "/backend/backup.html",
       "/backend/config.html",
       "/backend/geomaster.html",
       "/backend/misc.html",

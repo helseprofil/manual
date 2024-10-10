@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>misc – Håndboka</title>
+<title>backup – Håndboka</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,7 +120,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../backend.html"><b>Prosjekt - Backend</b></a></li><li class="breadcrumb-item"><a href="../backend/misc.html">misc</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      &lt;b&gt;Håndboka&lt;/b&gt;
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -132,8 +134,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../backend.html"><b>Prosjekt - Backend</b></a></li><li class="breadcrumb-item"><a href="../backend/misc.html">misc</a></li></ol></nav>
-      <h1 class="title">misc</h1>
+    <div class="quarto-title column-body">
+      <h1 class="title">backup</h1>
                       </div>
   </div>
     
@@ -207,12 +209,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../backend/backup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">backup</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../backend/config.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">config</span></a>
   </div>
@@ -225,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../backend/misc.html" class="sidebar-item-text sidebar-link active">
+  <a href="../backend/misc.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">misc</span></a>
   </div>
 </li>
@@ -289,16 +285,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#rinstall.r" id="toc-rinstall.r" class="nav-link active" data-scroll-target="#rinstall.r">R/install.R</a></li>
-  <li><a href="#rmisc.r" id="toc-rmisc.r" class="nav-link" data-scroll-target="#rmisc.r">R/misc.R</a></li>
-  <li><a href="#rungdata.r" id="toc-rungdata.r" class="nav-link" data-scroll-target="#rungdata.r">R/ungdata.R</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -307,39 +295,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Inneholder ulike R-funksjoner som ikke passer andre steder. kode for å laste inn og beskrivelser av hva de ulike filene inneholder ligger under.</p>
-<section id="rinstall.r" class="level3">
-<h3 class="anchored" data-anchor-id="rinstall.r">R/install.R</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dette skriptet inneholder funksjonene for å sette opp systemet for databehandling.</p>
-<ul>
-<li><p><code>ProfileSystems()</code> installerer (og oppdaterer) pakker (fra CRAN og egne pakker på github), og kloner brukerprosjektet <code>produksjon</code></p></li>
-<li><p><code>DevelopSystems()</code> kloner i tillegg alle andre prosjekter: <code>backend, orgdata, norgeo, qualcontrol, khfunctions/orgcube, manual</code>.</p>
-<ul>
-<li>For alle som skal vedlikeholde eller utvikle systemene er disse prosjektene nødvendig å ha tilgang til.</li>
-</ul></li>
-<li><p><code>check_R_version()</code> brukes i begge funksjonene over for å sjekke at man bruker en tilstrekkelig ny versjon av R (&gt; 4.4.0)</p></li>
-</ul>
-</section>
-<section id="rmisc.r" class="level3">
-<h3 class="anchored" data-anchor-id="rmisc.r">R/misc.R</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/misc.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><p><code>are_same()</code> er en funksjon som sjekker om to funksjoner er identiske. Kan være et nyttig verktøy når man utvikler nye funksjoner da den fremhever hva som er forskjellig.</p></li>
-<li><p><code>list_funs()</code> er en funksjon som lister opp alle funksjoner i en pakke som en lang regex-string. Kan være nyttig om du trenger å søke i et prosjekt etter funksjoner fra en spesifikk pakke.</p></li>
-</ul>
-</section>
-<section id="rungdata.r" class="level3">
-<h3 class="anchored" data-anchor-id="rungdata.r">R/ungdata.R</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ungdata.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Inneholder funksjoner for å generere en nøkkel for vurdering av ungdatafiler</p>
-<ul>
-<li><p><code>fil &lt;- readUngdata(year, file)</code>. Leser inn en ungdatafil fra <code>PRODUKSJON/ORGDATA/NOVA/Ungdata/</code></p></li>
-<li><p><code>ungdataKey(fil)</code>. Genererer en CSV-fil med nøkkel, som lagres i helseprofil-mappen lokalt.</p></li>
-</ul>
+<p>Inneholder R-script for oppdatering av ACCESS-databasen.</p>
+<p>Kan brukes ved å source følgende dokument:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/helseprofil/backend/main/backup/backup_khelsa.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Deretter kan du ta backup av databasen ved å bruke funksjonen slik, og endre til nyeste profilårgang.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">backup</span>(<span class="at">profilaargang =</span> <span class="dv">2025</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,0 +1,18 @@
+---
+title: "backup"
+editor: visual
+---
+
+Inneholder R-script for oppdatering av ACCESS-databasen.
+
+Kan brukes ved å source følgende dokument:
+
+``` r
+source("https://raw.githubusercontent.com/helseprofil/backend/main/backup/backup_khelsa.R")
+```
+
+Deretter kan du ta backup av databasen ved å bruke funksjonen slik, og endre til nyeste profilårgang.
+
+``` r
+backup(profilaargang = 2025)
+```
