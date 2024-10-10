@@ -11,6 +11,7 @@ website:
   repo-actions: [edit]
   navbar: 
     search: true
+    pinned: true
     right: 
       - text: Gå til helseprofil på GitHub
         href: https://github.com/helseprofil
@@ -43,11 +44,6 @@ website:
           - pakker/qualcontrol.qmd
       - text: <b>Oppdatere til nytt produksjonsår</b>
         href: newyear.qmd
-  page-footer:
-    left:
-      - text: Kildekode for håndboka
-        href: https://github.com/helseprofil/manual
-    
         
 title-block-banner: "#d2e4f3"
 execute: 
