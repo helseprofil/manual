@@ -29,4 +29,4 @@ Når oppdateringen er komplett og ferdig testet, kan denne merges inn i dev elle
 
 For å merge en branch må det opprettes en pull request på GitHub, der man forteller hvilken branch som skal merges med dev eller main/master. Når denne er godkjent vil de nye endringene merges. Da kan man gjerne også slette den ferdige feature-branchen.
 
-# Relevante linker:
+## Innhold:

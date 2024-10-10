@@ -45,5 +45,15 @@
       "/backend/norgeo.html",
       "/backend/snutter.html"
     ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/oppsett.html",
+      "/produksjon.html",
+      "/backend.html",
+      "/vedlikehold.html",
+      "/newyear.html"
+    ]
   }
 ]

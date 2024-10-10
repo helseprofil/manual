@@ -18,4 +18,4 @@ Produksjon er hovedprosjektet som brukes i databehandlingen. Her finner du bruke
 
 For å bruke produksjon, åpner du .Rproj-filen i produksjonsprosjektet, eller velger produksjon fra nedtrekksmenyen øverst til høyre i RStudio (forutsatt at du tidligere har åpnet prosjektet).
 
-# Relevante linker:
+## Innhold:

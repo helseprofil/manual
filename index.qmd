@@ -1,5 +1,17 @@
 ---
 title: "Håndboka"
+listing:
+  contents: 
+    - oppsett.qmd
+    - produksjon.qmd
+    - backend.qmd
+    - vedlikehold.qmd
+    - newyear.qmd
+  sort: false
+  type: grid
+  categories: false
+  sort-ui: false
+  filter-ui: false
 description: Informasjon og brukerveiledning til arbeidet med folkehelse- og oppvekstprofiler
 ---
 
@@ -8,3 +20,5 @@ Her finner du informasjon og veiledning for å installere og bruke de viktigste 
 Bruk menyen til venstre for å navigere i håndboken.
 
 > Før du kan ta i bruk systemene må du gjennomføre stegene i [installasjonsguiden](oppsett.qmd)
+
+## Innhold: 

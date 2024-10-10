@@ -168,7 +168,7 @@
     "href": "produksjon.html",
     "title": "Produksjon",
     "section": "",
-    "text": "Produksjon er hovedprosjektet som brukes i databehandlingen. Her finner du brukerfiler for de ulike delene av produksjonsapparatet. Les mer om disse på de ulike undersidene.\nFor å bruke produksjon, åpner du .Rproj-filen i produksjonsprosjektet, eller velger produksjon fra nedtrekksmenyen øverst til høyre i RStudio (forutsatt at du tidligere har åpnet prosjektet).\n\nRelevante linker:\n\n\n\n\n\n\n\n\n\n\n\n\n\norgdata\n\n\nInformasjon om aggregering av rådatafiler\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nkhfunctions\n\n\nInformasjon om kubekjøring\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nqualcontrol\n\n\nInformasjon om kvalitetskontrollsystemet\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items",
+    "text": "Produksjon er hovedprosjektet som brukes i databehandlingen. Her finner du brukerfiler for de ulike delene av produksjonsapparatet. Les mer om disse på de ulike undersidene.\nFor å bruke produksjon, åpner du .Rproj-filen i produksjonsprosjektet, eller velger produksjon fra nedtrekksmenyen øverst til høyre i RStudio (forutsatt at du tidligere har åpnet prosjektet).",
     "crumbs": [
       "Gå til helseprofil på GitHub",
       "<b>Prosjekt - produksjon</b>"
@@ -262,7 +262,7 @@
     "href": "backend.html",
     "title": "Prosjekt: backend",
     "section": "",
-    "text": "Backend er et R-prosjekt som inneholder alt som har å gjøre med vedlikehold og oppdatering av produksjonsløypen. Dette kan for eksempel være oppdatering av GEO-tabeller eller konfigurasjonsfiler. Se undersidene for nærmere instruks om hvordan du bruker disse.\n\nRelevante linker:\n\n\n\n\n\n\n\n\n\n\n\n\n\nbackup\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nconfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngeomaster\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmisc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnorgeo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsnutter\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items",
+    "text": "Backend er et R-prosjekt som inneholder alt som har å gjøre med vedlikehold og oppdatering av produksjonsløypen. Dette kan for eksempel være oppdatering av GEO-tabeller eller konfigurasjonsfiler. Se undersidene for nærmere instruks om hvordan du bruker disse.",
     "crumbs": [
       "Gå til helseprofil på GitHub",
       "<b>Prosjekt - Backend</b>"
@@ -309,7 +309,7 @@
     "href": "index.html",
     "title": "Håndboka",
     "section": "",
-    "text": "Her finner du informasjon og veiledning for å installere og bruke de viktigste delene av produksjonsapparatet for arbeidet med folkehelse- og oppvekstprofiler. All kode ligger her.\nBruk menyen til venstre for å navigere i håndboken.\n\nFør du kan ta i bruk systemene må du gjennomføre stegene i installasjonsguiden"
+    "text": "Her finner du informasjon og veiledning for å installere og bruke de viktigste delene av produksjonsapparatet for arbeidet med folkehelse- og oppvekstprofiler. All kode ligger her.\nBruk menyen til venstre for å navigere i håndboken."
   },
   {
     "objectID": "oppsett.html",
@@ -574,6 +574,46 @@
       "Gå til helseprofil på GitHub",
       "<b>Prosjekt - produksjon</b>",
       "qualcontrol"
+    ]
+  },
+  {
+    "objectID": "index.html#innhold",
+    "href": "index.html#innhold",
+    "title": "Håndboka",
+    "section": "Innhold:",
+    "text": "Innhold:"
+  },
+  {
+    "objectID": "produksjon.html#innhold",
+    "href": "produksjon.html#innhold",
+    "title": "Produksjon",
+    "section": "Innhold:",
+    "text": "Innhold:",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Prosjekt - produksjon</b>"
+    ]
+  },
+  {
+    "objectID": "backend.html#innhold",
+    "href": "backend.html#innhold",
+    "title": "Prosjekt: backend",
+    "section": "Innhold:",
+    "text": "Innhold:",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Prosjekt - Backend</b>"
+    ]
+  },
+  {
+    "objectID": "vedlikehold.html#innhold",
+    "href": "vedlikehold.html#innhold",
+    "title": "Vedlikehold og utvikling",
+    "section": "Innhold:",
+    "text": "Innhold:",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Vedlikehold og utvikling</b>"
     ]
   }
 ]

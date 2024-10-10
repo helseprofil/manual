@@ -13,4 +13,4 @@ page-layout: full
 
 Backend er et R-prosjekt som inneholder alt som har å gjøre med vedlikehold og oppdatering av produksjonsløypen. Dette kan for eksempel være oppdatering av GEO-tabeller eller konfigurasjonsfiler. Se undersidene for nærmere instruks om hvordan du bruker disse.
 
-# Relevante linker:
+## Innhold: 
