@@ -372,6 +372,8 @@ window.Quarto = {
   <li><a href="#noen-tips" id="toc-noen-tips" class="nav-link active" data-scroll-target="#noen-tips">Noen tips</a>
   <ul class="collapse">
   <li><a href="#bruke-spesifikk-versjon" id="toc-bruke-spesifikk-versjon" class="nav-link" data-scroll-target="#bruke-spesifikk-versjon">Bruke spesifikk versjon</a></li>
+  <li><a href="#bruke-lokal-versjon" id="toc-bruke-lokal-versjon" class="nav-link" data-scroll-target="#bruke-lokal-versjon">Bruke lokal versjon</a></li>
+  <li><a href="#kjøre-linje-for-linje" id="toc-kjøre-linje-for-linje" class="nav-link" data-scroll-target="#kjøre-linje-for-linje">Kjøre linje for linje</a></li>
   <li><a href="#spore-opp-funksjoner-som-brukes-til-debugging" id="toc-spore-opp-funksjoner-som-brukes-til-debugging" class="nav-link" data-scroll-target="#spore-opp-funksjoner-som-brukes-til-debugging">Spore opp funksjoner som brukes til debugging</a></li>
   <li><a href="#lagre-loggfil-som-tekstdokument" id="toc-lagre-loggfil-som-tekstdokument" class="nav-link" data-scroll-target="#lagre-loggfil-som-tekstdokument">Lagre loggfil som tekstdokument</a></li>
   </ul></li>
@@ -407,9 +409,17 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="bruke-spesifikk-versjon">Bruke spesifikk versjon</h3>
 <p>For å bruke en spesifikk versjon av prosjektet kan du bruke funksjonen <code>usebranch("navn på github branch")</code>, dette laster alle funksjoner fra valgte branch.</p>
 </section>
+<section id="bruke-lokal-versjon" class="level3">
+<h3 class="anchored" data-anchor-id="bruke-lokal-versjon">Bruke lokal versjon</h3>
+<p>Når du gjør endringer i koden og vil teste denne uten å pushe til GitHub, kan du bruke funksjonen <code>uselocal(test = FALSE)</code> som laster alle funksjonene fra de lokale filene. For å teste endringer i ACCESS kan du bruke <code>test = TRUE</code>, som bytter til å bruke databasefilene <code>test/KHELSAtest.mdb</code> og <code>test/KHloggtest.mdb</code>. Overskriv gjerne disse med ny kopi av den skarpe databasen før testing.</p>
+</section>
+<section id="kjøre-linje-for-linje" class="level3">
+<h3 class="anchored" data-anchor-id="kjøre-linje-for-linje">Kjøre linje for linje</h3>
+<p>Når en kjøring krasjer kan det være nyttig å kjøre funksjonen linje for linje for å finne problemet. I slike situasjoner kan du bruke funksjonen <code>.SetKubeParameters("KUBENAVN")</code> for å sette alle argumentene i <code>LagKUBE()</code>.</p>
+</section>
 <section id="spore-opp-funksjoner-som-brukes-til-debugging" class="level3">
 <h3 class="anchored" data-anchor-id="spore-opp-funksjoner-som-brukes-til-debugging">Spore opp funksjoner som brukes til debugging</h3>
-<p>For å se hvilke funksjoner som brukes eller aktiveres når man kjører <code>LagFilgruppe</code> eller <code>LagKUBE</code> kan man sette <code>show_functions</code> til <code>TRUE</code>. Dersom du vil se funksjonen inkludert argumentene, kan du definere <code>show_arguments</code> til <code>TRUE</code>. Dersom begge er satt til TRUE, vil <code>show_functions</code> brukes til debugging.</p>
+<p>For å se hvilke funksjoner som brukes eller aktiveres når man kjører <code>LagFilgruppe</code> eller <code>LagKUBE</code> kan man sette <code>show_functions = TRUE</code> . Dersom du vil se funksjonen inkludert argumentene, kan du definere <code>show_arguments = TRUE</code>. Dersom begge er satt til TRUE, vil <code>show_functions</code> brukes til debugging.</p>
 </section>
 <section id="lagre-loggfil-som-tekstdokument" class="level3">
 <h3 class="anchored" data-anchor-id="lagre-loggfil-som-tekstdokument">Lagre loggfil som tekstdokument</h3>

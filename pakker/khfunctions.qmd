@@ -15,9 +15,17 @@ editor: visual
 
 For å bruke en spesifikk versjon av prosjektet kan du bruke funksjonen `usebranch("navn på github branch")`, dette laster alle funksjoner fra valgte branch.
 
+### Bruke lokal versjon
+
+Når du gjør endringer i koden og vil teste denne uten å pushe til GitHub, kan du bruke funksjonen `uselocal(test = FALSE)` som laster alle funksjonene fra de lokale filene. For å teste endringer i ACCESS kan du bruke `test = TRUE`, som bytter til å bruke databasefilene `test/KHELSAtest.mdb` og `test/KHloggtest.mdb`. Overskriv gjerne disse med ny kopi av den skarpe databasen før testing.
+
+### Kjøre linje for linje
+
+Når en kjøring krasjer kan det være nyttig å kjøre funksjonen linje for linje for å finne problemet. I slike situasjoner kan du bruke funksjonen `.SetKubeParameters("KUBENAVN")` for å sette alle argumentene i `LagKUBE()`.
+
 ### Spore opp funksjoner som brukes til debugging
 
-For å se hvilke funksjoner som brukes eller aktiveres når man kjører `LagFilgruppe` eller `LagKUBE` kan man sette `show_functions` til `TRUE`. Dersom du vil se funksjonen inkludert argumentene, kan du definere `show_arguments` til `TRUE`. Dersom begge er satt til TRUE, vil `show_functions` brukes til debugging.
+For å se hvilke funksjoner som brukes eller aktiveres når man kjører `LagFilgruppe` eller `LagKUBE` kan man sette `show_functions = TRUE` . Dersom du vil se funksjonen inkludert argumentene, kan du definere `show_arguments = TRUE`. Dersom begge er satt til TRUE, vil `show_functions` brukes til debugging.
 
 ### Lagre loggfil som tekstdokument
 
