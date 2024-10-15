@@ -44,6 +44,6 @@ Med standard `KB` omkoding dvs. 1-til-1 omkoding:
 
 ## ACCESS-database
 
-Parametre for hvordan de ulike filene skal behandles må settes opp i ACCESS-filen `raw-database.accdb` . For hver filgruppe må alle filer som skal inkluderes spesifiseres, og innlesingsspesifikasjoner fylles ut. Det må også angis hvor utfilen skal lagres, hvilke nivåer som skal aggregeres opp osv.
+Parametre for hvordan de ulike filene skal behandles må settes opp i ACCESS-filen [`raw-database.accdb`](orgdata-access.qmd). For hver filgruppe må alle filer som skal inkluderes spesifiseres, og innlesingsspesifikasjoner fylles ut. Det må også angis hvor utfilen skal lagres, hvilke nivåer som skal aggregeres opp osv.
 
 ## Relevante linker:

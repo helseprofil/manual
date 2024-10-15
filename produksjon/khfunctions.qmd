@@ -16,7 +16,7 @@ For å bruke khfunctions åpner du produksjonsprosjektet og går til filen `khfu
 For å få tilgang til funksjonene må første kodeblokk med `use_khfunctions()` kjøres.
 
 -   De to hovedfunksjonene i prosjektet er `LagFilgruppe()` og `LagKUBE()`.
--   Parametre må settes opp i ACCESS-filen `KHELSA.mdb`, og logg skrives til ACCESS-filen `KHlogg.mdb`
+-   Parametre må settes opp i ACCESS-filen [`KHELSA.mdb`](khfunctions-access.qmd), og logg skrives til ACCESS-filen `KHlogg.mdb`
 
 ## Kontroll av siste kjøring
 
@@ -39,8 +39,6 @@ For å få tilgang til funksjonene må første kodeblokk med `use_khfunctions()`
 
 ## Midlertidige filer
 
--   Når en kjøring inkluderer STATA-kode vil det lagres midlertidige filer som brukes av STATA. Dette gjelder for de fleste kuber pga STATA-prikking. De midlertidige filene lagres lokalt på din PC, i `helseprofil`-mappen, og overskrives forløpende.
-
--   Dersom noe har gått galt i STATA, kan du finne `.log`-filen her.
+-   Når en kjøring inkluderer STATA-kode vil det lagres midlertidige filer som brukes av STATA. Dette gjelder for de fleste kuber pga STATA-prikking. De midlertidige filene lagres lokalt på din PC, i `helseprofil`-mappen, og overskrives forløpende. Dersom noe har gått galt i STATA, kan du finne `.log`-filen her.
 
 ## Relevante linker:

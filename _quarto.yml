@@ -35,6 +35,10 @@ website:
           - backend/misc.qmd
           - backend/norgeo.qmd
           - backend/snutter.qmd
+      - section: <b> ACCESS-databaser </b>
+        contents:
+          - produksjon/khfunctions-access.qmd
+          - produksjon/orgdata-access.qmd
       - section: <b>Vedlikehold og utvikling</b>
         href: vedlikehold.qmd
         contents:

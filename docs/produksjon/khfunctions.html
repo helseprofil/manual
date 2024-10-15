@@ -286,13 +286,36 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../vedlikehold.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Vedlikehold og utvikling</b></span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text"><b> ACCESS-databaser </b></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../produksjon/khfunctions-access.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">KHELSA.mdb</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../produksjon/orgdata-access.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">raw-database.accdb</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../vedlikehold.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><b>Vedlikehold og utvikling</b></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../pakker/norgeo.html" class="sidebar-item-text sidebar-link">
@@ -357,7 +380,7 @@ window.Quarto = {
 <p>For å få tilgang til funksjonene må første kodeblokk med <code>use_khfunctions()</code> kjøres.</p>
 <ul>
 <li>De to hovedfunksjonene i prosjektet er <code>LagFilgruppe()</code> og <code>LagKUBE()</code>.</li>
-<li>Parametre må settes opp i ACCESS-filen <code>KHELSA.mdb</code>, og logg skrives til ACCESS-filen <code>KHlogg.mdb</code></li>
+<li>Parametre må settes opp i ACCESS-filen <a href="../produksjon/khfunctions-access.html"><code>KHELSA.mdb</code></a>, og logg skrives til ACCESS-filen <code>KHlogg.mdb</code></li>
 </ul>
 </section>
 <section id="kontroll-av-siste-kjøring" class="level2">
@@ -383,8 +406,7 @@ window.Quarto = {
 <section id="midlertidige-filer" class="level2">
 <h2 class="anchored" data-anchor-id="midlertidige-filer">Midlertidige filer</h2>
 <ul>
-<li><p>Når en kjøring inkluderer STATA-kode vil det lagres midlertidige filer som brukes av STATA. Dette gjelder for de fleste kuber pga STATA-prikking. De midlertidige filene lagres lokalt på din PC, i <code>helseprofil</code>-mappen, og overskrives forløpende.</p></li>
-<li><p>Dersom noe har gått galt i STATA, kan du finne <code>.log</code>-filen her.</p></li>
+<li>Når en kjøring inkluderer STATA-kode vil det lagres midlertidige filer som brukes av STATA. Dette gjelder for de fleste kuber pga STATA-prikking. De midlertidige filene lagres lokalt på din PC, i <code>helseprofil</code>-mappen, og overskrives forløpende. Dersom noe har gått galt i STATA, kan du finne <code>.log</code>-filen her.</li>
 </ul>
 </section>
 <section id="relevante-linker" class="level2">
