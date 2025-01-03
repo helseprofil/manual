@@ -44,6 +44,17 @@
     ]
   },
   {
+    "objectID": "vedlikehold.html#innhold",
+    "href": "vedlikehold.html#innhold",
+    "title": "Vedlikehold og utvikling",
+    "section": "Innhold:",
+    "text": "Innhold:",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Vedlikehold og utvikling</b>"
+    ]
+  },
+  {
     "objectID": "produksjon/orgdata.html",
     "href": "produksjon/orgdata.html",
     "title": "orgdata",
@@ -161,225 +172,6 @@
       "Gå til helseprofil på GitHub",
       "<b>Prosjekt - produksjon</b>",
       "khfunctions"
-    ]
-  },
-  {
-    "objectID": "produksjon.html",
-    "href": "produksjon.html",
-    "title": "Produksjon",
-    "section": "",
-    "text": "Produksjon er hovedprosjektet som brukes i databehandlingen. Her finner du brukerfiler for de ulike delene av produksjonsapparatet. Les mer om disse på de ulike undersidene.\nFor å bruke produksjon, åpner du .Rproj-filen i produksjonsprosjektet, eller velger produksjon fra nedtrekksmenyen øverst til høyre i RStudio (forutsatt at du tidligere har åpnet prosjektet).",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Prosjekt - produksjon</b>"
-    ]
-  },
-  {
-    "objectID": "pakker/orgdata.html",
-    "href": "pakker/orgdata.html",
-    "title": "orgdata",
-    "section": "",
-    "text": "Noen tips\n\nOrgdata og R versjon\nFra og med R versjon 4.2 ble default encoding endret. Dette medførte problemer med å lese norske bokstaver i Access og datafilene, som gav mismatch i kolonnenavn og krasj. Dette er fikset fra og med orgdata versjon 1.4.7, da encodingsystem for access og csv-filer nå defineres separat. Dette har medført at orgdata ikke lenger er kompatibelt med tidligere versjoner av R.\nHar du behov for å bruke R-versjon tidligere enn 4.2 (f.eks. 4.1.3), må du derfor installere orgdata versjon 1.4.6. Dette gjøres ved følgende kommando i konsollen.\npak::pkg_install(helseprofil/orgdata@v1.4.6) \n\n\nError loading “lazy-load database …. is corrupt”\nNår man installerer orgdata i RStudio kan det opptå feil ved kompilering av dokumentasjonen for .Rdb filer. Prøv:\n\nRestarte R bl.a ved å kjøre .rs.restartR()\nSlett orgdata med remove.packages(\"orgdata\")\nRestarte RStudio\nInstallere orgdata på nytt\n\n\n\nError ved oppgradering\nPrøv å gjøre det akkurat som for Error loading.. ovenfor.\n\n\nError with rlang\nHvis du får denne feilmelding om rlang versjon\n&gt; library(orgdata) Error: package or namespace load failed for ‘orgdata’ in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):  namespace ‘rlang’ 1.0.2 is being loaded, but &gt;= 1.0.5 is required \nSlett eller uninstall rlang med remove.packages(\"rlang\"). Installere på nytt med install.packages(\"rlang\").\nHvis det ikke løser problemmet, slett alle pakke mappen i den R versjon du bruker. Mappen for R pakker ligger i C:\\Program Files\\R. Deretter installere rlang på nytt.\n\n\n\nOm prosjektet\nOrgdata ble skrevet og vedlikeholdt av Yusman Bin Kamaleri fra sommeren 2021, frem til høsten 2023.",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Vedlikehold og utvikling</b>",
-      "orgdata"
-    ]
-  },
-  {
-    "objectID": "pakker/khfunctions.html",
-    "href": "pakker/khfunctions.html",
-    "title": "khfunctions",
-    "section": "",
-    "text": "Noen tips\n\nBruke spesifikk versjon\nFor å bruke en spesifikk versjon av prosjektet kan du bruke funksjonen usebranch(\"navn på github branch\"), dette laster alle funksjoner fra valgte branch.\n\n\nBruke lokal versjon\nNår du gjør endringer i koden og vil teste denne uten å pushe til GitHub, kan du bruke funksjonen uselocal(test = FALSE) som laster alle funksjonene fra de lokale filene. For å teste endringer i ACCESS kan du bruke test = TRUE, som bytter til å bruke databasefilene test/KHELSAtest.mdb og test/KHloggtest.mdb. Overskriv gjerne disse med ny kopi av den skarpe databasen før testing.\n\n\nKjøre linje for linje\nNår en kjøring krasjer kan det være nyttig å kjøre funksjonen linje for linje for å finne problemet. I slike situasjoner kan du bruke funksjonen .SetKubeParameters(\"KUBENAVN\") for å sette alle argumentene i LagKUBE().\n\n\nSpore opp funksjoner som brukes til debugging\nFor å se hvilke funksjoner som brukes eller aktiveres når man kjører LagFilgruppe eller LagKUBE kan man sette show_functions = TRUE . Dersom du vil se funksjonen inkludert argumentene, kan du definere show_arguments = TRUE. Dersom begge er satt til TRUE, vil show_functions brukes til debugging.\n\n\nLagre loggfil som tekstdokument\nKonsollenhar en begrensning på hvor mange linjer som vises, av minnehensyn. Derfor vil ikke hele prosessen kunne vises for store funksjoner som lagKUBE, som overskrider denne grensen. For å komme rundt dette, kan du printe all output til et tekstdokument som lagres eksternt, ved hjelp av funksjonen sink()\nDette er spesielt nyttig i kombinasjon med debuggingalternativene over, da du kan få ut en komplett logg over alle funksjoner som blir kjørt.\n\nDefiner hvor du vil lagre loggen med sink()\nsink(file = \"filsti/.../.../filnavn.txt\")  \n\n\n\nKjør koden, f.eks. lagKUBE, hvor du også ønsker å få ut alle funksjonene med argumenter.\nshow_arguments &lt;- TRUE \nlagKUBE(\"NAVN\")  \n\n\n\nLukk koblingen til den eksterne filen etter at du er ferdig\nsink(file = NULL)\n\n\n\n\nOversikt over prosjektet\nAll kode i prosjektet ligger i mappen R, fordelt på følgende scriptfiler. Her følger en oversikt over relevante filer og hva disse inneholder. De enkelte funksjonene er (delvis) dokumentert direkte i filene de ligger i.\n\nKHsetup.R\nLastes inn i .Rprofile.\nSetter encoding for å håndtere norske bokstaver, oppdaterer lockfilen dersom man er i master-branch, laster inn alle pakker og bruker pakken conflicted til å velge hvilken funksjon som skal brukes i de tilfellene flere funksjoner har samme navn. I praksis forsøkes det å konsekvent bruke pakke::funksjon() for å bruke riktig funksjon, men dette sparer uansett en del advarsler ved oppstart. Laster deretter inn alle de andre filene som inneholder interne funksjoner.\n\n\nKHupdate.R\nLastes inn i .Rprofile\nSjekker verdien av .lastupdate, som defineres øverst i filen, på GitHub mot lokal versjon. Dersom disse ikke er like får brukeren mulighet til å laste ned siste versjon.\nVIKTIG: ved oppdatering av pakkeversjoner eller lignende må .lastupdate også oppdateres slik at endringen kommuniseres ut til brukerne. Ved flere endringer samme dag kan verdien settes til f.eks. “02.05.2024b” for å skille fra tidligere versjon samme dag.\n\n\nKHmisc.R\nLastes inn av KHsetup.R.\nInneholder funksjoner som brukes både i LagFilgruppe() og LagKUBE().\n\n\nKHpaths.R\nLastes inn av KHsetup.R.\nSetter grunnsti til produksjonsmappen og til KHELSA.mdb og KHlogg.mdb. Inneholder også funksjoner for testing og lokal kjøring, men disse brukes lite.\n\n\nKHglobs.R\nLastes inn av KHsetup.R.\nSetter alle globale parametre og lager objektet KHglobs som brukes i de fleste funksjoner i prosjektet.\n\n\nKHfilgruppefunctions.R\nLastes inn av KHsetup.R.\nInneholder funksjoner som brukes i LagFilgruppe().\n\n\nKHfilgruppe.R\nLastes inn av KHsetup.R.\nInneholder hovedfunksjonen LagFilgruppe().\n\n\nKHkubefunctions.R\nLastes inn av KHsetup.R.\nInneholder funksjoner som brukes i LagKUBE().\n\n\nKHkube.R\nLastes inn av KHsetup.R.\nInneholder hovedfunksjonen LagKUBE().\n\n\nKHother.R\nLastes inn av KHsetup.R\nInneholder funksjoner som ikke brukes i hovedfunksjonene, bl.a. for sammenligning av kubefiler. Trolig overflødige, og kan muligens overføres til KHgraveyard.R.\n\n\nKHgraveyard.R\nLastes ikke inn.\nInneholder utgåtte funksjoner som ikke brukes lenger. Andre funksjoner som erstattes eller utgår kan flyttes hit i stedet for å slettes.\n\n\n\nHistorikk\nKHfunctions er Hovedhjernen til dataprosessering for folkehelseprofilene. Koden er hovedsakelig utviklet og skrevet av Kåre Bævre. Prosjektet ble videre utviklet av Yusman Bin Kamaleri frem til høsten 2022.\nI april 2023, i forbindelse med overgang til nytt publikasjonssystem, ble det gjennomført en større omstrukturering hvor all kode som tidligere var samlet i en stor fil khfunctions.R ble splittet opp i mange mindre filer, som ligger i mappen R. Filene er organisert etter hvor i prosjektet de ulike funksjonene brukes, og mange funksjoner ble også fjernet da de ikke lenger var i bruk. Dette ble gjort for å gjøre jobben med vedlikehold og videreutvikling lettere.\nEn kopi av prosjektet slik det var før omstruktureringen finnes i branchen som heter “masterpreallvis”.\nDokumentasjon av LagFilgruppe (Skrevet av Yusman Bin Kamaleri)\n\n\nRelevante linker:\n\n\n\n\n\n\n\n\n\n\n\n\n\nKHELSA.mdb\n\n\nInformasjon om access-databasen knyttet til khfunctions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nkhfunctions\n\n\nInformasjon om kubekjøring\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Vedlikehold og utvikling</b>",
-      "khfunctions"
-    ]
-  },
-  {
-    "objectID": "newyear.html",
-    "href": "newyear.html",
-    "title": "Oppdatere til ny årgang",
-    "section": "",
-    "text": "Ved overgang til nytt profilår er det en rekke ting som må gjøres for å oppdatere produksjonsapparatet. Lister og veiledning over alt som må gjøres for de ulike delene av systemet finnes i kapitlene under.\nDette håndteres hovedsakelig i R-prosjektet backend, men noe må også gjøres i de enkelte pakkene.\n\nGEO-databasen\n\nVed overgang til ny årgang må man oppdatere geotabellene. Se her for innstruks.\n\nOppdater respektive omkodingstabeller\nOppdater koblingstabellen tblGeo\n\n\n\n\nKonfigurasjonsfiler\n\nKonfigurasjonsfilene for orgdata, qualcontrol, og etterhvert orgcube (foreløpig navn) må oppdateres mht årgang.\n\n\n\nkhfunctions\n\nKHaargang må oppdateres i filen KHglobs.R\nGEO-tabeller i KHELSA.mdb må oppdateres om det er kommet endringer\n\n\n\nqualcontrol\n\nInterne tabeller i qualcontrol må oppdateres. Disse inneholder informasjon om geo-omkoding, populasjonsvekter, og dimensjoner/verdikolonner. Inne i R-prosjektet kan disse oppdateres ved å bruke følgende funksjon. Husk å oppdatere pakkeversjon og pushe endringene til GitHub.\nupdate_internal_data(geoyear = 2025, overwrite = TRUE)",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Oppdatere til nytt produksjonsår</b>"
-    ]
-  },
-  {
-    "objectID": "backend/snutter.html",
-    "href": "backend/snutter.html",
-    "title": "snutter",
-    "section": "",
-    "text": "Inneholder R-skript som styrer spesialbehandling av datafiler.\nDisse spesialsnuttene kan brukes på flere steder i løypen, og hvilket script som skal kjøres må spesifiseres i relevante kolonner i access. For å kjøre et script fra github, bruk følgende, og erstatt MAPPE og FILNAVN.R med for å vise til riktig fil.\nDet er viktig å huske local = TRUE, da dette sørger for at scriptet blir kjørt i det miljøet det blir hentet inn i, altså inni den aktuelle funksjonen (ikke global environment).",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Prosjekt - Backend</b>",
-      "snutter"
-    ]
-  },
-  {
-    "objectID": "backend/snutter.html#andre-snutter",
-    "href": "backend/snutter.html#andre-snutter",
-    "title": "snutter",
-    "section": "Andre snutter",
-    "text": "Andre snutter\nDe fleste R- og STATA-snuttene ligger i mappen BIN/Z_Statasnutter, og leses direkte herfra.",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Prosjekt - Backend</b>",
-      "snutter"
-    ]
-  },
-  {
-    "objectID": "backend/misc.html",
-    "href": "backend/misc.html",
-    "title": "misc",
-    "section": "",
-    "text": "Inneholder ulike R-funksjoner som ikke passer andre steder. kode for å laste inn og beskrivelser av hva de ulike filene inneholder ligger under.\n\nR/install.R\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R\")\nDette skriptet inneholder funksjonene for å sette opp systemet for databehandling.\n\nProfileSystems() installerer (og oppdaterer) pakker (fra CRAN og egne pakker på github), og kloner brukerprosjektet produksjon\nDevelopSystems() kloner i tillegg alle andre prosjekter: backend, orgdata, norgeo, qualcontrol, khfunctions/orgcube, manual.\n\nFor alle som skal vedlikeholde eller utvikle systemene er disse prosjektene nødvendig å ha tilgang til.\n\ncheck_R_version() brukes i begge funksjonene over for å sjekke at man bruker en tilstrekkelig ny versjon av R (&gt; 4.4.0)\n\n\n\nR/misc.R\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/misc.R\")\n\nare_same() er en funksjon som sjekker om to funksjoner er identiske. Kan være et nyttig verktøy når man utvikler nye funksjoner da den fremhever hva som er forskjellig.\nlist_funs() er en funksjon som lister opp alle funksjoner i en pakke som en lang regex-string. Kan være nyttig om du trenger å søke i et prosjekt etter funksjoner fra en spesifikk pakke.\n\n\n\nR/ungdata.R\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ungdata.R\")\nInneholder funksjoner for å generere en nøkkel for vurdering av ungdatafiler\n\nfil &lt;- readUngdata(year, file). Leser inn en ungdatafil fra PRODUKSJON/ORGDATA/NOVA/Ungdata/\nungdataKey(fil). Genererer en CSV-fil med nøkkel, som lagres i helseprofil-mappen lokalt.",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Prosjekt - Backend</b>",
-      "misc"
-    ]
-  },
-  {
-    "objectID": "backend/config.html",
-    "href": "backend/config.html",
-    "title": "config",
-    "section": "",
-    "text": "Inneholder konfigurasjonsfiler for de ulike pakkene. Disse leses inn og settes som options i R.\nFilene er .yml-filer, og leses inn med funksjonen yaml::load_file() som er innbakt i orgdata:::is_globs(). Denne kjøres når pakkene orgdata og qualcontrol lastes, og henter inn ulike options som brukes i ulike funksjoner.",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Prosjekt - Backend</b>",
-      "config"
-    ]
-  },
-  {
-    "objectID": "backend.html",
-    "href": "backend.html",
-    "title": "Prosjekt: backend",
-    "section": "",
-    "text": "Backend er et R-prosjekt som inneholder alt som har å gjøre med vedlikehold og oppdatering av produksjonsløypen. Dette kan for eksempel være oppdatering av GEO-tabeller eller konfigurasjonsfiler. Se undersidene for nærmere instruks om hvordan du bruker disse.",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Prosjekt - Backend</b>"
-    ]
-  },
-  {
-    "objectID": "backend/backup.html",
-    "href": "backend/backup.html",
-    "title": "backup",
-    "section": "",
-    "text": "Inneholder R-script for oppdatering av ACCESS-databasen.\nKan brukes ved å source følgende dokument:\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/backup/backup_khelsa.R\")\nDeretter kan du ta backup av databasen ved å bruke funksjonen slik, og endre til nyeste profilårgang.\nbackup(profilaargang = 2025)",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Prosjekt - Backend</b>",
-      "backup"
-    ]
-  },
-  {
-    "objectID": "backend/geomaster.html",
-    "href": "backend/geomaster.html",
-    "title": "geomaster",
-    "section": "",
-    "text": "Inneholder R- og STATA-kode som inngår i oppdatering av GEO-tabeller, samt brukerfiler for å faktisk oppdatere tabellene.",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Prosjekt - Backend</b>",
-      "geomaster"
-    ]
-  },
-  {
-    "objectID": "backend/norgeo.html",
-    "href": "backend/norgeo.html",
-    "title": "norgeo",
-    "section": "",
-    "text": "Inneholder R-skript som manuelt håndterer splitting av geografiske enheter.\nDisse må oppdateres dersom det kommer nye splittinger.",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Prosjekt - Backend</b>",
-      "norgeo"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Håndboka",
-    "section": "",
-    "text": "Her finner du informasjon og veiledning for å installere og bruke de viktigste delene av produksjonsapparatet for arbeidet med folkehelse- og oppvekstprofiler. All kode ligger her.\nBruk menyen til venstre for å navigere i håndboken."
-  },
-  {
-    "objectID": "oppsett.html",
-    "href": "oppsett.html",
-    "title": "Sette opp systemet",
-    "section": "",
-    "text": "Følg stegene under. Det er viktig at hvert steg fullføres før du går videre til neste!\n\n1. Installere R, Rstudio, Rtools, Git og STATA\nI Firmaportal, installer programmene:\n\nR (minimum versjon 4.4.0)\nRstudio\nRtools (versjon 4.4, tilsvarende R-versjonen)\nGit\nSTATA (trengs for å kjøre STATA-snutter)\n\n\n\n2. Sette opp Git i RStudio\nÅpne Rstudio og gå til Tools -&gt; Global Options -&gt; GIT/SVN. Sjekk at Enable version control er huket av og at git.exe-filen er angitt. Dette er viktig for å kunne synkronisere prosjekter og installere pakker som ligger på GitHub.\n\n\n2b. Autentisering i git\nDette er bare aktuelt om du har behov for å laste opp endringer til GitHub. For å sette opp autentisering i GitHub, bruk følgende kode. Det kan være du må installere pakken usethis først.\nusethis::create_github_token()\nDette tar deg til GitHub i nettleseren, hvor du kan sette opp en token som kobler din påloggingsinformasjon til RStudio. Denne må du kopiere. Deretter kjører du følgende i RStudio.\ngitcreds::gitcreds_set()\nFølg instruksjonene og lim inn koden fra GitHub.\n\n\n3. Sette encoding (valgfri, men veldig nyttig)\nFra og med R versjon 4.2 ble det innført en endring i encoding, som gjør at norske bokstaver ikke leses korrekt. Vi må derfor sette encoding manuelt. For at dette skal skje automatisk når du bruker R, kan dette med fordel legges direkte i .rprofile som er et script som kjøres ved oppstart. For å redigere denne kan du skrive følgende i konsollen, og endre filen som åpnes. Det kan være du må installere pakken usethis først.\nusethis::edit_r_profile()\nI dokumentet som åpnes legger du til følgende, og lagrer dokumentet:\n\nSys.setlocale(“LC_ALL”, “nb-NO.UTF-8”)\n\n\n\n4. Installere pakkene\nI konsollen, kjør følgende kode for å installere alle pakker og sette opp mappestruktur:\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R\")\nProfileSystems()\nFunksjonen gjør:\n\nOppretter mappen C:/Users/Navn/helseprofil. Denne er viktig da den brukes til å lagre midlertidige filer lokalt på den PCen som gjennomfører databehandling.\nOppretter R-prosjektet produksjon, som inneholder brukerfiler for de ulike delene av produksjonsapparatet.\nInstallerer alle nødvendige pakker, inkludert våre lokale pakker norgeo, orgdata, qualcontrol\n\nEtter installasjon kan du finne mappen produksjon i filbehandleren (eller via RStudio) og åpne filen produksjon.Rproj. Når du først har åpnet den vil du finne den i prosjektlisten oppe til høyre i RStudio.\nDersom du ønsker å ha prosjektene et annet sted enn i helseprofilmappen kan du spesifisere argumentet path\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R\")\nProfileSystems(path = \"Din/favoritt/mappe\")\n\n\nFor utviklere\n\nDu må først gjøre stegene over for å installere alle nødvendige R-pakker.\n\nSkal du bidra til utvikling av databehandlingssystemet trenger du tilgang til alle relevante underprosjekter. Disse kan klones ved å bruke følgende funksjon. Dersom du setter getupdates = TRUE vil den også oppdatere prosjekter du allerede har installert.\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R\")\nDevelopSystems(path = \"Din/favoritt/mappe\", getupdates = FALSE)\nDette installerer følgende prosjekter:\n\nproduksjon\nbackend\nnorgeo\norgdata\nkhfunctions\norgcube (foreløpig navn på pakke som skal erstatte khfunctions)\nqualcontrol\nmanual\n\nDe ulike prosjektene inneholder ulike deler av produksjonsapparatet, og synkroniseres med GitHub.",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Sette opp systemet</b>"
-    ]
-  },
-  {
-    "objectID": "pakker/norgeo.html",
-    "href": "pakker/norgeo.html",
-    "title": "norgeo",
-    "section": "",
-    "text": "Informasjon om R-pakken finnes her\nFunksjonene i pakken brukes til å oppdatere tabeller i GEO-databasen.\nSplitting av kommuner/fylker håndteres manuelt ved å kjøre respektive script fra backend/norgeo på GitHub. Disse aktiveres når argumentet fix = TRUE i norgeo-funksjonene. Disse må oppdateres når nye geosplittinger forekommer, dette gjør du i backend.\n\nGEO-databasen\nGEO-databasen oppdateres ved hjelp av norgeo-funksjoner. Brukerfiler med kode for å oppdatere tabellene finner du i backend/geomaster\n\nFor å oppdatere tabellene i geodatabasen, bruk filen: ORGDATA_tabeller.Rmd\nFor å oppdatere tabeller i KHELSA.mdb, bruk filen: GEO_tabeller.Rmd\n\n\n\nOm pakken\nNorgeo ble skrevet og utviklet av Yusman Bin Kamaleri.\nPakken inneholder funksjoner for å hente ut informasjon om geografisk inndeling fra SSB via API.",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Vedlikehold og utvikling</b>",
-      "norgeo"
-    ]
-  },
-  {
-    "objectID": "pakker/qualcontrol.html",
-    "href": "pakker/qualcontrol.html",
-    "title": "qualcontrol",
-    "section": "",
-    "text": "Funksjonene i qualcontrol skal i hovedsak bruke funksjoner fra pakkene data.table og collapse.\nBare hovedfunksjoner som inkluderes i brukerfilene skal være eksporterte objekter, mens alle andre funksjoner skal betegnes med roxygen-taggen @keywordsinternal. Små hjelpefunksjoner som ikke trenger utdypende dokumentasjon kan også tagges med @noRd for å ikke generere en hjelpefil.\n\n\n\nVed utvikling av nye funksjoner finner du nyttige koder i mappen dev og filene dev.R (lese inn testfiler), benchmarking.R (sammenligne funksjoner mtp hastighet) og profiling.R (analysere tid- og minnebruk for ulike steg i funksjonen).\n\n\n\nFor å sikre at pakken fungerer som den skal, er målet at så mye som mulig av koden skal være dekket av tester. For å teste pakken bruker du Ctrl + Shift + T. For å sjekke hvor mye av koden som er dekket kan du bruke devtools::test_coverage(), som genererer en rapport som blant annet viser hvor stor andel av funksjonell kode som ikke er dekket av testene. Denne fungerer ikke dersom funksjonene er lastet inn, så du må ofte restarte RStudio først.",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Vedlikehold og utvikling</b>",
-      "qualcontrol"
-    ]
-  },
-  {
-    "objectID": "pakker/qualcontrol.html#funksjoner-og-syntaks",
-    "href": "pakker/qualcontrol.html#funksjoner-og-syntaks",
-    "title": "qualcontrol",
-    "section": "",
-    "text": "Funksjonene i qualcontrol skal i hovedsak bruke funksjoner fra pakkene data.table og collapse.\nBare hovedfunksjoner som inkluderes i brukerfilene skal være eksporterte objekter, mens alle andre funksjoner skal betegnes med roxygen-taggen @keywordsinternal. Små hjelpefunksjoner som ikke trenger utdypende dokumentasjon kan også tagges med @noRd for å ikke generere en hjelpefil.",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Vedlikehold og utvikling</b>",
-      "qualcontrol"
-    ]
-  },
-  {
-    "objectID": "pakker/qualcontrol.html#utvikling-av-funksjoner",
-    "href": "pakker/qualcontrol.html#utvikling-av-funksjoner",
-    "title": "qualcontrol",
-    "section": "",
-    "text": "Ved utvikling av nye funksjoner finner du nyttige koder i mappen dev og filene dev.R (lese inn testfiler), benchmarking.R (sammenligne funksjoner mtp hastighet) og profiling.R (analysere tid- og minnebruk for ulike steg i funksjonen).",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Vedlikehold og utvikling</b>",
-      "qualcontrol"
-    ]
-  },
-  {
-    "objectID": "pakker/qualcontrol.html#testing",
-    "href": "pakker/qualcontrol.html#testing",
-    "title": "qualcontrol",
-    "section": "",
-    "text": "For å sikre at pakken fungerer som den skal, er målet at så mye som mulig av koden skal være dekket av tester. For å teste pakken bruker du Ctrl + Shift + T. For å sjekke hvor mye av koden som er dekket kan du bruke devtools::test_coverage(), som genererer en rapport som blant annet viser hvor stor andel av funksjonell kode som ikke er dekket av testene. Denne fungerer ikke dersom funksjonene er lastet inn, så du må ofte restarte RStudio først.",
-    "crumbs": [
-      "Gå til helseprofil på GitHub",
-      "<b>Vedlikehold og utvikling</b>",
-      "qualcontrol"
     ]
   },
   {
@@ -611,65 +403,82 @@
     ]
   },
   {
-    "objectID": "produksjon/orgdata-access.html",
-    "href": "produksjon/orgdata-access.html",
-    "title": "raw-database.accdb",
-    "section": "",
-    "text": "Du får advarselen når du skal legge LESID og FILGRUPPE etter at du har lagt inn FILNAVN. Trykk OK og flytt cursor ned eller opp. Deretter bør du kunne legge LESID og FILGRUPPE."
-  },
-  {
-    "objectID": "produksjon/orgdata-access.html#advarsel-kan-ikke-legge-til-poster-i-access",
-    "href": "produksjon/orgdata-access.html#advarsel-kan-ikke-legge-til-poster-i-access",
-    "title": "raw-database.accdb",
-    "section": "",
-    "text": "Du får advarselen når du skal legge LESID og FILGRUPPE etter at du har lagt inn FILNAVN. Trykk OK og flytt cursor ned eller opp. Deretter bør du kunne legge LESID og FILGRUPPE."
-  },
-  {
-    "objectID": "produksjon/orgdata-access.html#kan-ikke-lese-filen-flere-ganger-i-access",
-    "href": "produksjon/orgdata-access.html#kan-ikke-lese-filen-flere-ganger-i-access",
-    "title": "raw-database.accdb",
-    "section": "Kan ikke lese filen flere ganger i Access",
-    "text": "Kan ikke lese filen flere ganger i Access\nFor å kunne lese en fil flere ganger f.eks annen fane i en Excel fil, kan gjøres ved å velge Rediger knappen. Valg FILID av filen, men IKKE skrive filstien på nytt siden den allerede finnes i databasen ie. original filer."
-  },
-  {
-    "objectID": "produksjon/orgdata-access.html#hvordan-finner-jeg-filid-av-en-tidligere-rawfil",
-    "href": "produksjon/orgdata-access.html#hvordan-finner-jeg-filid-av-en-tidligere-rawfil",
-    "title": "raw-database.accdb",
-    "section": "Hvordan finner jeg FILID av en tidligere rawfil",
-    "text": "Hvordan finner jeg FILID av en tidligere rawfil\nTrykk knappen Orgfiler. En ny fane som heter Originalfiler åpnes hvor du kan søke filen du er interessert i. Deretter ser du FILID til filen."
-  },
-  {
-    "objectID": "produksjon/orgdata-access.html#feilmelding-om-dublettverdier-i-en-indeks-primærnøkkel-eller-relasjon.",
-    "href": "produksjon/orgdata-access.html#feilmelding-om-dublettverdier-i-en-indeks-primærnøkkel-eller-relasjon.",
-    "title": "raw-database.accdb",
-    "section": "Feilmelding om “dublettverdier i en indeks, primærnøkkel eller relasjon”.",
-    "text": "Feilmelding om “dublettverdier i en indeks, primærnøkkel eller relasjon”.\nDette skjer ofte når man skal legge inn ny rawfil som allerede finnes i databasen. Trykk knappen Orgfiler og bruk FILID til den filen som allerede finnes i databasen istedenfor å legge den på nytt."
-  },
-  {
-    "objectID": "produksjon/orgdata-access.html#kan-ikke-se-doble-anførselstegn-i-access-når-kodebok-for-type-er-re",
-    "href": "produksjon/orgdata-access.html#kan-ikke-se-doble-anførselstegn-i-access-når-kodebok-for-type-er-re",
-    "title": "raw-database.accdb",
-    "section": "Kan ikke se doble anførselstegn \"\" i Access når kodebok for TYPE er RE",
-    "text": "Kan ikke se doble anførselstegn \"\" i Access når kodebok for TYPE er RE\nNår en kolonne skal omkodes ved bruk av TYPE lik RE til \"\" blir symbolen likevel forsvant eller usynlige når cursor blir flyttet. Løsningen er å skrive enten delete eller slett i TIL for å gjøre det tydelig. Selvsagt funker det med \"\" også, hvis du vil gjøre det vanskelig for deg selv og andre å se hva som egentlig definert i kodeboken 😀"
-  },
-  {
-    "objectID": "produksjon/orgdata-access.html#kolonnenavn-med-æøå---bruk-regulært-uttrykk-i-manheader-ved-behov",
-    "href": "produksjon/orgdata-access.html#kolonnenavn-med-æøå---bruk-regulært-uttrykk-i-manheader-ved-behov",
-    "title": "raw-database.accdb",
-    "section": "Kolonnenavn med ÆØÅ - bruk regulært uttrykk i MANHEADER ved behov",
-    "text": "Kolonnenavn med ÆØÅ - bruk regulært uttrykk i MANHEADER ved behov\nOppdatering: Fra versjon 1.2.1 kan man bruke regulært uttrykk dvs. ^$\\[.*\\] osv. i MANHEADER også f.eks ^utdan=UTDANNING for å gi nytt navn for spesielle kolonner f.eks et langt og med æøå kolonnenavn utdanning særlig før migrasjonsår til et kort kolonnenavn UTDANNING.\nMANHEADER: Dette feltet i Access-specen gjør at kolonnehoder i innfilen erstattes med noe vi skriver. De “vanskelige” kolonnehodene angis med nummer, og bør gis navn uten ÆØÅ."
-  },
-  {
-    "objectID": "produksjon/qualcontrol.html",
-    "href": "produksjon/qualcontrol.html",
+    "objectID": "pakker/qualcontrol.html",
+    "href": "pakker/qualcontrol.html",
     "title": "qualcontrol",
     "section": "",
-    "text": "qualcontrol er en R-pakke som inneholder funksjoner for å gjennomføre kvalitetskontrollen av publikasjonsklare datafiler.\nBrukerfiler:\n\nqualcontrol/1. Kvalitetskontrollrutiner - kontroll av enkeltfiler\nqualcontrol/2. Friskvik og barometersjekk - kontroll av godkjente friskvikfiler\n\nFor å bruke khfunctions åpner du produksjonsprosjektet og åpner ønsket brukerfil.\n\n1. Kvalitetskontrollrutiner\nDenne inneholder en strømlinjeformet oversikt over kvalitetskontrollrutinene og følges nedover. Resultater vil lagres i PRODUKSJON/VALIDERING/QualControl/**PRODUKSJONSÅR**/**KUBENAVN**\n\nForarbeid\n\nFor å få tilgang til funksjonene må første kodeblokk med library(qualcontrol) kjøres.\nDu kan endre produksjonsåret med funksjonen update_qcyear(). Dette bestemmer hvilken mappe resultatfilene vil publiseres i.\n\nDe ulike stegene dokumenteres i KUBESTATUS-tabellen i KHELSA.mdb.\n\n\n1. Grovsjekk\n\nLast inn ny (og gammel/forrige publiserte) datafil med funksjonen readfiles(), og formatter filene med funksjonen make_comparecube(). Dette vil også produsere noen .csv-filer som lagres i mappen FILDUMPER. ## 1. Deskriptiv grovsjekk\nHer sjekkes hva som finnes i filen, f.eks. hvilke kolonner, hvilke nivåer i dimensjonene\nTidsserier på landsnivå plottes for all dimensjoner for å fange opp eventuell feilklassifisering.\n\n\n\n2. Batch vs Batch\n\nSammenligning mot forrige publiserte fil\nOppsummering av antallet identiske/ulike rader og hvor store forskjellene er\nAntallet forskjellige rader og summen av disse, totalt og per årgang\nPlott av forskjellene over tid, for å se om forskjellene er stabile eller endrer seg over tid\n\n\n\n3. Prikking\n\nEr det noen tall under grensen for personvernskjuling?\nSammenligning av antall skjulte tall, totalt og per årgang\nSammenligning av antall tidsserier med 0-maks antall skjulte tall\n\n\n\n4. Sjekk aggregering\n\nSjekke at lavere geografisk nivå summerer seg opp til høyere, f.eks. at kommuner summerer seg til fylke.\nSjekke andelen ukjent bydel\nPlotte tidsserier for bydelene, og vektede bydelstall mot kommunetallet.\n\n\n\n5. Ekstremverdier\n\nGenererer boksplott og tidsserieplott som markerer ekstremverdier, definert som verdier utenfor intervallet definert av vektet 25.percentil - 1.5 * IQR og vektet 75.percentil + 1.5 IQR.\nDisse vurderes for om de kan være riktige.\n\n\n\n6. Ekstremverdier, år-til-år\n\nSamme som over, men for relativ endring fra forrige årgang. Kan fange opp usannsynlig store endringer fra et år til et annet.\n\n\n\n\n2. Friskvik og barometersjekk\nInneholder to funksjoner, en som sjekker alle friskvikfilene i nyeste godkjentmappe, og en som sjekker om like verdier får farget prikk i barometeret.\nDisse brukes i forbindelse med profilproduksjonen.",
+    "text": "Funksjonene i qualcontrol skal i hovedsak bruke funksjoner fra pakkene data.table og collapse.\nBare hovedfunksjoner som inkluderes i brukerfilene skal være eksporterte objekter, mens alle andre funksjoner skal betegnes med roxygen-taggen @keywordsinternal. Små hjelpefunksjoner som ikke trenger utdypende dokumentasjon kan også tagges med @noRd for å ikke generere en hjelpefil.\n\n\n\nVed utvikling av nye funksjoner finner du nyttige koder i mappen dev og filene dev.R (lese inn testfiler), benchmarking.R (sammenligne funksjoner mtp hastighet) og profiling.R (analysere tid- og minnebruk for ulike steg i funksjonen).\n\n\n\nFor å sikre at pakken fungerer som den skal, er målet at så mye som mulig av koden skal være dekket av tester. For å teste pakken bruker du Ctrl + Shift + T. For å sjekke hvor mye av koden som er dekket kan du bruke devtools::test_coverage(), som genererer en rapport som blant annet viser hvor stor andel av funksjonell kode som ikke er dekket av testene. Denne fungerer ikke dersom funksjonene er lastet inn, så du må ofte restarte RStudio først.",
     "crumbs": [
       "Gå til helseprofil på GitHub",
-      "<b>Prosjekt - produksjon</b>",
+      "<b>Vedlikehold og utvikling</b>",
       "qualcontrol"
     ]
+  },
+  {
+    "objectID": "pakker/qualcontrol.html#funksjoner-og-syntaks",
+    "href": "pakker/qualcontrol.html#funksjoner-og-syntaks",
+    "title": "qualcontrol",
+    "section": "",
+    "text": "Funksjonene i qualcontrol skal i hovedsak bruke funksjoner fra pakkene data.table og collapse.\nBare hovedfunksjoner som inkluderes i brukerfilene skal være eksporterte objekter, mens alle andre funksjoner skal betegnes med roxygen-taggen @keywordsinternal. Små hjelpefunksjoner som ikke trenger utdypende dokumentasjon kan også tagges med @noRd for å ikke generere en hjelpefil.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Vedlikehold og utvikling</b>",
+      "qualcontrol"
+    ]
+  },
+  {
+    "objectID": "pakker/qualcontrol.html#utvikling-av-funksjoner",
+    "href": "pakker/qualcontrol.html#utvikling-av-funksjoner",
+    "title": "qualcontrol",
+    "section": "",
+    "text": "Ved utvikling av nye funksjoner finner du nyttige koder i mappen dev og filene dev.R (lese inn testfiler), benchmarking.R (sammenligne funksjoner mtp hastighet) og profiling.R (analysere tid- og minnebruk for ulike steg i funksjonen).",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Vedlikehold og utvikling</b>",
+      "qualcontrol"
+    ]
+  },
+  {
+    "objectID": "pakker/qualcontrol.html#testing",
+    "href": "pakker/qualcontrol.html#testing",
+    "title": "qualcontrol",
+    "section": "",
+    "text": "For å sikre at pakken fungerer som den skal, er målet at så mye som mulig av koden skal være dekket av tester. For å teste pakken bruker du Ctrl + Shift + T. For å sjekke hvor mye av koden som er dekket kan du bruke devtools::test_coverage(), som genererer en rapport som blant annet viser hvor stor andel av funksjonell kode som ikke er dekket av testene. Denne fungerer ikke dersom funksjonene er lastet inn, så du må ofte restarte RStudio først.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Vedlikehold og utvikling</b>",
+      "qualcontrol"
+    ]
+  },
+  {
+    "objectID": "pakker/norgeo.html",
+    "href": "pakker/norgeo.html",
+    "title": "norgeo",
+    "section": "",
+    "text": "Informasjon om R-pakken finnes her\nFunksjonene i pakken brukes til å oppdatere tabeller i GEO-databasen.\nSplitting av kommuner/fylker håndteres manuelt ved å kjøre respektive script fra backend/norgeo på GitHub. Disse aktiveres når argumentet fix = TRUE i norgeo-funksjonene. Disse må oppdateres når nye geosplittinger forekommer, dette gjør du i backend.\n\nGEO-databasen\nGEO-databasen oppdateres ved hjelp av norgeo-funksjoner. Brukerfiler med kode for å oppdatere tabellene finner du i backend/geomaster\n\nFor å oppdatere tabellene i geodatabasen, bruk filen: ORGDATA_tabeller.Rmd\nFor å oppdatere tabeller i KHELSA.mdb, bruk filen: GEO_tabeller.Rmd\n\n\n\nOm pakken\nNorgeo ble skrevet og utviklet av Yusman Bin Kamaleri.\nPakken inneholder funksjoner for å hente ut informasjon om geografisk inndeling fra SSB via API.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Vedlikehold og utvikling</b>",
+      "norgeo"
+    ]
+  },
+  {
+    "objectID": "oppsett.html",
+    "href": "oppsett.html",
+    "title": "Sette opp systemet",
+    "section": "",
+    "text": "Følg stegene under. Det er viktig at hvert steg fullføres før du går videre til neste!\n\n1. Installere R, Rstudio, Rtools, Git og STATA\nI Firmaportal, installer programmene:\n\nR (minimum versjon 4.4.0)\nRstudio\nRtools (versjon 4.4, tilsvarende R-versjonen)\nGit\nSTATA (trengs for å kjøre STATA-snutter)\n\n\n\n2. Sette opp Git i RStudio\nÅpne Rstudio og gå til Tools -&gt; Global Options -&gt; GIT/SVN. Sjekk at Enable version control er huket av og at git.exe-filen er angitt. Dette er viktig for å kunne synkronisere prosjekter og installere pakker som ligger på GitHub.\n\n\n2b. Autentisering i git\nDette er bare aktuelt om du har behov for å laste opp endringer til GitHub. For å sette opp autentisering i GitHub, bruk følgende kode. Det kan være du må installere pakken usethis først.\nusethis::create_github_token()\nDette tar deg til GitHub i nettleseren, hvor du kan sette opp en token som kobler din påloggingsinformasjon til RStudio. Denne må du kopiere. Deretter kjører du følgende i RStudio.\ngitcreds::gitcreds_set()\nFølg instruksjonene og lim inn koden fra GitHub.\n\n\n3. Sette encoding (valgfri, men veldig nyttig)\nFra og med R versjon 4.2 ble det innført en endring i encoding, som gjør at norske bokstaver ikke leses korrekt. Vi må derfor sette encoding manuelt. For at dette skal skje automatisk når du bruker R, kan dette med fordel legges direkte i .rprofile som er et script som kjøres ved oppstart. For å redigere denne kan du skrive følgende i konsollen, og endre filen som åpnes. Det kan være du må installere pakken usethis først.\nusethis::edit_r_profile()\nI dokumentet som åpnes legger du til følgende, og lagrer dokumentet:\n\nSys.setlocale(“LC_ALL”, “nb-NO.UTF-8”)\n\n\n\n4. Installere pakkene\nI konsollen, kjør følgende kode for å installere alle pakker og sette opp mappestruktur:\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R\")\nProfileSystems()\nFunksjonen gjør:\n\nOppretter mappen C:/Users/Navn/helseprofil. Denne er viktig da den brukes til å lagre midlertidige filer lokalt på den PCen som gjennomfører databehandling.\nOppretter R-prosjektet produksjon, som inneholder brukerfiler for de ulike delene av produksjonsapparatet.\nInstallerer alle nødvendige pakker, inkludert våre lokale pakker norgeo, orgdata, qualcontrol\n\nEtter installasjon kan du finne mappen produksjon i filbehandleren (eller via RStudio) og åpne filen produksjon.Rproj. Når du først har åpnet den vil du finne den i prosjektlisten oppe til høyre i RStudio.\nDersom du ønsker å ha prosjektene et annet sted enn i helseprofilmappen kan du spesifisere argumentet path\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R\")\nProfileSystems(path = \"Din/favoritt/mappe\")\n\n\nFor utviklere\n\nDu må først gjøre stegene over for å installere alle nødvendige R-pakker.\n\nSkal du bidra til utvikling av databehandlingssystemet trenger du tilgang til alle relevante underprosjekter. Disse kan klones ved å bruke følgende funksjon. Dersom du setter getupdates = TRUE vil den også oppdatere prosjekter du allerede har installert.\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R\")\nDevelopSystems(path = \"Din/favoritt/mappe\", getupdates = FALSE)\nDette installerer følgende prosjekter:\n\nproduksjon\nbackend\nnorgeo\norgdata\nkhfunctions\norgcube (foreløpig navn på pakke som skal erstatte khfunctions)\nqualcontrol\nmanual\n\nDe ulike prosjektene inneholder ulike deler av produksjonsapparatet, og synkroniseres med GitHub.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Sette opp systemet</b>"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Håndboka",
+    "section": "",
+    "text": "Her finner du informasjon og veiledning for å installere og bruke de viktigste delene av produksjonsapparatet for arbeidet med folkehelse- og oppvekstprofiler. All kode ligger her.\nBruk menyen til venstre for å navigere i håndboken."
   },
   {
     "objectID": "index.html#innhold",
@@ -679,14 +488,50 @@
     "text": "Innhold:"
   },
   {
-    "objectID": "produksjon.html#innhold",
-    "href": "produksjon.html#innhold",
-    "title": "Produksjon",
-    "section": "Innhold:",
-    "text": "Innhold:",
+    "objectID": "backend/norgeo.html",
+    "href": "backend/norgeo.html",
+    "title": "norgeo",
+    "section": "",
+    "text": "Inneholder R-skript som manuelt håndterer splitting av geografiske enheter.\nDisse må oppdateres dersom det kommer nye splittinger.",
     "crumbs": [
       "Gå til helseprofil på GitHub",
-      "<b>Prosjekt - produksjon</b>"
+      "<b>Prosjekt - Backend</b>",
+      "norgeo"
+    ]
+  },
+  {
+    "objectID": "backend/geomaster.html",
+    "href": "backend/geomaster.html",
+    "title": "geomaster",
+    "section": "",
+    "text": "Inneholder R- og STATA-kode som inngår i oppdatering av GEO-tabeller, samt brukerfiler for å faktisk oppdatere tabellene.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Prosjekt - Backend</b>",
+      "geomaster"
+    ]
+  },
+  {
+    "objectID": "backend/backup.html",
+    "href": "backend/backup.html",
+    "title": "backup",
+    "section": "",
+    "text": "Inneholder R-script for oppdatering av ACCESS-databasen.\nKan brukes ved å source følgende dokument:\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/backup/backup_khelsa.R\")\nDeretter kan du ta backup av databasen ved å bruke funksjonen slik, og endre til nyeste profilårgang.\nbackup(profilaargang = 2025)",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Prosjekt - Backend</b>",
+      "backup"
+    ]
+  },
+  {
+    "objectID": "backend.html",
+    "href": "backend.html",
+    "title": "Prosjekt: backend",
+    "section": "",
+    "text": "Backend er et R-prosjekt som inneholder alt som har å gjøre med vedlikehold og oppdatering av produksjonsløypen. Dette kan for eksempel være oppdatering av GEO-tabeller eller konfigurasjonsfiler. Se undersidene for nærmere instruks om hvordan du bruker disse.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Prosjekt - Backend</b>"
     ]
   },
   {
@@ -701,14 +546,225 @@
     ]
   },
   {
-    "objectID": "vedlikehold.html#innhold",
-    "href": "vedlikehold.html#innhold",
-    "title": "Vedlikehold og utvikling",
+    "objectID": "backend/config.html",
+    "href": "backend/config.html",
+    "title": "config",
+    "section": "",
+    "text": "Inneholder konfigurasjonsfiler for de ulike pakkene. Disse leses inn og settes som options i R.\nFilene er .yml-filer, og leses inn med funksjonen yaml::load_file() som er innbakt i orgdata:::is_globs(). Denne kjøres når pakkene orgdata og qualcontrol lastes, og henter inn ulike options som brukes i ulike funksjoner.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Prosjekt - Backend</b>",
+      "config"
+    ]
+  },
+  {
+    "objectID": "backend/misc.html",
+    "href": "backend/misc.html",
+    "title": "misc",
+    "section": "",
+    "text": "Inneholder ulike R-funksjoner som ikke passer andre steder. kode for å laste inn og beskrivelser av hva de ulike filene inneholder ligger under.\n\nR/install.R\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/install.R\")\nDette skriptet inneholder funksjonene for å sette opp systemet for databehandling.\n\nProfileSystems() installerer (og oppdaterer) pakker (fra CRAN og egne pakker på github), og kloner brukerprosjektet produksjon\nDevelopSystems() kloner i tillegg alle andre prosjekter: backend, orgdata, norgeo, qualcontrol, khfunctions/orgcube, manual.\n\nFor alle som skal vedlikeholde eller utvikle systemene er disse prosjektene nødvendig å ha tilgang til.\n\ncheck_R_version() brukes i begge funksjonene over for å sjekke at man bruker en tilstrekkelig ny versjon av R (&gt; 4.4.0)\n\n\n\nR/misc.R\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/misc.R\")\n\nare_same() er en funksjon som sjekker om to funksjoner er identiske. Kan være et nyttig verktøy når man utvikler nye funksjoner da den fremhever hva som er forskjellig.\nlist_funs() er en funksjon som lister opp alle funksjoner i en pakke som en lang regex-string. Kan være nyttig om du trenger å søke i et prosjekt etter funksjoner fra en spesifikk pakke.\n\n\n\nR/ungdata.R\nsource(\"https://raw.githubusercontent.com/helseprofil/backend/main/misc/R/ungdata.R\")\nInneholder funksjoner for å generere en nøkkel for vurdering av ungdatafiler\n\nfil &lt;- readUngdata(year, file). Leser inn en ungdatafil fra PRODUKSJON/ORGDATA/NOVA/Ungdata/\nungdataKey(fil). Genererer en CSV-fil med nøkkel, som lagres i helseprofil-mappen lokalt.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Prosjekt - Backend</b>",
+      "misc"
+    ]
+  },
+  {
+    "objectID": "backend/snutter.html",
+    "href": "backend/snutter.html",
+    "title": "snutter",
+    "section": "",
+    "text": "Inneholder R-skript som styrer spesialbehandling av datafiler.\nDisse spesialsnuttene kan brukes på flere steder i løypen, og hvilket script som skal kjøres må spesifiseres i relevante kolonner i access. For å kjøre et script fra github, bruk følgende, og erstatt MAPPE og FILNAVN.R med for å vise til riktig fil.\nDet er viktig å huske local = TRUE, da dette sørger for at scriptet blir kjørt i det miljøet det blir hentet inn i, altså inni den aktuelle funksjonen (ikke global environment).",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Prosjekt - Backend</b>",
+      "snutter"
+    ]
+  },
+  {
+    "objectID": "backend/snutter.html#andre-snutter",
+    "href": "backend/snutter.html#andre-snutter",
+    "title": "snutter",
+    "section": "Andre snutter",
+    "text": "Andre snutter\nDe fleste R- og STATA-snuttene ligger i mappen BIN/Z_Statasnutter, og leses direkte herfra.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Prosjekt - Backend</b>",
+      "snutter"
+    ]
+  },
+  {
+    "objectID": "newyear.html",
+    "href": "newyear.html",
+    "title": "Oppdatere til ny årgang",
+    "section": "",
+    "text": "Ved overgang til nytt profilår er det en rekke ting som må gjøres for å oppdatere produksjonsapparatet. Lister og veiledning over alt som må gjøres for de ulike delene av systemet finnes i kapitlene under.\nDette håndteres hovedsakelig i R-prosjektet backend, men noe må også gjøres i de enkelte pakkene.\n\nGEO-databasen\n\nVed overgang til ny årgang må man oppdatere geotabellene. Se her for innstruks.\n\nOppdater respektive omkodingstabeller\nOppdater koblingstabellen tblGeo\n\n\n\n\nKonfigurasjonsfiler\n\nKonfigurasjonsfilene for orgdata, qualcontrol, og etterhvert orgcube (foreløpig navn) må oppdateres mht årgang.\n\n\n\nkhfunctions\n\nKHaargang må oppdateres i filen KHglobs.R\nGEO-tabeller i KHELSA.mdb må oppdateres om det er kommet endringer\n\n\n\nqualcontrol\n\nInterne tabeller i qualcontrol må oppdateres. Disse inneholder informasjon om geo-omkoding, populasjonsvekter, og dimensjoner/verdikolonner. Inne i R-prosjektet kan disse oppdateres ved å bruke følgende funksjon. Husk å oppdatere pakkeversjon og pushe endringene til GitHub.\nupdate_internal_data(geoyear = 2025, overwrite = TRUE)",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Oppdatere til nytt produksjonsår</b>"
+    ]
+  },
+  {
+    "objectID": "pakker/khfunctions.html",
+    "href": "pakker/khfunctions.html",
+    "title": "khfunctions",
+    "section": "",
+    "text": "Noen tips\n\nBruke spesifikk versjon\nFor å bruke en spesifikk versjon av prosjektet kan du bruke funksjonen usebranch(\"navn på github branch\"), dette laster alle funksjoner fra valgte branch.\n\n\nBruke lokal versjon\nNår du gjør endringer i koden og vil teste denne uten å pushe til GitHub, kan du bruke funksjonen uselocal(test = FALSE) som laster alle funksjonene fra de lokale filene. For å teste endringer i ACCESS kan du bruke test = TRUE, som bytter til å bruke databasefilene test/KHELSAtest.mdb og test/KHloggtest.mdb. Overskriv gjerne disse med ny kopi av den skarpe databasen før testing.\n\n\nKjøre linje for linje\nNår en kjøring krasjer kan det være nyttig å kjøre funksjonen linje for linje for å finne problemet. I slike situasjoner kan du bruke funksjonen .SetKubeParameters(\"KUBENAVN\") for å sette alle argumentene i LagKUBE().\n\n\nSpore opp funksjoner som brukes til debugging\nFor å se hvilke funksjoner som brukes eller aktiveres når man kjører LagFilgruppe eller LagKUBE kan man sette show_functions = TRUE . Dersom du vil se funksjonen inkludert argumentene, kan du definere show_arguments = TRUE. Dersom begge er satt til TRUE, vil show_functions brukes til debugging.\n\n\nLagre loggfil som tekstdokument\nKonsollenhar en begrensning på hvor mange linjer som vises, av minnehensyn. Derfor vil ikke hele prosessen kunne vises for store funksjoner som lagKUBE, som overskrider denne grensen. For å komme rundt dette, kan du printe all output til et tekstdokument som lagres eksternt, ved hjelp av funksjonen sink()\nDette er spesielt nyttig i kombinasjon med debuggingalternativene over, da du kan få ut en komplett logg over alle funksjoner som blir kjørt.\n\nDefiner hvor du vil lagre loggen med sink()\nsink(file = \"filsti/.../.../filnavn.txt\")  \n\n\n\nKjør koden, f.eks. lagKUBE, hvor du også ønsker å få ut alle funksjonene med argumenter.\nshow_arguments &lt;- TRUE \nlagKUBE(\"NAVN\")  \n\n\n\nLukk koblingen til den eksterne filen etter at du er ferdig\nsink(file = NULL)\n\n\n\n\nOversikt over prosjektet\nAll kode i prosjektet ligger i mappen R, fordelt på følgende scriptfiler. Her følger en oversikt over relevante filer og hva disse inneholder. De enkelte funksjonene er (delvis) dokumentert direkte i filene de ligger i.\n\nKHsetup.R\nLastes inn i .Rprofile.\nSetter encoding for å håndtere norske bokstaver, oppdaterer lockfilen dersom man er i master-branch, laster inn alle pakker og bruker pakken conflicted til å velge hvilken funksjon som skal brukes i de tilfellene flere funksjoner har samme navn. I praksis forsøkes det å konsekvent bruke pakke::funksjon() for å bruke riktig funksjon, men dette sparer uansett en del advarsler ved oppstart. Laster deretter inn alle de andre filene som inneholder interne funksjoner.\n\n\nKHupdate.R\nLastes inn i .Rprofile\nSjekker verdien av .lastupdate, som defineres øverst i filen, på GitHub mot lokal versjon. Dersom disse ikke er like får brukeren mulighet til å laste ned siste versjon.\nVIKTIG: ved oppdatering av pakkeversjoner eller lignende må .lastupdate også oppdateres slik at endringen kommuniseres ut til brukerne. Ved flere endringer samme dag kan verdien settes til f.eks. “02.05.2024b” for å skille fra tidligere versjon samme dag.\n\n\nKHmisc.R\nLastes inn av KHsetup.R.\nInneholder funksjoner som brukes både i LagFilgruppe() og LagKUBE().\n\n\nKHpaths.R\nLastes inn av KHsetup.R.\nSetter grunnsti til produksjonsmappen og til KHELSA.mdb og KHlogg.mdb. Inneholder også funksjoner for testing og lokal kjøring, men disse brukes lite.\n\n\nKHglobs.R\nLastes inn av KHsetup.R.\nSetter alle globale parametre og lager objektet KHglobs som brukes i de fleste funksjoner i prosjektet.\n\n\nKHfilgruppefunctions.R\nLastes inn av KHsetup.R.\nInneholder funksjoner som brukes i LagFilgruppe().\n\n\nKHfilgruppe.R\nLastes inn av KHsetup.R.\nInneholder hovedfunksjonen LagFilgruppe().\n\n\nKHkubefunctions.R\nLastes inn av KHsetup.R.\nInneholder funksjoner som brukes i LagKUBE().\n\n\nKHkube.R\nLastes inn av KHsetup.R.\nInneholder hovedfunksjonen LagKUBE().\n\n\nKHother.R\nLastes inn av KHsetup.R\nInneholder funksjoner som ikke brukes i hovedfunksjonene, bl.a. for sammenligning av kubefiler. Trolig overflødige, og kan muligens overføres til KHgraveyard.R.\n\n\nKHgraveyard.R\nLastes ikke inn.\nInneholder utgåtte funksjoner som ikke brukes lenger. Andre funksjoner som erstattes eller utgår kan flyttes hit i stedet for å slettes.\n\n\n\nHistorikk\nKHfunctions er Hovedhjernen til dataprosessering for folkehelseprofilene. Koden er hovedsakelig utviklet og skrevet av Kåre Bævre. Prosjektet ble videre utviklet av Yusman Bin Kamaleri frem til høsten 2022.\nI april 2023, i forbindelse med overgang til nytt publikasjonssystem, ble det gjennomført en større omstrukturering hvor all kode som tidligere var samlet i en stor fil khfunctions.R ble splittet opp i mange mindre filer, som ligger i mappen R. Filene er organisert etter hvor i prosjektet de ulike funksjonene brukes, og mange funksjoner ble også fjernet da de ikke lenger var i bruk. Dette ble gjort for å gjøre jobben med vedlikehold og videreutvikling lettere.\nEn kopi av prosjektet slik det var før omstruktureringen finnes i branchen som heter “masterpreallvis”.\nDokumentasjon av LagFilgruppe (Skrevet av Yusman Bin Kamaleri)\n\n\nRelevante linker:\n\n\n\n\n\n\n\n\n\n\n\n\n\nKHELSA.mdb\n\n\nInformasjon om access-databasen knyttet til khfunctions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nkhfunctions\n\n\nInformasjon om kubekjøring\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Vedlikehold og utvikling</b>",
+      "khfunctions"
+    ]
+  },
+  {
+    "objectID": "pakker/orgdata.html",
+    "href": "pakker/orgdata.html",
+    "title": "orgdata",
+    "section": "",
+    "text": "Noen tips\n\nOrgdata og R versjon\nFra og med R versjon 4.2 ble default encoding endret. Dette medførte problemer med å lese norske bokstaver i Access og datafilene, som gav mismatch i kolonnenavn og krasj. Dette er fikset fra og med orgdata versjon 1.4.7, da encodingsystem for access og csv-filer nå defineres separat. Dette har medført at orgdata ikke lenger er kompatibelt med tidligere versjoner av R.\nHar du behov for å bruke R-versjon tidligere enn 4.2 (f.eks. 4.1.3), må du derfor installere orgdata versjon 1.4.6. Dette gjøres ved følgende kommando i konsollen.\npak::pkg_install(helseprofil/orgdata@v1.4.6) \n\n\nError loading “lazy-load database …. is corrupt”\nNår man installerer orgdata i RStudio kan det opptå feil ved kompilering av dokumentasjonen for .Rdb filer. Prøv:\n\nRestarte R bl.a ved å kjøre .rs.restartR()\nSlett orgdata med remove.packages(\"orgdata\")\nRestarte RStudio\nInstallere orgdata på nytt\n\n\n\nError ved oppgradering\nPrøv å gjøre det akkurat som for Error loading.. ovenfor.\n\n\nError with rlang\nHvis du får denne feilmelding om rlang versjon\n&gt; library(orgdata) Error: package or namespace load failed for ‘orgdata’ in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):  namespace ‘rlang’ 1.0.2 is being loaded, but &gt;= 1.0.5 is required \nSlett eller uninstall rlang med remove.packages(\"rlang\"). Installere på nytt med install.packages(\"rlang\").\nHvis det ikke løser problemmet, slett alle pakke mappen i den R versjon du bruker. Mappen for R pakker ligger i C:\\Program Files\\R. Deretter installere rlang på nytt.\n\n\n\nOm prosjektet\nOrgdata ble skrevet og vedlikeholdt av Yusman Bin Kamaleri fra sommeren 2021, frem til høsten 2023.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Vedlikehold og utvikling</b>",
+      "orgdata"
+    ]
+  },
+  {
+    "objectID": "produksjon.html",
+    "href": "produksjon.html",
+    "title": "Produksjon",
+    "section": "",
+    "text": "Produksjon er hovedprosjektet som brukes i databehandlingen. Her finner du brukerfiler for de ulike delene av produksjonsapparatet. Les mer om disse på de ulike undersidene.\nFor å bruke produksjon, åpner du .Rproj-filen i produksjonsprosjektet, eller velger produksjon fra nedtrekksmenyen øverst til høyre i RStudio (forutsatt at du tidligere har åpnet prosjektet).",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Prosjekt - produksjon</b>"
+    ]
+  },
+  {
+    "objectID": "produksjon.html#innhold",
+    "href": "produksjon.html#innhold",
+    "title": "Produksjon",
     "section": "Innhold:",
     "text": "Innhold:",
     "crumbs": [
       "Gå til helseprofil på GitHub",
-      "<b>Vedlikehold og utvikling</b>"
+      "<b>Prosjekt - produksjon</b>"
+    ]
+  },
+  {
+    "objectID": "produksjon/khfunctions-naboprikktriangler.html",
+    "href": "produksjon/khfunctions-naboprikktriangler.html",
+    "title": "Naboprikktriangler",
+    "section": "",
+    "text": "Alle dimensjoner som inneholder under- og overgruppe(r) skal i prinsippet naboprikkes (men sjekk avsnittet “Tvilstilfeller” på slutten av dokumentet).\nTypisk eksempel: KJONN med sine undergrupper “menn” og “kvinner”, og sin overgruppe “kjønn samlet”.\nDersom én undergruppe er med, skal, i prinsippet, alle undergrupper være med\nAnta at man ønsker å publisere tall for ALDER=“0-120” og ALDER=“70-120”.\nUndergruppen ALDER=“0-69” skal ikke publiseres, men må lages og være med i kuben frem til og med naboprikkingen.\nUndergruppen ALDER=“0-69” kan kastes etter at naboprikkingen er gjennomført. I skrivende stund anbefaler vi at dette gjøres med en snutt på RSYNT_POSTPROSESS, f.eks.\ndrop if ALDER==“0-69”"
+  },
+  {
+    "objectID": "produksjon/khfunctions-naboprikktriangler.html#bærende-prinsipper-for-naboprikking",
+    "href": "produksjon/khfunctions-naboprikktriangler.html#bærende-prinsipper-for-naboprikking",
+    "title": "Naboprikktriangler",
+    "section": "",
+    "text": "Alle dimensjoner som inneholder under- og overgruppe(r) skal i prinsippet naboprikkes (men sjekk avsnittet “Tvilstilfeller” på slutten av dokumentet).\nTypisk eksempel: KJONN med sine undergrupper “menn” og “kvinner”, og sin overgruppe “kjønn samlet”.\nDersom én undergruppe er med, skal, i prinsippet, alle undergrupper være med\nAnta at man ønsker å publisere tall for ALDER=“0-120” og ALDER=“70-120”.\nUndergruppen ALDER=“0-69” skal ikke publiseres, men må lages og være med i kuben frem til og med naboprikkingen.\nUndergruppen ALDER=“0-69” kan kastes etter at naboprikkingen er gjennomført. I skrivende stund anbefaler vi at dette gjøres med en snutt på RSYNT_POSTPROSESS, f.eks.\ndrop if ALDER==“0-69”"
+  },
+  {
+    "objectID": "produksjon/khfunctions-naboprikktriangler.html#i-praksis.",
+    "href": "produksjon/khfunctions-naboprikktriangler.html#i-praksis.",
+    "title": "Naboprikktriangler",
+    "section": "2. I praksis.",
+    "text": "2. I praksis.\nPrioritert rekkefølge.\nOver- og undergruppene angis i ønsket prioriteringsrekkefølge (fra høyeste til laveste). Eksempel KJONN: Vanligvis er det “kjønn samlet” som har høyest prioritet, og dette angis slik:\nKJONN~{0,2,1} (i dette tilfellet er det arbitrært om man skriver {0,2,1} eller {0,1,2}\nPrioriteringsrekkefølgen kan, en sjelden gang, variere innenfor en kube. Dette kan spesifiseres på denne måten\nKJONN~niva1{0,1,2 (2,0,1_if_AARSAK==BRYSTKREFT) (1,0,2_if_AARSAK==PROSTATAKREFT)}\nNB: Ang. “AARSAK” og andre såkalte spesialdimensjoner som er spesielle for den enkelte kube; -du må til KHELSA\\FILGRUPPER for å finne dette variabelnavnet (under TAB1, TAB2 eller TAB3).\nFlere nivå.\nNivåene må tas i riktig rekkefølge, så de må angis slik (niva2 er undergrupper av niva1):\nALDER~niva1{…}niva2{…}{…}\n\n\n\n\n\n\nPrinsipp:\na) Hvert triangel så lite som mulig (så grov-inndelte grupper som mulig)\nb) Gjensidig utelukkende undergrupper (overgruppe=undergr.1 + undergr.2 + … + undergr.N)\n\n\n\nEksempel 1: Hva er problemet med INNVKAT~{23, 2, 3} ?\n2 og 3 er født i Norge med innvandrerforeldre, og født i utlandet. 23 er summen av 2 og 3, altså alle med innvandrerbakgrunn.\nProblemet er befolkning totalt (kategorien “0”) finnes i andre tabeller, og åpner for tilbakeberegning av øvrig befolkning (kategorien “20”). For å være helt på den trygge siden må man altså ha med kategoriene “0” og “20” i naboprikkingen. De mest grov-inndelte undergruppene (“20” og “23”) på nivå 1 (sammen med sin overgruppe “0”), og de mest fininndelte (“2” og “3”) på nivå 2 (sammen sin overgruppe “23”):\nINNVKAT~niva1{0, 20, 23}niva2{23, 2, 3}\nEksempel 2: Innviklede aldersgrupper for ENPERSON  \nVi foreslår følgende fremgangsmåte for definering av triangler og nivåer:\n\nStarte med å tegne opp trianglene på papir.\nDeretter skrive opp trianglene på hvert nivå, med overgruppen først for oversiktens skyld (merket med kursiv):\nNivå1: {16_120,45_120, 30_44,16_29}\nNivå2: {45_120,75_120,45_74}\nnivå 3: \n{45_74,45_64,65_74}\n{75_120,75_84,85_120}\nEndre prioriteringsrekkefølgen innad i hvert triangel (om ønskelig):\nNivå1: {45_120, 16_120, 30_44,16_29}\nNivå2: {45_120,75_120,45_74}\nnivå 3: \n{45_74,45_64,65_74}\n{75_120,75_84,85_120}\nSkrive inn i Access:\nALDER~niva1{45_120,16_120,30_44,16_29}niva2{45_120,75_120,45_74}niva3{45_74,45_64,65_74}{75_120,75_84,85_120}\n\nTvilstilfeller.\nEksempel 1, DAAR\nNedenfor er det én overgruppe og to undergrupper, som i prinsippet krever naboprikking. For å få til dette måtte man også hatt en undergruppe for “Andre hjerte- og karsykdommer”.\n\nUten naboprikking kan man regne seg frem til antall tilfeller i den implisitte undergruppen “Andre hjerte- og karsykdommer”. Dette antallet er imidlertid spredd på så mange ulike diagnoser at vi ikke anser at opplysningen er særlig informativ eller sensitiv.\nEksempel 2, HKR.\nI HKR kan man ikke legge til grunn at antallet i en overgruppe er lik summen av antall i undergrupper (fordi samme person kan figurere f.eks. kan telle med i flere diagnoseundergrupper, men bare én gang i overgruppen). Her blir altså naboprikking på diagnose overflødig."
+  },
+  {
+    "objectID": "produksjon/orgdata-access.html",
+    "href": "produksjon/orgdata-access.html",
+    "title": "raw-database.accdb",
+    "section": "",
+    "text": "Du får advarselen når du skal legge LESID og FILGRUPPE etter at du har lagt inn FILNAVN. Trykk OK og flytt cursor ned eller opp. Deretter bør du kunne legge LESID og FILGRUPPE.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b> ACCESS-databaser </b>",
+      "raw-database.accdb"
+    ]
+  },
+  {
+    "objectID": "produksjon/orgdata-access.html#advarsel-kan-ikke-legge-til-poster-i-access",
+    "href": "produksjon/orgdata-access.html#advarsel-kan-ikke-legge-til-poster-i-access",
+    "title": "raw-database.accdb",
+    "section": "",
+    "text": "Du får advarselen når du skal legge LESID og FILGRUPPE etter at du har lagt inn FILNAVN. Trykk OK og flytt cursor ned eller opp. Deretter bør du kunne legge LESID og FILGRUPPE.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b> ACCESS-databaser </b>",
+      "raw-database.accdb"
+    ]
+  },
+  {
+    "objectID": "produksjon/orgdata-access.html#kan-ikke-lese-filen-flere-ganger-i-access",
+    "href": "produksjon/orgdata-access.html#kan-ikke-lese-filen-flere-ganger-i-access",
+    "title": "raw-database.accdb",
+    "section": "Kan ikke lese filen flere ganger i Access",
+    "text": "Kan ikke lese filen flere ganger i Access\nFor å kunne lese en fil flere ganger f.eks annen fane i en Excel fil, kan gjøres ved å velge Rediger knappen. Valg FILID av filen, men IKKE skrive filstien på nytt siden den allerede finnes i databasen ie. original filer.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b> ACCESS-databaser </b>",
+      "raw-database.accdb"
+    ]
+  },
+  {
+    "objectID": "produksjon/orgdata-access.html#hvordan-finner-jeg-filid-av-en-tidligere-rawfil",
+    "href": "produksjon/orgdata-access.html#hvordan-finner-jeg-filid-av-en-tidligere-rawfil",
+    "title": "raw-database.accdb",
+    "section": "Hvordan finner jeg FILID av en tidligere rawfil",
+    "text": "Hvordan finner jeg FILID av en tidligere rawfil\nTrykk knappen Orgfiler. En ny fane som heter Originalfiler åpnes hvor du kan søke filen du er interessert i. Deretter ser du FILID til filen.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b> ACCESS-databaser </b>",
+      "raw-database.accdb"
+    ]
+  },
+  {
+    "objectID": "produksjon/orgdata-access.html#feilmelding-om-dublettverdier-i-en-indeks-primærnøkkel-eller-relasjon.",
+    "href": "produksjon/orgdata-access.html#feilmelding-om-dublettverdier-i-en-indeks-primærnøkkel-eller-relasjon.",
+    "title": "raw-database.accdb",
+    "section": "Feilmelding om “dublettverdier i en indeks, primærnøkkel eller relasjon”.",
+    "text": "Feilmelding om “dublettverdier i en indeks, primærnøkkel eller relasjon”.\nDette skjer ofte når man skal legge inn ny rawfil som allerede finnes i databasen. Trykk knappen Orgfiler og bruk FILID til den filen som allerede finnes i databasen istedenfor å legge den på nytt.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b> ACCESS-databaser </b>",
+      "raw-database.accdb"
+    ]
+  },
+  {
+    "objectID": "produksjon/orgdata-access.html#kan-ikke-se-doble-anførselstegn-i-access-når-kodebok-for-type-er-re",
+    "href": "produksjon/orgdata-access.html#kan-ikke-se-doble-anførselstegn-i-access-når-kodebok-for-type-er-re",
+    "title": "raw-database.accdb",
+    "section": "Kan ikke se doble anførselstegn \"\" i Access når kodebok for TYPE er RE",
+    "text": "Kan ikke se doble anførselstegn \"\" i Access når kodebok for TYPE er RE\nNår en kolonne skal omkodes ved bruk av TYPE lik RE til \"\" blir symbolen likevel forsvant eller usynlige når cursor blir flyttet. Løsningen er å skrive enten delete eller slett i TIL for å gjøre det tydelig. Selvsagt funker det med \"\" også, hvis du vil gjøre det vanskelig for deg selv og andre å se hva som egentlig definert i kodeboken 😀",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b> ACCESS-databaser </b>",
+      "raw-database.accdb"
+    ]
+  },
+  {
+    "objectID": "produksjon/orgdata-access.html#kolonnenavn-med-æøå---bruk-regulært-uttrykk-i-manheader-ved-behov",
+    "href": "produksjon/orgdata-access.html#kolonnenavn-med-æøå---bruk-regulært-uttrykk-i-manheader-ved-behov",
+    "title": "raw-database.accdb",
+    "section": "Kolonnenavn med ÆØÅ - bruk regulært uttrykk i MANHEADER ved behov",
+    "text": "Kolonnenavn med ÆØÅ - bruk regulært uttrykk i MANHEADER ved behov\nOppdatering: Fra versjon 1.2.1 kan man bruke regulært uttrykk dvs. ^$\\[.*\\] osv. i MANHEADER også f.eks ^utdan=UTDANNING for å gi nytt navn for spesielle kolonner f.eks et langt og med æøå kolonnenavn utdanning særlig før migrasjonsår til et kort kolonnenavn UTDANNING.\nMANHEADER: Dette feltet i Access-specen gjør at kolonnehoder i innfilen erstattes med noe vi skriver. De “vanskelige” kolonnehodene angis med nummer, og bør gis navn uten ÆØÅ.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b> ACCESS-databaser </b>",
+      "raw-database.accdb"
+    ]
+  },
+  {
+    "objectID": "produksjon/qualcontrol.html",
+    "href": "produksjon/qualcontrol.html",
+    "title": "qualcontrol",
+    "section": "",
+    "text": "qualcontrol er en R-pakke som inneholder funksjoner for å gjennomføre kvalitetskontrollen av publikasjonsklare datafiler.\nBrukerfiler:\n\nqualcontrol/1. Kvalitetskontrollrutiner - kontroll av enkeltfiler\nqualcontrol/2. Friskvik og barometersjekk - kontroll av godkjente friskvikfiler\n\nFor å bruke khfunctions åpner du produksjonsprosjektet og åpner ønsket brukerfil.\n\n1. Kvalitetskontrollrutiner\nDenne inneholder en strømlinjeformet oversikt over kvalitetskontrollrutinene og følges nedover. Resultater vil lagres i PRODUKSJON/VALIDERING/QualControl/**PRODUKSJONSÅR**/**KUBENAVN**\n\nForarbeid\n\nFor å få tilgang til funksjonene må første kodeblokk med library(qualcontrol) kjøres.\nDu kan endre produksjonsåret med funksjonen update_qcyear(). Dette bestemmer hvilken mappe resultatfilene vil publiseres i.\n\nDe ulike stegene dokumenteres i KUBESTATUS-tabellen i KHELSA.mdb.\n\n\n1. Grovsjekk\n\nLast inn ny (og gammel/forrige publiserte) datafil med funksjonen readfiles(), og formatter filene med funksjonen make_comparecube(). Dette vil også produsere noen .csv-filer som lagres i mappen FILDUMPER. ## 1. Deskriptiv grovsjekk\nHer sjekkes hva som finnes i filen, f.eks. hvilke kolonner, hvilke nivåer i dimensjonene\nTidsserier på landsnivå plottes for all dimensjoner for å fange opp eventuell feilklassifisering.\n\n\n\n2. Batch vs Batch\n\nSammenligning mot forrige publiserte fil\nOppsummering av antallet identiske/ulike rader og hvor store forskjellene er\nAntallet forskjellige rader og summen av disse, totalt og per årgang\nPlott av forskjellene over tid, for å se om forskjellene er stabile eller endrer seg over tid\n\n\n\n3. Prikking\n\nEr det noen tall under grensen for personvernskjuling?\nSammenligning av antall skjulte tall, totalt og per årgang\nSammenligning av antall tidsserier med 0-maks antall skjulte tall\n\n\n\n4. Sjekk aggregering\n\nSjekke at lavere geografisk nivå summerer seg opp til høyere, f.eks. at kommuner summerer seg til fylke.\nSjekke andelen ukjent bydel\nPlotte tidsserier for bydelene, og vektede bydelstall mot kommunetallet.\n\n\n\n5. Ekstremverdier\n\nGenererer boksplott og tidsserieplott som markerer ekstremverdier, definert som verdier utenfor intervallet definert av vektet 25.percentil - 1.5 * IQR og vektet 75.percentil + 1.5 IQR.\nDisse vurderes for om de kan være riktige.\n\n\n\n6. Ekstremverdier, år-til-år\n\nSamme som over, men for relativ endring fra forrige årgang. Kan fange opp usannsynlig store endringer fra et år til et annet.\n\n\n\n\n2. Friskvik og barometersjekk\nInneholder to funksjoner, en som sjekker alle friskvikfilene i nyeste godkjentmappe, og en som sjekker om like verdier får farget prikk i barometeret.\nDisse brukes i forbindelse med profilproduksjonen.",
+    "crumbs": [
+      "Gå til helseprofil på GitHub",
+      "<b>Prosjekt - produksjon</b>",
+      "qualcontrol"
     ]
   }
 ]

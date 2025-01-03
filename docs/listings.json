@@ -21,18 +21,13 @@
     ]
   },
   {
-    "listing": "/produksjon.html",
+    "listing": "/index.html",
     "items": [
-      "/produksjon/orgdata.html",
-      "/produksjon/khfunctions.html",
-      "/produksjon/qualcontrol.html"
-    ]
-  },
-  {
-    "listing": "/pakker/khfunctions.html",
-    "items": [
-      "/produksjon/khfunctions-access.html",
-      "/produksjon/khfunctions.html"
+      "/oppsett.html",
+      "/produksjon.html",
+      "/backend.html",
+      "/vedlikehold.html",
+      "/newyear.html"
     ]
   },
   {
@@ -47,13 +42,18 @@
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/pakker/khfunctions.html",
     "items": [
-      "/oppsett.html",
-      "/produksjon.html",
-      "/backend.html",
-      "/vedlikehold.html",
-      "/newyear.html"
+      "/produksjon/khfunctions-access.html",
+      "/produksjon/khfunctions.html"
+    ]
+  },
+  {
+    "listing": "/produksjon.html",
+    "items": [
+      "/produksjon/orgdata.html",
+      "/produksjon/khfunctions.html",
+      "/produksjon/qualcontrol.html"
     ]
   }
 ]
