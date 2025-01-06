@@ -1,0 +1,106 @@
+---
+title: "Naboprikktriangler"
+author: Jørgen
+description: Hvordan sette opp triangler for naboprikking
+editor: visual
+---
+
+## 1. Bærende prinsipper for naboprikking
+
+-   **Alle dimensjoner som inneholder under- og overgruppe(r) skal i prinsippet naboprikkes (men sjekk avsnittet "Tvilstilfeller" på slutten av dokumentet).**
+
+    Typisk eksempel: KJONN med sine undergrupper "menn" og "kvinner", og sin overgruppe "kjønn samlet".
+
+-   **Dersom én undergruppe er med, skal, i prinsippet, alle undergrupper være med**
+
+    Anta at man ønsker å publisere tall for ALDER="0-120" og ALDER="70-120".
+
+    Undergruppen ALDER="0-69" skal ikke publiseres, men må lages og være med i kuben frem til og med naboprikkingen.
+
+    Undergruppen ALDER="0-69" kan kastes etter at naboprikkingen er gjennomført. I skrivende stund anbefaler vi at dette gjøres med en snutt på RSYNT_POSTPROSESS, f.eks.
+
+    drop if ALDER=="0-69"
+
+## 2. I praksis.
+
+[**Prioritert rekkefølge.**]{.underline}
+
+Over- og undergruppene angis i ønsket prioriteringsrekkefølge (fra høyeste til laveste). Eksempel KJONN: Vanligvis er det "kjønn samlet" som har høyest prioritet, og dette angis slik:
+
+`KJONN~{0,2,1}` (i dette tilfellet er det arbitrært om man skriver `{0,2,1}` eller `{0,1,2}`
+
+Prioriteringsrekkefølgen kan, en sjelden gang, variere innenfor en kube. Dette kan spesifiseres på denne måten
+
+`KJONN~niva1{0,1,2 (2,0,1_if_AARSAK==BRYSTKREFT) (1,0,2_if_AARSAK==PROSTATAKREFT)}`
+
+NB: Ang. "AARSAK" og andre såkalte spesialdimensjoner som er spesielle for den enkelte kube; -du må til KHELSA\\FILGRUPPER for å finne dette variabelnavnet (under TAB1, TAB2 eller TAB3).
+
+[**Flere nivå.**]{.underline}
+
+Nivåene må tas i riktig rekkefølge, så de må angis slik (niva2 er undergrupper av niva1):
+
+`ALDER~niva1{…}niva2{…}{…}`
+
++-------------------------------------------------------------------------------------------+
+| Prinsipp:                                                                                 |
+|                                                                                           |
+| a\) Hvert triangel så lite som mulig (så grov-inndelte grupper som mulig)                 |
+|                                                                                           |
+| b\) Gjensidig utelukkende undergrupper (overgruppe=undergr.1 + undergr.2 + … + undergr.N) |
++-------------------------------------------------------------------------------------------+
+
+**Eksempel 1**: Hva er problemet med INNVKAT\~{23, 2, 3} ?
+
+2 og 3 er født i Norge med innvandrerforeldre, og født i utlandet. 23 er summen av 2 og 3, altså alle med innvandrerbakgrunn.
+
+Problemet er befolkning totalt (kategorien "0") finnes i andre tabeller, og åpner for tilbakeberegning av øvrig befolkning (kategorien "20"). For å være helt på den trygge siden må man altså ha med kategoriene "0" og "20" i naboprikkingen. De mest grov-inndelte undergruppene ("20" og "23") på nivå 1 (sammen med sin overgruppe "0"), og de mest fininndelte ("2" og "3") på nivå 2 (sammen sin overgruppe "23"):
+
+INNVKAT\~niva1{0, 20, 23}niva2{23, 2, 3}
+
+**Eksempel 2**: Innviklede aldersgrupper for ENPERSON  
+
+Vi foreslår følgende fremgangsmåte for definering av triangler og nivåer:
+
+1.  Starte med å tegne opp trianglene på papir.
+
+2.  Deretter skrive opp trianglene på hvert nivå, med overgruppen først for oversiktens skyld (merket med kursiv):
+
+    Nivå1: {*16_120*,45_120, 30_44,16_29}
+
+    Nivå2: {*45_120*,75_120,45_74}
+
+    nivå 3: 
+
+    {*45_74*,45_64,65_74}
+
+    {*75_120*,75_84,85_120}
+
+3.  Endre prioriteringsrekkefølgen innad i hvert triangel (om ønskelig):
+
+    Nivå1: {45_120, *16_120*, 30_44,16_29}
+
+    Nivå2: {*45_120*,75_120,45_74}
+
+    nivå 3: 
+
+    {*45_74*,45_64,65_74}
+
+    {*75_120*,75_84,85_120}
+
+4.  Skrive inn i Access:
+
+    `ALDER~niva1{45_120,16_120,30_44,16_29}niva2{45_120,75_120,45_74}niva3{45_74,45_64,65_74}{75_120,75_84,85_120}`
+
+[**Tvilstilfeller**]{.underline}.
+
+Eksempel 1, DAAR
+
+Nedenfor er det én overgruppe og to undergrupper, som i prinsippet krever naboprikking. For å få til dette måtte man også hatt en undergruppe for "Andre hjerte- og karsykdommer".
+
+![](images/clipboard-801556924.png)
+
+Uten naboprikking kan man regne seg frem til antall tilfeller i den implisitte undergruppen "Andre hjerte- og karsykdommer". Dette antallet er imidlertid spredd på så mange ulike diagnoser at vi ikke anser at opplysningen er særlig informativ eller sensitiv.
+
+Eksempel 2, HKR.
+
+I HKR kan man ikke legge til grunn at antallet i en overgruppe er lik summen av antall i undergrupper (fordi samme person kan figurere f.eks. kan telle med i flere diagnoseundergrupper, men bare én gang i overgruppen). Her blir altså naboprikking på diagnose overflødig.
