@@ -1,6 +1,5 @@
 ---
 title: "Naboprikktriangler"
-author: Jørgen
 description: Hvordan sette opp triangler for naboprikking
 editor: visual
 ---
@@ -97,7 +96,11 @@ Eksempel 1, DAAR
 
 Nedenfor er det én overgruppe og to undergrupper, som i prinsippet krever naboprikking. For å få til dette måtte man også hatt en undergruppe for "Andre hjerte- og karsykdommer".
 
-![](images/clipboard-801556924.png)
+-   Hjerte- og karsykdommer (I00-I99)
+
+-   Akutt hjerteinfarkt (I21-I22)
+
+-   Hjerneslag (I61, I63 og I64)
 
 Uten naboprikking kan man regne seg frem til antall tilfeller i den implisitte undergruppen "Andre hjerte- og karsykdommer". Dette antallet er imidlertid spredd på så mange ulike diagnoser at vi ikke anser at opplysningen er særlig informativ eller sensitiv.
 
