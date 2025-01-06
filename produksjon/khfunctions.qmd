@@ -2,7 +2,9 @@
 title: "khfunctions"
 description: Informasjon om kubekjøring
 listing: 
-  contents: khfunctions-access.qmd
+  contents: 
+    - khfunctions-access.qmd
+    - khfunctions-naboprikktriangler.qmd
   type: grid
 editor: visual
 ---
